@@ -85,7 +85,7 @@ function mountDemo(){
   if(!el || !window.AsciinemaPlayer) return;
   AsciinemaPlayer.create("demos/code-explain-demo.cast", el, {
     autoPlay:true, loop:true, preload:true, controls:true, fit:"width",
-    theme:"asciinema", terminalFontSize:"13px", idleTimeLimit:1.5, speed:1.3,
+    theme:"asciinema", terminalFontSize:"13px",
   });
 }
 

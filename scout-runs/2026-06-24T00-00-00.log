@@ -4,3 +4,8 @@ Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 Not logged in · Please run /login
 --- git commit & push ---
+[main e185be6] chore(scout): cron 自动扫货轮 2026-06-24T00-00-00
+ 1 file changed, 6 insertions(+)
+ create mode 100644 scout-runs/2026-06-24T00-00-00.log
+fatal: could not read Username for 'https://github.com': Device not configured
+=== done 2026-06-24T00-00-00 ===
