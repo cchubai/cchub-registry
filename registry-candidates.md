@@ -118,3 +118,19 @@
 | **decider/claude-hooks** | 轴5 | Python 实现的代码质量 hook 套件：clean code 自动校验 + package 版本老化检测 + 任务完成通知，轻量无外部依赖 | ⏳称 | 部分（与 gstack careful 重叠「危险命令拦截」，但 Python 生态 + package age 检测是差异点） | ⚪ 待装测·Python 项目适配性好，需验 Python 依赖自包含性 |
 
 **本轮总结**：新增 8 项（5 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源 + 1 个 🟢候选）；无异常。装测优先：karanb192/claude-code-hooks（即用型🟢）> jztan/pdf-mcp（无需外部 key）> zilliztech/claude-context（语义搜索填空）> mukul975/cve-mcp-server（需多 API key，安全审后装）。
+
+---
+
+## 2026-06-24 · cron 扫货轮（04:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **sangrokjung/claude-forge** | 轴1+2+3+5 | "oh-my-zsh for Claude Code"：11 AI agent（6 Opus 深析 + 5 Sonnet 快执）+ 36 slash 命令 + 15 skill + 6 层安全 hook（secret 过滤/SQL 注入防护/MCP 跟踪等），`curl install.sh` 5 分钟装，含 /plan→/tdd→/code-review→/commit-push-pr 预连管道 | ⏳称 | 中（与 gstack /cso/careful/guard 在安全 hook 轴重叠，但 6 层安全 + 管道预连是补充） | ⚪ 待装测·框架型但有独特的 6 层安全 hook 层，需穿透验各层自包含性 |
+| **SuperClaude-Org/SuperClaude_Framework** | 轴1+2 | 23k+ ★ 的 CC 元编程配置框架：30 slash 命令 + 16 领域专家 agent + "认知人格（persona）"机制（通过 .md 指令注入行为模式），`pipx install` 装，MIT | ⏳称 | 部分（gstack 无 persona 切换机制；30 命令中数个与 gstack skill 重叠，但 persona 层为差异点） | ⚪ 待装测·星数高=社区共识强；persona 概念值得单独提炼收录 |
+| **Piebald-AI/tweakcc** | 轴5 | 深度定制 Claude Code 的基础设施工具：替换系统提示 / 自定义工具集 / 输入高亮主题 / thinking 动词 / spinner，支持私有/未发布功能解锁，npm 全平台 | ⏳称 | 低（gstack 无 CC 界面/提示层定制轴，是真空地带） | ⚪ 待装测·属于"CC 底座定制"而非 skill/hook，安全敏感（系统提示替换），需专项审 |
+| **Piebald-AI/claude-code-system-prompts** | 信源 | 持续追踪每个 CC 版本的完整系统提示（515 条）+ 27 个内置工具描述 + subagent 提示范本，v2.1.186（2026-06-22）已更新 | ⏳称 | 无 | 🔵 信源·CC 架构逆向最全参考，写 skill/hook 时查工具描述原文，不装测 |
+| **alirezarezvani/claude-skills** | 信源 | 337 skill + 30 agent + 70 命令大合集，覆盖工程/营销/产品/合规/C 级顾问等领域，跨 CC/Codex/Cursor/Gemini | ⏳称 | 部分（跨 agent 平台=范围超出 CC 专注轴） | 🔵 信源·礼包→穿透挑工程类单颗 skill，不整收 |
+
+**本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：SuperClaude_Framework（星数高、MIT、persona 概念独特）> sangrokjung/claude-forge（6 层安全 hook 管道有实际价值）> Piebald-AI/tweakcc（底座定制但需安全专项审）。

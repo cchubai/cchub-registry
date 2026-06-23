@@ -2,3 +2,7 @@
 --- git pull ---
 Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。
+
+本轮去重后净新增：`sangrokjung/claude-forge`（oh-my-zsh 风格框架含 6 层安全 hook）、`SuperClaude-Org/SuperClaude_Framework`（23k★ MIT，persona 机制独特）、`Piebald-AI/tweakcc`（CC 底座定制工具），以及信源 `Piebald-AI/claude-code-system-prompts` 和 `alirezarezvani/claude-skills`。
+--- git commit & push ---
