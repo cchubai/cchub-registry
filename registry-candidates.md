@@ -67,3 +67,18 @@
 - **品味升级**:学到生态共识——**"AI 缺的不是能力是纪律,纪律可文本分发"**;CCHub 该重点捧"轻而狠"的方法论/行为类(karpathy 型),而非又一个 800 行瑞士军刀。
 - **下一步装测优先级**:① anthropics/skills 官方(安全免审)② Context7 MCP(高频痛点)③ wshobson/agents(解锁 commands)④ VoltAgent 里 code-reviewer/architect-reviewer 单品。
 - **原创空地**:Hook 类几乎没人做中文版 → CCHub 可出**原创中文 hook 包**,不只是策展别人的。
+
+---
+
+## 2026-06-23 · 第二轮增量扫货（手动验证轮）
+
+> 验证本地扫货闭环的首轮真实产出。license 均「⏳称」未亲验。
+
+| 候选 | 是什么 | License | 重叠/类型 | 红旗装测 | 裁决 |
+|---|---|---|---|---|---|
+| **affaan-m/ECC** | agent harness 性能优化系统(skills/instincts/memory/security) | ⏳称 | 跨平台(CC/Codex/Cursor) | ⚠️ **clone 超时**(仓大/网络),三查未完成 | ⚪ 待装测·重试 |
+| **rohitg00/awesome-claude-code-toolkit** | 135 agent+35 skill+42 命令+176 插件 大合集 | ⏳称 | 索引/目录型 | 不 clone(信源不装) | 🔵 信源·穿透挑单品 |
+| **FlorianBruniaux/claude-code-ultimate-guide** | 430K 行综合指南(workflow/hook/skill/MCP) | ⏳称 | 文档/指南型 | 不 clone | 🔵 信源·学习参考 |
+| **Context Engineering / MCP Builder / Doc Co-Authoring**(claudeskills.info 榜单热门) | 提示工程/MCP 开发/协作写作 skill | ⏳称 | 待定位源仓 | 未定位 | ⚪ 下轮定位源仓再装测 |
+
+**本轮机器学到的真实约束**:大仓 `clone --depth 1` 也可能超时——自动扫货须给 clone 设超时阈值(如 60s),超时即标「待装测·重试」不卡死整轮。✅ 已验证:登记+push 闭环本身通。
