@@ -46,17 +46,35 @@
     <div class="hero__inner reveal">
       <div class="pill"><span class="pill__dot"></span>免费开放期 · 利他第一</div>
       <h1 class="hero__title">中文 Claude Code 开发者的<span class="grad">实战枢纽</span></h1>
-      <p class="hero__sub">一个策展的配置注册表。把散落各处的 skill、subagent、MCP、hook 收进来,过三道闸,配中文拆解 —— 让你<strong>在线先看明白,一行装到本地</strong>。</p>
+      <p class="hero__sub">挑过、试过、讲透了的 Claude Code 配置。<strong>看一眼,就知道值不值得装。</strong></p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#registry">浏览注册表</a>
-        <a class="btn btn--ghost" href="#gates">什么是三道闸</a>
-      </div>
-      <div class="hero__install">
-        <code id="install-hero">npx cchub add karpathy-guidelines</code>
-        <button class="copy" data-copy="npx cchub add karpathy-guidelines" aria-label="复制命令">复制</button>
+        <a class="btn btn--primary" href="#experience">看它怎么跑</a>
+        <a class="btn btn--ghost" href="#registry">浏览注册表</a>
       </div>
       <p class="hero__note">不是又一个 awesome 列表。列表给你链接,注册表给你<strong>判断</strong>。</p>
     </div>
+  </section>
+
+  <!-- experience / try it -->
+  <section class="section" id="experience">
+    <div class="section__head reveal">
+      <span class="eyebrow">三步上手 · TRY IT</span>
+      <h2>不用装,先看它替你干活</h2>
+      <p class="section__lead">第一次来?照这三步走。</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal"><span class="step__no">1</span><div class="step__body"><h3>挑一个</h3><p>从注册表选一个过了闸的配置。</p></div></article>
+      <article class="step reveal"><span class="step__no">2</span><div class="step__body"><h3>看它真跑</h3><p>下面这段没有剪辑 —— 点播放。</p></div></article>
+      <article class="step reveal"><span class="step__no">3</span><div class="step__body"><h3>装走</h3><p>看明白了,一行装进你自己的 Claude Code。</p></div></article>
+    </div>
+    <figure class="demo reveal">
+      <div class="demo__bar">
+        <span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span>
+        <span class="demo__name">code-explain · 让 Claude 把一段 JS 闭包讲清楚</span>
+      </div>
+      <div id="player"></div>
+      <figcaption class="demo__cap">真实终端录屏 · 这就是装上之后,它替你干的活</figcaption>
+    </figure>
   </section>
 
   <!-- value pillars -->
@@ -65,17 +83,17 @@
       <article class="pillar reveal">
         <div class="pillar__ic" data-ic="curate"></div>
         <h3>策展,不是堆砌</h3>
-        <p>不收大礼包、不刷数量。每个条目都是从仓里穿透出来的单颗珍珠,有人替你判断过值不值得装。</p>
+        <p>不收大礼包,不刷数量。每一个都是穿透挑出来的单品。</p>
       </article>
       <article class="pillar reveal">
         <div class="pillar__ic" data-ic="install"></div>
         <h3>试用即装</h3>
-        <p>线上先看录屏、读中文拆解,看明白了再 <code>npx cchub add</code> 一行装到本地。不用先 clone 一堆再后悔。</p>
+        <p>先看它真跑起来,再决定装不装。</p>
       </article>
       <article class="pillar reveal">
         <div class="pillar__ic" data-ic="trust"></div>
-        <h3>放心装的背书</h3>
-        <p>每个上架项都人工过过代码:不破坏、不外传、不留后门。我们给你一个敢签字的「放心装」。</p>
+        <h3>放心装</h3>
+        <p>每一个都被人读过代码。我们敢签字。</p>
       </article>
     </div>
   </section>
@@ -85,7 +103,7 @@
     <div class="section__head reveal">
       <span class="eyebrow">已上架 · REGISTRY</span>
       <h2>过完三道闸的成品</h2>
-      <p class="section__lead">curator 验收上架,用户真正消费的就是这一架。陆续上新。</p>
+      <p class="section__lead">过了三道闸,才到这一架。陆续上新。<span class="lead-soft">安装命令内测中 · 现在先看演示体验</span></p>
     </div>
     <div class="cards" id="cards"><!-- cards injected by app.js --></div>
     <p class="section__more reveal">还有 <strong id="queue-count">一批</strong> 候选在装测与验收队列中 · <a href="https://github.com/cchubai/cchub-registry/blob/main/registry-candidates.md" target="_blank" rel="noopener">看候选库 ↗</a></p>
@@ -96,7 +114,7 @@
     <div class="section__head reveal">
       <span class="eyebrow">收录标准 · THREE GATES</span>
       <h2>每个候选要过三道闸</h2>
-      <p class="section__lead">来源不限 —— ABC 都欢迎。但合规与安全零容忍,品味从宽而有态度。</p>
+      <p class="section__lead">来源不限。合规与安全零容忍,品味从宽。</p>
     </div>
     <div class="gates">
       <article class="gate reveal">
@@ -122,7 +140,7 @@
     <div class="section__head reveal">
       <span class="eyebrow">进货流水线 · PIPELINE</span>
       <h2>机器昼夜攒量,人在终点把关</h2>
-      <p class="section__lead">三个角色各司其职 —— 量与质各归其位,且不破安全底线。</p>
+      <p class="section__lead">三个角色,各司其职。</p>
     </div>
     <div class="flow">
       <div class="flow__step reveal">

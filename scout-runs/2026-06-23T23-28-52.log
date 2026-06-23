@@ -1,0 +1,17 @@
+=== scout run 2026-06-23T23-28-52 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 6 项，写入完成。
+
+**本轮产出**：新增 6 个候选，无异常。
+
+| 轴 | 新品 | 裁决 |
+|---|---|---|
+| 轴1+2 | elementalsouls/Claude-BugHunter | ⚪ 待装测·安全专项审 |
+| 轴5 | disler/claude-code-hooks-mastery | ⚪ 待装测·Hook 轴最完整单品 |
+| 轴1 | Imbad0202/academic-research-skills | 🟢 候选 |
+| 轴4 | firecrawl/firecrawl-mcp-server | ⚪ 待装测 |
+| 轴4 | perplexityai/modelcontextprotocol | ⚪ 待装测 |
+| 信源 | VILA-Lab/Dive-into-Claude-Code | 🔵 信源 |
+--- git commit & push ---

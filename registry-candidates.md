@@ -82,3 +82,20 @@
 | **Context Engineering / MCP Builder / Doc Co-Authoring**(claudeskills.info 榜单热门) | 提示工程/MCP 开发/协作写作 skill | ⏳称 | 待定位源仓 | 未定位 | ⚪ 下轮定位源仓再装测 |
 
 **本轮机器学到的真实约束**:大仓 `clone --depth 1` 也可能超时——自动扫货须给 clone 设超时阈值(如 60s),超时即标「待装测·重试」不卡死整轮。✅ 已验证:登记+push 闭环本身通。
+
+---
+
+## 2026-06-23 · cron 扫货轮（23:28）
+
+> 五轴全搜，去重后净新增 6 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **elementalsouls/Claude-BugHunter** | 轴1+2 | 71 skills + 15 slash commands + 681 公开漏洞报告模式，覆盖 24 类漏洞类别，外部红队/bug bounty 专项包 | ⏳称 | 部分（与 /cso 安全审计轴重叠，但外部攻击面视角是补充） | ⚪ 待装测·需安全专项审查（纯外部攻击面，勿放内网） |
+| **disler/claude-code-hooks-mastery** | 轴5 | 11 种 hook 事件全覆盖 + meta-agent + Builder/Validator 双 agent 团队验证范式，有 TTS 反馈 + JSON 自动日志 | ⏳称 | 部分（与 gstack careful/hooks 重叠，但多 hook 组合范式是补充） | ⚪ 待装测·Hook 轴最完整的单品候选 |
+| **Imbad0202/academic-research-skills** | 轴1 | 27 个模式跑 research→write→review→revise→finalize 学术论文全链路，每阶段需人工确认，"AI 是副驾，不是主驾" | ⏳称 | 无 | 🟢 候选·细分受众（研究员/学生）明确，品味克制 |
+| **firecrawl/firecrawl-mcp-server** | 轴4 | 官方 Firecrawl MCP，`npx -y firecrawl-mcp` 一行装，给 Claude 提供抓取+搜索能力，输出 LLM-ready Markdown | ⏳称 | 小（与 gstack browse 有边界重叠，但 firecrawl 专攻批量抓/JS 渲染页） | ⚪ 待装测·需 API key，官方维护=安全闸松 |
+| **perplexityai/modelcontextprotocol** | 轴4 | 官方 Perplexity MCP，接 Sonar 模型实时联网搜索+引用，一行 `claude mcp add` 装 | ⏳称 | 中（与 gstack WebSearch 功能重叠，但 Sonar 带引用+深度研究模式） | ⚪ 待装测·需 PPLX API key，官方维护 |
+| **VILA-Lab/Dive-into-Claude-Code** | 信源 | 学术级逆向分析报告（1.6k ★），核心发现：Claude Code 仅 1.6% 是 AI 决策逻辑，98.4% 是确定性基础设施；含中文 README | ⏳称 | 无 | 🔵 信源·agent 架构设计参考，不收为 skill |
+
+**本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源）；无异常。装测优先：disler/hooks-mastery（Hook 轴填空）> Imbad0202/academic-research-skills（已评🟢）> firecrawl + perplexity MCP（需 API key 各自独立验）。
