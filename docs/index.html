@@ -9,8 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.css">
-<script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.min.js"></script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -48,33 +46,60 @@
       <h1 class="hero__title">中文 Claude Code 开发者的<span class="grad">实战枢纽</span></h1>
       <p class="hero__sub">挑过、试过、讲透了的 Claude Code 配置。<strong>看一眼,就知道值不值得装。</strong></p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#experience">看它怎么跑</a>
+        <a class="btn btn--primary" href="#experience">看 skill 效果</a>
         <a class="btn btn--ghost" href="#registry">浏览注册表</a>
       </div>
       <p class="hero__note">不是又一个 awesome 列表。列表给你链接,注册表给你<strong>判断</strong>。</p>
     </div>
   </section>
 
-  <!-- experience / try it -->
+  <!-- experience: skill effect, before / after -->
   <section class="section" id="experience">
     <div class="section__head reveal">
-      <span class="eyebrow">三步上手 · TRY IT</span>
-      <h2>不用装,先看它替你干活</h2>
-      <p class="section__lead">第一次来?照这三步走。</p>
+      <span class="eyebrow">看 skill 效果 · BEFORE / AFTER</span>
+      <h2>装一个 skill,Claude 就换了个干法</h2>
+      <p class="section__lead">同一个任务,装 <code>verification-before-completion</code> 之前和之后 —— 差别在这。</p>
     </div>
-    <div class="steps">
-      <article class="step reveal"><span class="step__no">1</span><div class="step__body"><h3>挑一个</h3><p>从注册表选一个过了闸的配置。</p></div></article>
-      <article class="step reveal"><span class="step__no">2</span><div class="step__body"><h3>看它真跑</h3><p>下面这段没有剪辑 —— 点播放。</p></div></article>
-      <article class="step reveal"><span class="step__no">3</span><div class="step__body"><h3>装走</h3><p>看明白了,一行装进你自己的 Claude Code。</p></div></article>
+
+    <div class="ba">
+      <!-- before -->
+      <article class="ba__col ba__col--bad reveal">
+        <div class="ba__bar"><span class="ba__tag ba__tag--bad">没装这个 skill</span><span class="ba__task">任务:把 asciinema 装上,网站演示要用</span></div>
+        <div class="ba__term">
+          <p class="t-cmd">brew install asciinema</p>
+          <p class="t-out">…安装输出… <span class="t-dim">exit 0</span></p>
+          <p class="t-ai t-ai--bad">Claude:✅ 装好了!</p>
+          <p class="t-note t-note--bad">↑ 看到 exit 0 就喊完成,没验证</p>
+          <p class="t-cmd">asciinema rec demo.cast</p>
+          <p class="t-bad">zsh: command not found: asciinema</p>
+        </div>
+        <div class="ba__verdict ba__verdict--bad">结果:假成功 → 上线才发现没装上 💥</div>
+      </article>
+
+      <!-- after -->
+      <article class="ba__col ba__col--ok reveal">
+        <div class="ba__bar"><span class="ba__tag ba__tag--ok">装了之后</span><span class="ba__task">任务:把 asciinema 装上,网站演示要用</span></div>
+        <div class="ba__term">
+          <p class="t-cmd">brew install asciinema</p>
+          <p class="t-out">…安装输出… <span class="t-dim">exit 0</span></p>
+          <p class="t-ai">Claude:声称完成前,先验证 ↓</p>
+          <p class="t-cmd">asciinema --version</p>
+          <p class="t-bad">command not found</p>
+          <p class="t-note">↑ 其实没装上!exit 0 骗了我</p>
+          <p class="t-ai">Claude:重装 + 刷新 PATH,再验一次</p>
+          <p class="t-cmd">asciinema --version</p>
+          <p class="t-ok">asciinema 3.2.1</p>
+          <p class="t-ai t-ai--ok">Claude:✅ 已验证就绪(贴出版本)</p>
+        </div>
+        <div class="ba__verdict ba__verdict--ok">结果:拿到真实证据才算完成 ✓ 稳</div>
+      </article>
     </div>
-    <figure class="demo reveal">
-      <div class="demo__bar">
-        <span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span>
-        <span class="demo__name">code-explain · 让 Claude 把一段 JS 闭包讲清楚</span>
-      </div>
-      <div id="player"></div>
-      <figcaption class="demo__cap">自动播放中 · 鼠标移上去可暂停、拖动进度条重看 —— 这就是装上之后它替你干的活</figcaption>
-    </figure>
+
+    <p class="ba__takeaway reveal">
+      <span class="ba__effect">skill 效果</span>
+      让 Claude 不再「信 exit code 就喊完成」,而是「拿到真实输出才算数」。
+      <span class="ba__real">↑ 真事 —— 做这个网站时,它就这样抓住过我一次假成功。</span>
+    </p>
   </section>
 
   <!-- value pillars -->

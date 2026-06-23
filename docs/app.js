@@ -80,19 +80,9 @@ function wireReveal(){
   document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 }
 
-function mountDemo(){
-  const el = document.getElementById("player");
-  if(!el || !window.AsciinemaPlayer) return;
-  AsciinemaPlayer.create("demos/code-explain-demo.cast", el, {
-    autoPlay:true, loop:true, preload:true, controls:true, fit:"width",
-    theme:"asciinema", terminalFontSize:"13px",
-  });
-}
-
 document.addEventListener("DOMContentLoaded", ()=>{
   renderRegistry();
   wireCopy();
   wireNav();
   wireReveal();
-  mountDemo();
 });
