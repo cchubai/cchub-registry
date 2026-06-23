@@ -4,3 +4,9 @@ Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 新增 8 个（轴4×4 + 轴3×2 + 轴5×2），涵盖语义代码搜索、PDF 上下文突破、CVE 情报 MCP、agent-in-agent 嵌套模式及两个 Hook 集；无重复项，无异常。
 --- git commit & push ---
+[main 1fa6404] chore(scout): cron 自动扫货轮 2026-06-24T01-04-30
+ 2 files changed, 25 insertions(+)
+ create mode 100644 scout-runs/2026-06-24T01-04-30.log
+To https://github.com/cchubai/cchub-registry.git
+   f9e9070..1fa6404  main -> main
+=== done 2026-06-24T01-04-30 ===
