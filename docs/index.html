@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCHub.ai · 实战枢纽 — Claude Code 配置注册表</title>
+<meta name="description" content="中文 Claude Code 开发者的实战枢纽。策展的 skill / agent / MCP / hook 配置注册表 —— 过三道闸,放心装,试用即装。">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- aurora backdrop -->
+<div class="aurora" aria-hidden="true">
+  <div class="aurora__ribbon aurora__ribbon--1"></div>
+  <div class="aurora__ribbon aurora__ribbon--2"></div>
+  <div class="aurora__ribbon aurora__ribbon--3"></div>
+  <div class="aurora__grain"></div>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#top" aria-label="CCHub.ai 首页">
+      <img class="brand__mark" src="assets/favicon.png" alt="" width="28" height="28">
+      <span class="brand__word">CCHub<span class="brand__tld">.ai</span></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#registry">注册表</a>
+      <a href="#gates">三道闸</a>
+      <a href="#pipeline">流水线</a>
+      <a class="nav__cta" href="https://github.com/cchubai/cchub-registry" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero__inner reveal">
+      <div class="pill"><span class="pill__dot"></span>免费开放期 · 利他第一</div>
+      <h1 class="hero__title">中文 Claude Code 开发者的<span class="grad">实战枢纽</span></h1>
+      <p class="hero__sub">一个策展的配置注册表。把散落各处的 skill、subagent、MCP、hook 收进来,过三道闸,配中文拆解 —— 让你<strong>在线先看明白,一行装到本地</strong>。</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#registry">浏览注册表</a>
+        <a class="btn btn--ghost" href="#gates">什么是三道闸</a>
+      </div>
+      <div class="hero__install">
+        <code id="install-hero">npx cchub add karpathy-guidelines</code>
+        <button class="copy" data-copy="npx cchub add karpathy-guidelines" aria-label="复制命令">复制</button>
+      </div>
+      <p class="hero__note">不是又一个 awesome 列表。列表给你链接,注册表给你<strong>判断</strong>。</p>
+    </div>
+  </section>
+
+  <!-- value pillars -->
+  <section class="pillars">
+    <div class="pillars__grid">
+      <article class="pillar reveal">
+        <div class="pillar__ic" data-ic="curate"></div>
+        <h3>策展,不是堆砌</h3>
+        <p>不收大礼包、不刷数量。每个条目都是从仓里穿透出来的单颗珍珠,有人替你判断过值不值得装。</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar__ic" data-ic="install"></div>
+        <h3>试用即装</h3>
+        <p>线上先看录屏、读中文拆解,看明白了再 <code>npx cchub add</code> 一行装到本地。不用先 clone 一堆再后悔。</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar__ic" data-ic="trust"></div>
+        <h3>放心装的背书</h3>
+        <p>每个上架项都人工过过代码:不破坏、不外传、不留后门。我们给你一个敢签字的「放心装」。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- registry -->
+  <section class="section" id="registry">
+    <div class="section__head reveal">
+      <span class="eyebrow">已上架 · REGISTRY</span>
+      <h2>过完三道闸的成品</h2>
+      <p class="section__lead">curator 验收上架,用户真正消费的就是这一架。陆续上新。</p>
+    </div>
+    <div class="cards" id="cards"><!-- cards injected by app.js --></div>
+    <p class="section__more reveal">还有 <strong id="queue-count">一批</strong> 候选在装测与验收队列中 · <a href="https://github.com/cchubai/cchub-registry/blob/main/registry-candidates.md" target="_blank" rel="noopener">看候选库 ↗</a></p>
+  </section>
+
+  <!-- gates -->
+  <section class="section section--alt" id="gates">
+    <div class="section__head reveal">
+      <span class="eyebrow">收录标准 · THREE GATES</span>
+      <h2>每个候选要过三道闸</h2>
+      <p class="section__lead">来源不限 —— ABC 都欢迎。但合规与安全零容忍,品味从宽而有态度。</p>
+    </div>
+    <div class="gates">
+      <article class="gate reveal">
+        <span class="gate__no">01</span>
+        <h3>合规闸</h3>
+        <p>license 兼容商用、可演绎、可署名、可下架。CC BY-NC-ND 这种非商业禁演绎的,直接拒。</p>
+      </article>
+      <article class="gate reveal">
+        <span class="gate__no">02</span>
+        <h3>安全闸</h3>
+        <p>人工过代码,不只是自动扫。不破坏、不外传、不留后门。这一关给你「放心装」的底气。</p>
+      </article>
+      <article class="gate reveal">
+        <span class="gate__no">03</span>
+        <h3>品味闸</h3>
+        <p>真解决问题、轻而狠优先。一个 67 行的行为铁律,胜过 800 行的瑞士军刀。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- pipeline -->
+  <section class="section" id="pipeline">
+    <div class="section__head reveal">
+      <span class="eyebrow">进货流水线 · PIPELINE</span>
+      <h2>机器昼夜攒量,人在终点把关</h2>
+      <p class="section__lead">三个角色各司其职 —— 量与质各归其位,且不破安全底线。</p>
+    </div>
+    <div class="flow">
+      <div class="flow__step reveal">
+        <div class="flow__badge flow__badge--bot">24/7</div>
+        <h3>扫货官</h3>
+        <p>全网扫五轴新品,去重登记进候选库。机器自动,只攒量不拍板。</p>
+      </div>
+      <div class="flow__arrow" aria-hidden="true">→</div>
+      <div class="flow__step reveal">
+        <div class="flow__badge flow__badge--bot">粗筛</div>
+        <h3>装测官</h3>
+        <p>clone 只读三查:自包含、安全红旗、license。产红旗,绝不执行陌生代码。</p>
+      </div>
+      <div class="flow__arrow" aria-hidden="true">→</div>
+      <div class="flow__step reveal">
+        <div class="flow__badge flow__badge--human">人审</div>
+        <h3>验收官</h3>
+        <p>最终三问:放心装?真有用?合规?全过才上架,配中文拆解。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- cta band -->
+  <section class="band">
+    <div class="band__inner reveal">
+      <h2>来用一用,告诉我们哪里不够好</h2>
+      <p>免费开放期 · 利他第一。推荐一个好东西,或挑个刺,都从一个 issue 开始。</p>
+      <div class="band__cta">
+        <a class="btn btn--primary" href="https://github.com/cchubai/cchub-registry" target="_blank" rel="noopener">逛 GitHub 仓库</a>
+        <a class="btn btn--ghost" href="https://github.com/cchubai/cchub-registry/issues/new" target="_blank" rel="noopener">推荐 / 反馈</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__brand">
+      <span class="brand__word">CCHub<span class="brand__tld">.ai</span></span>
+      <p>实战枢纽 · The Ops Hub for Claude Native Devs</p>
+    </div>
+    <div class="foot__legal">
+      <p>CCHub.ai 是独立社区,非 Anthropic、非 CcHUB Nigeria。</p>
+      <p>"Claude" is a trademark of Anthropic PBC. 上架项目代码版权与许可归各自作者所有。</p>
+      <p class="foot__copy">© 2026 CCHub.ai · 策展内容 CC BY 4.0</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
