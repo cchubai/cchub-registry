@@ -58,9 +58,11 @@
     <div class="section__head reveal">
       <span class="eyebrow">看 skill 效果 · BEFORE / AFTER</span>
       <h2>装一个 skill,Claude 就换了个干法</h2>
-      <p class="section__lead">同一个任务,装 <code>verification-before-completion</code> 之前和之后 —— 差别在这。</p>
+      <p class="section__lead">拿我们已上架的两个 skill 举例 —— 同一个任务,装它之前和之后,差别在这。</p>
     </div>
 
+    <div class="ba-demo reveal">
+    <h3 class="ba-demo__name"><code>verification-before-completion</code><span> · 不再假装“修好了”</span></h3>
     <div class="ba">
       <!-- before -->
       <article class="ba__col ba__col--bad reveal">
@@ -95,11 +97,51 @@
       </article>
     </div>
 
-    <p class="ba__takeaway reveal">
+    <p class="ba__takeaway">
       <span class="ba__effect">skill 效果</span>
       让 Claude 不再「信 exit code 就喊完成」,而是「拿到真实输出才算数」。
       <span class="ba__real">↑ 真事 —— 做这个网站时,它就这样抓住过我一次假成功。</span>
     </p>
+    </div>
+
+    <div class="ba-demo reveal">
+    <h3 class="ba-demo__name"><code>karpathy-guidelines</code><span> · 外科手术式小改,不过度设计</span></h3>
+    <div class="ba">
+      <!-- before -->
+      <article class="ba__col ba__col--bad reveal">
+        <div class="ba__bar"><span class="ba__tag ba__tag--bad">没装这个 skill</span><span class="ba__task">任务:给 fetchData() 加个超时参数</span></div>
+        <div class="ba__term">
+          <p class="t-ai t-ai--bad">Claude:我顺手重构得更健壮 ↓</p>
+          <p class="t-out">+ class RequestConfig { … }</p>
+          <p class="t-out">+ class TimeoutStrategy { … }</p>
+          <p class="t-out">~ 改写 fetchData + 5 个调用点</p>
+          <p class="t-note t-note--bad">↑ 过度设计 + 擅自扩大改动面</p>
+          <p class="t-bad">diff:+182 −47 · 改了 5 个文件</p>
+        </div>
+        <div class="ba__verdict ba__verdict--bad">结果:一个小需求 → 一周 review 💥</div>
+      </article>
+
+      <!-- after -->
+      <article class="ba__col ba__col--ok reveal">
+        <div class="ba__bar"><span class="ba__tag ba__tag--ok">装了之后</span><span class="ba__task">任务:给 fetchData() 加个超时参数</span></div>
+        <div class="ba__term">
+          <p class="t-ai">Claude:先挑明假设 —— 单个超时、默认行为不变?</p>
+          <p class="t-bad">- async function fetchData(url) {</p>
+          <p class="t-ok">+ async function fetchData(url, timeoutMs = 10000) {</p>
+          <p class="t-out">　 用 AbortSignal.timeout(timeoutMs)</p>
+          <p class="t-note">↑ 只改该改的,默认值保证向后兼容</p>
+          <p class="t-ok">diff:+3 −1 · 1 个文件</p>
+        </div>
+        <div class="ba__verdict ba__verdict--ok">结果:一眼可 review,当天就合 ✓ 稳</div>
+      </article>
+    </div>
+
+    <p class="ba__takeaway">
+      <span class="ba__effect">skill 效果</span>
+      让 Claude 做外科手术式小改、先把假设挑明,而不是顺手重构出一个大 diff。
+      <span class="ba__real">↑ Karpathy 的行为铁律:改最少的东西,别替用户做没要求的决定。</span>
+    </p>
+    </div>
   </section>
 
   <!-- value pillars -->

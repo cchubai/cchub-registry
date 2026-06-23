@@ -200,6 +200,11 @@ img{max-width:100%;display:block}
 .lead-soft{display:block;margin-top:9px;font-size:13px;color:var(--ink-mute)}
 .section__lead code{font-family:var(--mono);font-size:.9em;color:var(--au-teal);background:rgba(0,0,0,.3);padding:2px 8px;border-radius:6px}
 
+.ba-demo{max-width:1000px;margin:0 auto 56px}
+.ba-demo:last-of-type{margin-bottom:0}
+.ba-demo__name{text-align:center;font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:20px}
+.ba-demo__name code{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--au-teal)}
+.ba-demo__name span{color:var(--ink-mute);font-weight:500}
 .ba{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:0 auto}
 .ba__col{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b0c1a;display:flex;flex-direction:column;position:relative}
 .ba__col--bad{box-shadow:0 24px 60px -34px rgba(232,92,158,.5)}
