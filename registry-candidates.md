@@ -99,3 +99,22 @@
 | **VILA-Lab/Dive-into-Claude-Code** | 信源 | 学术级逆向分析报告（1.6k ★），核心发现：Claude Code 仅 1.6% 是 AI 决策逻辑，98.4% 是确定性基础设施；含中文 README | ⏳称 | 无 | 🔵 信源·agent 架构设计参考，不收为 skill |
 
 **本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源）；无异常。装测优先：disler/hooks-mastery（Hook 轴填空）> Imbad0202/academic-research-skills（已评🟢）> firecrawl + perplexity MCP（需 API key 各自独立验）。
+
+---
+
+## 2026-06-24 · cron 扫货轮（01:04）
+
+> 五轴全搜，去重后净新增 8 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **steipete/claude-code-mcp** | 轴4 | 把 Claude Code 本身包成 MCP server，实现「agent 套 agent」——外层模型可把复杂编码任务委托给内层 Claude Code 实例，`npx @steipete/claude-code-mcp@latest` 一行装 | ⏳称 | 低（gstack 有 Agent 工具，但 MCP 嵌套路由是不同拓扑） | ⚪ 待装测·架构实验性强，装前需确认权限隔离 |
+| **zilliztech/claude-context** | 轴4 | 语义代码搜索 MCP，Milvus 向量库 + BM25 混合索引全库，支持 OpenAI/VoyageAI/Ollama embedding，`index_codebase` 一次后 `search_code` 自然语言检索 | ⏳称 | 无（gstack 无语义代码搜索轴） | ⚪ 待装测·需 OPENAI_API_KEY + MILVUS_TOKEN，大仓适用场景明确 |
+| **jztan/pdf-mcp** | 轴4 | 解决 Claude Code 不能读超 30MB/100 页 PDF 的痛点：BM25+语义混合搜页+仅取相关页，OCR 支持多栏及日文版面，SQLite 持久化缓存，MIT 开源，`pip install pdf-mcp` | ⏳称 | 低（官方 Read 工具读 PDF 有大小限制，本品补该边界） | ⚪ 待装测·细分痛点清晰，无需远程 API key |
+| **mukul975/cve-mcp-server** | 轴4 | 27 个安全情报工具跨 21 API（NVD/EPSS/CISA KEV/MITRE ATT&CK/Shodan/VirusTotal/GreyNoise），一句话查 CVE 即得跨源关联报告 | ⏳称 | 中（与 gstack /cso 静态代码审计重叠，但本品面向实时外部威胁情报，视角互补） | ⚪ 待装测·需多 API key，安全敏感，勿连内网代码库 |
+| **vanzan01/claude-code-sub-agent-collective** | 轴3 | Context Engineering 研究项目：30+ agent 以 hub-and-spoke 架构协作，hook 强制 TDD、合约式 handoff 保上下文，`npx` 分发，内置 Context7 集成 | ⏳称 | 部分（gstack 有 subagent/workflow 原语，但 TDD 强制 + 合约 handoff 纪律层是补充） | ⚪ 待装测·架构理念有参考价值，完整性待验 |
+| **barkain/claude-code-workflow-orchestration** | 轴3 | Claude Code 插件：PreToolUse hook 渐进提醒主 agent 走专项委托路径，8 个领域专属 agent（代码/测试/架构/DevOps），懒加载 stub（1.1KB 启动，7.5KB 按需） | ⏳称 | 高（gstack Workflow/Agent 工具覆盖相似功能，差异在 hook 渐进软执行机制） | 🔵 信源·重叠高，穿透挑 hook 渐进提醒单模式参考即可 |
+| **karanb192/claude-code-hooks** | 轴5 | 可 copy-paste 的 hook 集：protect-tests / auto-format / branch-guard / context-snapshot / cost-tracker / tts-alerts / discord-notify / rules-injector / rate-limiter 等 12+ 条，每条独立、有中英注释 | ⏳称 | 部分（与 gstack careful/guard 重叠 2-3 条，其余均为填空） | 🟢 候选·即取即用，颗粒度好，中文用户友好 |
+| **decider/claude-hooks** | 轴5 | Python 实现的代码质量 hook 套件：clean code 自动校验 + package 版本老化检测 + 任务完成通知，轻量无外部依赖 | ⏳称 | 部分（与 gstack careful 重叠「危险命令拦截」，但 Python 生态 + package age 检测是差异点） | ⚪ 待装测·Python 项目适配性好，需验 Python 依赖自包含性 |
+
+**本轮总结**：新增 8 项（5 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源 + 1 个 🟢候选）；无异常。装测优先：karanb192/claude-code-hooks（即用型🟢）> jztan/pdf-mcp（无需外部 key）> zilliztech/claude-context（语义搜索填空）> mukul975/cve-mcp-server（需多 API key，安全审后装）。
