@@ -4,3 +4,8 @@ Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 新增 8 项（6 个 ⚪待装测 + 1 个 🟢候选），本轮记忆/持久化类集中爆发，无异常。优先装测：`thedotmack/claude-mem`（46K★ Apache 2.0 最清）> `lihaoz-barry/claude-code-hooks`（🟢 候选，零依赖通知 hook）> `coleam00/claude-memory-compiler`（无外部依赖）。
 --- git commit & push ---
+[main 657be55] chore(scout): cron 自动扫货轮 2026-06-24T08-00-02
+ 3 files changed, 29 insertions(+)
+To https://github.com/cchubai/cchub-registry.git
+   9d6e226..657be55  main -> main
+=== done 2026-06-24T08-00-02 ===

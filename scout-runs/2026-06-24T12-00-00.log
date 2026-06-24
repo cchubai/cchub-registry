@@ -1,0 +1,6 @@
+=== scout run 2026-06-24T12-00-00 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+Not logged in · Please run /login
+--- git commit & push ---
