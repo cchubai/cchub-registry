@@ -134,3 +134,22 @@
 | **alirezarezvani/claude-skills** | 信源 | 337 skill + 30 agent + 70 命令大合集，覆盖工程/营销/产品/合规/C 级顾问等领域，跨 CC/Codex/Cursor/Gemini | ⏳称 | 部分（跨 agent 平台=范围超出 CC 专注轴） | 🔵 信源·礼包→穿透挑工程类单颗 skill，不整收 |
 
 **本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：SuperClaude_Framework（星数高、MIT、persona 概念独特）> sangrokjung/claude-forge（6 层安全 hook 管道有实际价值）> Piebald-AI/tweakcc（底座定制但需安全专项审）。
+
+---
+
+## 2026-06-24 · cron 扫货轮（08:00）
+
+> 五轴全搜，去重后净新增 8 项，记忆/持久化类集中爆发。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **thedotmack/claude-mem** | 轴4+5 | 46.1K★ 最热跨会话记忆插件：Stop hook 捕获 session → Claude Agent SDK AI 压缩 → ChromaDB 向量搜索注入未来会话；支持多机 SSH 同步（claude-mem-sync）、Endless Mode beta（生物拟态记忆架构），兼容 CC/OpenClaw/Codex/Gemini/Copilot | Apache 2.0 ⏳称 | 中（gstack auto memory 是 markdown 写入，本品补向量召回+跨会话注入层） | ⚪ 待装测·星数碾压级，Apache 2.0 license 清，优先级最高 |
+| **yoloshii/ClawMem** | 轴4+5 | 全本地无 API key 的 Agent 记忆层：SQLite vault + BM25+向量混合 RAG + 注意力衰减 + 因果链图（semantic/temporal/causal beam search）；Hooks + MCP 双接入，兼容 OpenClaw/Hermes，`npm install clawmem` | ⏳称 | 低（gstack auto memory 是 markdown，本品补结构化混合 RAG 召回） | ⚪ 待装测·全本地=无 key=安全闸最松，架构学术味重，适合重度用户 |
+| **coleam00/claude-memory-compiler** | 轴5 | Karpathy LLM Knowledge Base 架构迁移到 CC：Stop hook 捕获 transcript → Claude Agent SDK 提炼决策/教训 → 每日日志 → 编译成交叉引用知识库文章；无向量数据库，纯 markdown+索引，社区首日 237★ | ⏳称 | 中（与 gstack auto memory 理念重叠，但"编译蒸馏"机制是差异点） | ⚪ 待装测·设计哲学清晰，无外部依赖，装测成本低 |
+| **mann1x/claude-hooks** | 轴5 | Qdrant + HyDE 查询扩展（先生成假设答案再向量搜）+ 注意力衰减 + 去重 + instinct 自动抽取（bug-fix 模式→`~/.claude/instincts/` .md 文件）；OpenWolf 集成；自动安装器注入 settings.json | ⏳称 | 低（gstack 无向量记忆召回轴，HyDE 机制独特） | ⚪ 待装测·需 Qdrant+Ollama 本地服务，重度记忆场景专用 |
+| **lihaoz-barry/claude-code-hooks** | 轴5 | 跨平台任务完成通知 hook：macOS 原生声音通知 + ntfy.sh 手机 push（iOS/Android）+ 终端窗口自动 focus（Terminal.app/iTerm2）；内附 claude-here.command 双击启动 launcher | ⏳称 | 无（gstack 无移动端通知轴，是真空地带） | 🟢 候选·痛点明确（长任务完成后人不在电脑前），实现轻量，可即取即用 |
+| **czlonkowski/n8n-mcp** | 轴4 | 官方 n8n 配套 MCP：让 Claude 访问 525 个 n8n 节点完整 schema（99% 节点属性、63.6% 操作、90% 官方文档），对话里直接构建/调试 n8n 工作流，Docker/stdio 双模式 | ⏳称 | 无（gstack 无 n8n 自动化集成轴） | ⚪ 待装测·需本地 n8n 实例，但 n8n 用户群大，填空明确 |
+| **czlonkowski/n8n-skills** | 轴1 | n8n-mcp 配套 skill 包（同一作者）：7 个 skill 教 Claude 正确构建生产级 n8n 工作流，含表达式语法/节点配置/Code JS/Code Python/验证专家，与 n8n-mcp 搭配使用 | ⏳称 | 无 | ⚪ 待装测·MCP+skill 双件套组合，装 n8n-mcp 时一并装 |
+| **0xfurai/claude-code-subagents** | 轴3 | 100+ 生产级专精 subagent，按语言/框架切分（Kafka/Auth0/OCaml/Phoenix/TypeORM/GitLab CI/GitHub Actions Expert 等），每个 agent 按任务复杂度指定 Claude 模型（Opus/Sonnet 分级），单 .md 文件即取即用 | ⏳称 | 低（VoltAgent 也是 100+ 但 handle 不同，专精集不同，互补） | ⚪ 待装测·框架/语言覆盖面独特，Kafka/OCaml/Phoenix 是稀有轴 |
+
+**本轮总结**：新增 8 项（6 个 ⚪待装测 + 1 个 🟢候选 + 0 个 🔵信源）；记忆/持久化类本轮集中爆发（4 项），无异常。装测优先：thedotmack/claude-mem（46K★ 最热，Apache 2.0 最清）> lihaoz-barry/claude-code-hooks（已评🟢，零依赖）> coleam00/claude-memory-compiler（无外部依赖装测成本低）> czlonkowski/n8n-mcp+skills（n8n 用户填空）。
