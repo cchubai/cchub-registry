@@ -6,3 +6,8 @@ Already up to date.
 
 本轮去重后净新增：`sangrokjung/claude-forge`（oh-my-zsh 风格框架含 6 层安全 hook）、`SuperClaude-Org/SuperClaude_Framework`（23k★ MIT，persona 机制独特）、`Piebald-AI/tweakcc`（CC 底座定制工具），以及信源 `Piebald-AI/claude-code-system-prompts` 和 `alirezarezvani/claude-skills`。
 --- git commit & push ---
+[main 550af6d] chore(scout): cron 自动扫货轮 2026-06-24T04-00-01
+ 3 files changed, 28 insertions(+)
+To https://github.com/cchubai/cchub-registry.git
+   b97d1b7..550af6d  main -> main
+=== done 2026-06-24T04-00-01 ===
