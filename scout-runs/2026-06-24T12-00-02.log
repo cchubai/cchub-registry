@@ -2,3 +2,14 @@
 --- git pull ---
 Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 5 个候选已追加。
+
+**本轮产出**：
+- `Weizhena/Deep-Research-skills` — 1.1k★ 结构化两阶段研究 skill，人工确认每步，有中文 README（⚪待装测）
+- `Orchestra-Research/AI-Research-SKILLs` — 98 个 AI 研究全链路 skill，autoresearch 双循环编排（🔵信源，穿透挑 autoresearch 单品）
+- `glebis/claude-skills` — 创意 skill 小合集，daydream 反奉承 5 模式是真空地带（🔵信源，穿透挑 daydream 单颗）
+- `shanraisshan/claude-code-best-practice` — GitHub Trending 日榜 #1，官方+社区最佳实践精选（🔵信源）
+- `ChrisWiles/claude-code-showcase` — prompt 置信度自动 skill 激活 hook，Hook 轴新方向（⚪待装测）
+
+**总结**：新增 5 项；无异常。
+--- git commit & push ---

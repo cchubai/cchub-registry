@@ -153,3 +153,19 @@
 | **0xfurai/claude-code-subagents** | 轴3 | 100+ 生产级专精 subagent，按语言/框架切分（Kafka/Auth0/OCaml/Phoenix/TypeORM/GitLab CI/GitHub Actions Expert 等），每个 agent 按任务复杂度指定 Claude 模型（Opus/Sonnet 分级），单 .md 文件即取即用 | ⏳称 | 低（VoltAgent 也是 100+ 但 handle 不同，专精集不同，互补） | ⚪ 待装测·框架/语言覆盖面独特，Kafka/OCaml/Phoenix 是稀有轴 |
 
 **本轮总结**：新增 8 项（6 个 ⚪待装测 + 1 个 🟢候选 + 0 个 🔵信源）；记忆/持久化类本轮集中爆发（4 项），无异常。装测优先：thedotmack/claude-mem（46K★ 最热，Apache 2.0 最清）> lihaoz-barry/claude-code-hooks（已评🟢，零依赖）> coleam00/claude-memory-compiler（无外部依赖装测成本低）> czlonkowski/n8n-mcp+skills（n8n 用户填空）。
+
+---
+
+## 2026-06-24 · cron 扫货轮（12:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **Weizhena/Deep-Research-skills** | 轴1 | 1.1k★ 结构化两阶段研究 skill（outline→deep-investigate），人工确认每阶段切换，支持学术/技术/市场/尽调四类场景，有中文 README，需 pyyaml Python 依赖 | ⏳称 | 低（gstack /deep-research 是 web 多搜聚合，本品补「人工审核每步」的结构化研究纪律，视角互补） | ⚪ 待装测·星数高，中文 README 对中文用户友好，Python 依赖需验自包含性 |
+| **Orchestra-Research/AI-Research-SKILLs** | 轴1 | 98 个 AI 研究全链路 skill（文献调研→实验设计→训练流水线→评估→论文写作），autoresearch 双循环主编排（快实验 inner loop + 综合反思 outer loop），支持 CC/Codex/Gemini/Cursor 等 8 平台 | ⏳称 | 无（AI 研究员细分受众，gstack 无此轴） | 🔵 信源·礼包型→穿透挑 autoresearch 主编排 skill 单品装测 |
+| **glebis/claude-skills** | 轴1 | 创意型 skill 小合集：daydream（5 模式反「奉承症」结构对话：FULL/STEELMAN/DECISION/INTERACTIVE/TLDR）、deep-research（调 OpenAI Deep Research API）、gmail（Gmail 集成）、doctorg（循证健康研究 + Apple Health 上下文）、thinking-patterns（季度复盘教练），每颗独立文件夹 | ⏳称 | 低（daydream 反奉承模式是 gstack 真空；gmail/doctorg 均是空地） | 🔵 信源·穿透挑 daydream 单颗装测（反奉承品味独特，其他 gmail/doctorg 各有细分受众） |
+| **shanraisshan/claude-code-best-practice** | 信源 | GitHub Trending 日榜 #1（2026-03），汇聚官方+社区的精选最佳实践（skill/subagent/hook/command/agent-teams 全覆盖），每条来源注明出处，含中文注释参考 | ⏳称 | 无 | 🔵 信源·设计 gstack 新 skill/hook 时查模式库，中文友好 |
+| **ChrisWiles/claude-code-showcase** | 轴5 | 完整展示项目：hook 里内置「prompt 置信度自动 skill 激活」系统——每次提交前分析关键词/文件路径打分（keyword:2/pathPattern:4/intentPattern:4），超阈值自动建议激活对应 skill，兼附 GitHub Actions 工作流触发，hook 本体 < 150 行 | ⏳称 | 低（gstack 无「prompt 驱动 skill 自动激活」轴，是真空地带） | ⚪ 待装测·穿透抓 skill-activation hook 单模式，Hook 轴新方向 |
+
+**本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🔵信源）；研究类 skill 和信源型目录本轮集中。无异常。装测优先：Weizhena/Deep-Research-skills（1.1k★，中文 README，人工确认纪律明确）> ChrisWiles/claude-code-showcase 穿透 skill-activation hook 模式（Hook 轴新方向）。
