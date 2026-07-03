@@ -4,3 +4,8 @@ fatal: unable to access 'https://github.com/cchubai/cchub-registry.git/': LibreS
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 API Error: Unable to connect to API (UNKNOWN_CERTIFICATE_VERIFICATION_ERROR)
 --- git commit & push ---
+[main 4c5bfa8] chore(scout): cron 自动扫货轮 2026-07-03T16-10-43
+ 1 file changed, 6 insertions(+)
+ create mode 100644 scout-runs/2026-07-03T16-10-43.log
+fatal: unable to access 'https://github.com/cchubai/cchub-registry.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
+=== done 2026-07-03T16-10-43 ===
