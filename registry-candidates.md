@@ -169,3 +169,20 @@
 | **ChrisWiles/claude-code-showcase** | 轴5 | 完整展示项目：hook 里内置「prompt 置信度自动 skill 激活」系统——每次提交前分析关键词/文件路径打分（keyword:2/pathPattern:4/intentPattern:4），超阈值自动建议激活对应 skill，兼附 GitHub Actions 工作流触发，hook 本体 < 150 行 | ⏳称 | 低（gstack 无「prompt 驱动 skill 自动激活」轴，是真空地带） | ⚪ 待装测·穿透抓 skill-activation hook 单模式，Hook 轴新方向 |
 
 **本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🔵信源）；研究类 skill 和信源型目录本轮集中。无异常。装测优先：Weizhena/Deep-Research-skills（1.1k★，中文 README，人工确认纪律明确）> ChrisWiles/claude-code-showcase 穿透 skill-activation hook 模式（Hook 轴新方向）。
+
+---
+
+## 2026-07-04 · cron 扫货轮（00:00）
+
+> 五轴全搜，去重后净新增 6 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **vlad-ko/claude-wizard** | 轴1+3 | /wizard 单 skill 把 Claude Code 变成高级架构师：8 阶段流水线（需求→设计→TDD→实现→对抗审查→质量门→PR→回顾），v2 升级为编排模式——主线程拆分出 architect/builder/adversarial-critic/reviewer 专属 subagent 并行推进，battle-tested（数百 PR 验证），MIT | ⏳称 | 低（gstack /investigate+/code-review 覆盖部分，但 8 阶段端到端编排 + 对抗审查门是差异点） | 🟢 候选·品味最高候选之一，"纪律分发"理念最佳实践，方法论轴强力补充 |
+| **Jeffallan/claude-skills** | 轴1+2 | 66 个全栈开发专精 skill（12 类：语言/后端/前端/基础设施/测试/DevOps/安全/数据/ML/平台），每个 skill 核心仅 80 行配路由表，token 减约 50%；附 9 个 workflow 命令覆盖 Jira/Confluence 集成；/common-ground 命令显式暴露并验证 Claude 对项目的隐式假设 | ⏳称 | 低（gstack 有少量 skill，本品 66 个全栈细分 + 50% token 精简 + Jira 集成是真空） | ⚪ 待装测·Listed in awesome-claude-code，/common-ground 命令品味独特值单独评 |
+| **valorisa/Claude-Skills** | 轴1 | rescue-tokens 旗舰 skill：9 个 token 优化模式（cache 管理/context forking/模型分级/输入过滤），声称可从 $750/月降到 $100（85%），全套 skill 以 TDD 红绿重构自测，含 productivity-workflow 与 dev-best-practices 系列 | ⏳称 | 低（gstack 无 token 优化方法论轴，rescue-tokens 填真空） | ⚪ 待装测·token 成本痛点对中文用户极相关，先验 rescue-tokens 单颗 |
+| **supatest-ai/awesome-claude-code-sub-agents** | 轴3 | MIT 开源的决策型 subagent 集合：定位"expert consultant 而非 code generator"，每 agent 提供架构决策框架+生产模式+80/20 实践（300-800 行），覆盖语言（Python/JS/TS/Go/Java/C#/Rust）+ 框架（React/Vue/Django/Spring）+ 测试 + 性能轴 | ⏳称 | 低（VoltAgent 是"生成"型，本品是"决策咨询"型，定位差异显著） | ⚪ 待装测·MIT license，定位独特，code-quality-guardian 单 agent 先试 |
+| **matlugert/tdd-skill** | 轴1 | 极简单颗 TDD skill：严格实施 RED→GREEN→REFACTOR→REPEAT 循环，每步显示实际命令+退出码+测试输出，无外部依赖，约 1 个文件 | ⏳称 | 低（gstack 无强制 TDD 纪律轴，sangrokjung/claude-forge 含 /tdd 但需整包，本品可单颗即取） | ⚪ 待装测·零依赖单颗，装测成本最低，可作 TDD 轴基准对比件 |
+| **travisvn/awesome-claude-skills** | 信源 | 专注 Claude Skills 的 curated awesome 列表，聚合社区 skill 仓库+工具+资源，与 hesreallyhim/awesome-claude-code 互补（后者更宽，本品更深 skill 轴） | ⏳称 | 无 | 🔵 信源·skill 轴扫货的专项信源，与 awesome-claude-code 并列参考 |
+
+**本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源）；无异常。装测优先：vlad-ko/claude-wizard（🟢品味最高，8 阶段编排 battle-tested）> valorisa/rescue-tokens（零依赖，token 成本痛点直击）> matlugert/tdd-skill（最轻，可快速验）> supatest-ai（MIT，决策型定位独特）。

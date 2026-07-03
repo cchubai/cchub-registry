@@ -1,0 +1,6 @@
+=== scout run 2026-07-04T00-00-03 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 6 项已 append 完毕：1 个 🟢候选（vlad-ko/claude-wizard，品味最高）、4 个 ⚪待装测、1 个 🔵信源（travisvn/awesome-claude-skills）；无异常。
+--- git commit & push ---
