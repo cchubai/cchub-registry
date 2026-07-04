@@ -202,3 +202,19 @@
 | **ComposioHQ/awesome-claude-skills** | 信源 | Composio 官方维护的 1000+ skills 策展列表，强调跨平台（CC/Codex/Cursor/Gemini CLI/Antigravity/Windsurf），内置 connect-apps 插件（500+ 外部 app 动作），与 travisvn/awesome-claude-skills 互补（后者社区驱动，本品 Composio 生态加权） | ⏳称 | 无 | 🔵 信源·补 travisvn 之外第二个 skill 索引源，穿透挑 Composio 连接类 skill 单品 |
 
 **本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：iannuttall/claude-sessions（零依赖，session 连续性真实痛点）> AgriciDaniel/claude-seo（MIT，SEO 真空填空）> AgriciDaniel/claude-blog（可与 claude-seo 组合装测）。
+
+---
+
+## 2026-07-04 · cron 扫货轮（12:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **sickn33/antigravity-awesome-skills** | 信源 | 42k+★ 的可安装 skill 大库：1894+ 技能覆盖 Claude Code/Cursor/Codex/Gemini/Antigravity 等多平台，`npx antigravity-awesome-skills` 直接按角色/bundle/workflow 安装，内含官方+社区双源，有目录站点可浏览筛选 | ⏳称 | 无 | 🔵 信源·星数碾压级，穿透挑专精单颗；npx 安装器有参考价值 |
+| **jefflester/claude-skills-supercharged** | 轴1+5 | Haiku 4.5 驱动的 AI 自动 skill 注入系统：UserPromptSubmit hook 分析 prompt 意图，给每个 skill 打置信度（0.0-1.0），>0.65 自动注入上下文，声称 95%+ 精度；比 ChrisWiles/claude-code-showcase 关键词打分升级到 LLM 推理层 | ⏳称 | 低（ChrisWiles 已登记但是 keyword 评分，本品 LLM 推理是差异点；gstack 无 AI 驱动 skill 自激活轴） | ⚪ 待装测·概念创新，需验 Haiku 调用延迟对交互体验的影响 |
+| **wynandw87/claude-code-youtube-mcp** | 轴4 | YouTube MCP 服务器，15 工具覆盖：视频转录/元数据/频道信息/播放列表/评论/热榜/互动分析/章节提取/SponsorBlock/最多播放热力图；5 个工具无需 API key（转录/SponsorBlock/热力图/URL 解析），其余 10 个需 YouTube Data API v3 | ⏳称 | 无（gstack 无 YouTube 内容分析轴，内容创作者/研究者真空填空） | ⚪ 待装测·5 工具免 key 可低成本先验，内容创作细分受众明确 |
+| **davepoon/buildwithclaude** | 信源 | CC 生态发现 hub：123 skills + 99 commands + 31 agents + 13 rules 可检索，内置 bwc-cli（`npx bwc`）交互式浏览 50+ subagent/30+ 命令并安装，附 Visual Index（Vexilo）以 5 步工作流可视化索引，兼容 CC/Claude Desktop/Agent SDK/OpenClaw | ⏳称 | 无 | 🔵 信源·最有 CLI 发现工具的 hub，穿透挑 frontend-design-pro 等单品；bwc-cli 本身可作参考工具 |
+| **elevenlabs/elevenlabs-mcp** | 轴4 | 官方 ElevenLabs MCP server：TTS/音效生成/音乐生成/声音克隆/语音转换/转录/人声分离 8 大能力，支持 29+ 语言、90+ 转录语言、Multilingual v3/Turbo/Flash/Scribe 模型，`npx @elevenlabs/elevenlabs-mcp` 一行装，官方维护 | ⏳称 | 无（gstack 无 TTS/音频生成轴，完全填空）；与 lihaoz-barry/claude-code-hooks TTS 通知互补（通知 vs 内容生产） | ⚪ 待装测·官方维护=安全闸松，需 ElevenLabs API key，媒体/播客/无障碍场景受众明确 |
+
+**本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：elevenlabs/elevenlabs-mcp（官方维护=安全闸最松）> wynandw87/claude-code-youtube-mcp（5 工具免 key 可快速验）> jefflester/claude-skills-supercharged（Haiku 自动注入概念独特，需验延迟影响）。

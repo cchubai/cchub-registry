@@ -1,0 +1,23 @@
+=== scout run 2026-07-04T12-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮新增 5 项，无异常。
+
+**新增明细：**
+
+| # | 候选 | 裁决 | 亮点 |
+|---|---|---|---|
+| 1 | `sickn33/antigravity-awesome-skills` | 🔵 信源 | 42k+★，1894+ skill，npx 可安装，生态最大合集 |
+| 2 | `jefflester/claude-skills-supercharged` | ⚪ 待装测 | Haiku 4.5 推理置信度自动 skill 注入，LLM 驱动优于关键词打分 |
+| 3 | `wynandw87/claude-code-youtube-mcp` | ⚪ 待装测 | YouTube 15 工具 MCP，5 工具免 key 可低成本先验 |
+| 4 | `davepoon/buildwithclaude` | 🔵 信源 | hub + bwc-cli 交互式发现工具，123 skills/99 commands 可浏览 |
+| 5 | `elevenlabs/elevenlabs-mcp` | ⚪ 待装测 | 官方 TTS/音频生成 MCP，完全填空轴，安全闸最松 |
+
+Sources:
+- [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills)
+- [jefflester/claude-skills-supercharged](https://github.com/jefflester/claude-skills-supercharged)
+- [wynandw87/claude-code-youtube-mcp](https://github.com/wynandw87/claude-code-youtube-mcp)
+- [davepoon/buildwithclaude](https://github.com/davepoon/buildwithclaude)
+- [elevenlabs/elevenlabs-mcp](https://github.com/elevenlabs/elevenlabs-mcp)
+--- git commit & push ---
