@@ -252,3 +252,20 @@
 | **shakeebshaan/claude-code-quant-skills** | 轴1+2+5 | 传统量化研究专项三件套：skill（回测审计「挑剔的风控经理」视角 + 指标设计 pandas 向量化对话式生成）+ slash 命令 + hook，聚焦因子/策略/风险分析全链路，MIT，与 agiprolabs 互补（后者链上/DeFi-native，本品经典 quant） | MIT ⏳称 | 无（传统量化 gstack 真空，与 agiprolabs DeFi 视角并列但不重叠） | ⚪ 待装测·三件套组合完整度高，MIT，可与 agiprolabs 一并作「量化金融轴」双件套装测 |
 
 **本轮总结**：新增 5 项（4 个 ⚪待装测 + 1 个 🟢候选）；无异常。装测优先：wan-huiyan/agent-review-panel（🟢 MIT 零依赖，anti-groupthink 独特）> ChromeDevTools/chrome-devtools-mcp（官方 Apache-2.0，DevTools 真空填空）> agiprolabs/claude-trading-skills + shakeebshaan/claude-code-quant-skills（量化金融轴双件套，MIT，可组合验）> npow/claude-skills（/deep-design 对抗迭代机制先试）。
+
+---
+
+## 2026-07-05 · cron 扫货轮（00:00）
+
+> 五轴全搜，去重后净新增 6 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **DeusData/codebase-memory-mcp** | 轴4 | 24.1k★ MIT 代码智能 MCP：tree-sitter AST 解析 158 语言 + Hybrid LSP 语义类型 → 持久化知识图谱（函数/类/调用链/HTTP 路由/跨服务链接），sub-ms 查询，声称比逐文件 grep 减少 99% tokens；单一静态 C 二进制零依赖，跨平台（macOS/Linux/Windows），14 个 MCP 工具，基准测试 83% 答案质量 | MIT ⏳称 | 低（zilliztech/claude-context 已登记为语义搜索，本品差异在 tree-sitter AST 知识图谱而非向量嵌入，且单二进制零安装门槛） | ⚪ 待装测·星数高=社区广泛验证，MIT 清，但预编译二进制=需验来源签名，代码智能轴优先级高 |
+| **anthropics/claude-plugins-official** | 多轴 | 官方 Anthropic 管理的 Claude Code 插件目录（2026-05-22 上线），55+ 精选插件含内部（Anthropic 维护）+ 外部（合作方/社区）两类，v2.1.143+ 自动预置，`/plugin` Tab→Discover 即可浏览安装；既是信源也是权威安全闸参考 | 官方 ⏳称 | 无（hesreallyhim/awesome-claude-code 是社区策展，本品是官方权威分发点，互补不重叠） | 🔵 信源·装测任何第三方 plugin 前先查本目录是否收录；官方收录=安全审查已过，优先信任 |
+| **rdmgator12/awesome-claude-connectors** | 轴4 | 追踪 Anthropic 官方 Claude Connectors 目录全量 554 个 MCP 集成（2026-07-02 更新），30 分类+描述+使用场景，覆盖 Claude.ai/Desktop/Mobile/Code 全平台，每周维护更新 | ⏳称 | 无（本品聚焦「官方验证 Connector」轴，与 awesome-claude-code 侧重社区 skill/hook 不同） | 🔵 信源·扫 MCP 轴新品时的首选查重参考，补 MCP 信源池 |
+| **rdmgator12/awesome-claude-plugins** | 多轴 | 追踪 Anthropic 官方 Claude Plugins 目录：257 个可安装 plugin 包（2026-06-18 更新），含 skills/MCP servers/slash 命令/sub-agents/hooks 组合包，225 个支持 Claude Code，覆盖 28 分类，每周维护 | ⏳称 | 无（本品追踪官方 plugin 生态，与其他 awesome 列表覆盖面互补） | 🔵 信源·扫 plugin 生态时与 anthropics/claude-plugins-official 并读，获完整分类视图 |
+| **kuuneruto-tech/mcp-server-antigravity** | 轴4 | Claude Code ↔ Google Antigravity（agy CLI）桥接 MCP：单工具 `ask_antigravity` 把 Claude 不擅长的任务委托给 Gemini Flash High（支持 thinking_depth low/high），补充网络搜索/图像生成/1M token 上下文；Google I/O 2026 当天（2026-05-20）发布，Node.js + @modelcontextprotocol/sdk | ⏳称 | 低（gstack WebSearch 是本地搜索，本品借 Antigravity quota 访问 Gemini 模型=跨模型分工；SinanTufekci 版已扫但读未记录文件更脆弱，本品直接 wrap agy 更稳） | ⚪ 待装测·需本地安装 Antigravity CLI（agy），跨模型分工场景明确，装前确认 agy 授权范围 |
+| **feiskyer/claude-code-settings** | 轴1+2+3+5 | "vibe coding 全家桶"：autonomous-skill（headless 多会话长任务执行器）、youtube-transcribe-skill、spec-kit-skill（spec 驱动开发，GitHub issue 自动修复）、kiro-skill、nanobanana-skill 等 5+ skills；附 hook（token 使用监控）+ agents + Chrome DevTools MCP 集成，`/plugin marketplace add feiskyer/claude-code-settings` 一行装 | ⏳称 | 中（autonomous-skill 与 gstack /loop 功能区重叠，但 headless 多会话长任务执行是差异；youtube-transcribe 与 wynandw87 YouTube MCP 侧重不同=转录 vs 分析） | 🔵 信源·穿透挑 autonomous-skill 和 spec-kit-skill 单颗装测，youtube-transcribe 可补 YouTube MCP 之外的轻量替代 |
+
+**本轮总结**：新增 6 项（1 个 ⚪待装测 MCP 强候选 + 1 个 ⚪待装测跨模型桥接 + 3 个 🔵信源 + 1 个 🔵信源穿透型）；无异常。装测优先：DeusData/codebase-memory-mcp（24.1k★ MIT，代码智能真空填空，先验二进制签名）> kuuneruto-tech/mcp-server-antigravity（Antigravity 用户可快速验跨模型分工效果）；信源：anthropics/claude-plugins-official 已是扫货基准参考，每轮查重必查。

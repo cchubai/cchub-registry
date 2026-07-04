@@ -1,0 +1,15 @@
+=== scout run 2026-07-05T00-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮扫货完成。新增 6 项：
+
+- **DeusData/codebase-memory-mcp**（轴4，⚪待装测）：24.1k★ MIT，tree-sitter AST 知识图谱，158 语言，单静态二进制零依赖，代码智能轴最强新候选
+- **anthropics/claude-plugins-official**（🔵信源）：官方 Anthropic 插件目录，2026-05-22 上线，55+ 精选，今后扫货查重必用
+- **rdmgator12/awesome-claude-connectors**（🔵信源）：554 个官方 MCP Connector 索引，MCP 轴查重新基准
+- **rdmgator12/awesome-claude-plugins**（🔵信源）：257 个官方 Plugin 包目录，覆盖 28 分类
+- **kuuneruto-tech/mcp-server-antigravity**（轴4，⚪待装测）：Claude ↔ Gemini 跨模型桥接 MCP，I/O 2026 当天发布
+- **feiskyer/claude-code-settings**（🔵信源穿透型）：vibe coding 全家桶，穿透挑 autonomous-skill 单颗有价值
+
+无异常，本轮无重复登记。
+--- git commit & push ---
