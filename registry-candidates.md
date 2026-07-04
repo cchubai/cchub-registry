@@ -269,3 +269,20 @@
 | **feiskyer/claude-code-settings** | 轴1+2+3+5 | "vibe coding 全家桶"：autonomous-skill（headless 多会话长任务执行器）、youtube-transcribe-skill、spec-kit-skill（spec 驱动开发，GitHub issue 自动修复）、kiro-skill、nanobanana-skill 等 5+ skills；附 hook（token 使用监控）+ agents + Chrome DevTools MCP 集成，`/plugin marketplace add feiskyer/claude-code-settings` 一行装 | ⏳称 | 中（autonomous-skill 与 gstack /loop 功能区重叠，但 headless 多会话长任务执行是差异；youtube-transcribe 与 wynandw87 YouTube MCP 侧重不同=转录 vs 分析） | 🔵 信源·穿透挑 autonomous-skill 和 spec-kit-skill 单颗装测，youtube-transcribe 可补 YouTube MCP 之外的轻量替代 |
 
 **本轮总结**：新增 6 项（1 个 ⚪待装测 MCP 强候选 + 1 个 ⚪待装测跨模型桥接 + 3 个 🔵信源 + 1 个 🔵信源穿透型）；无异常。装测优先：DeusData/codebase-memory-mcp（24.1k★ MIT，代码智能真空填空，先验二进制签名）> kuuneruto-tech/mcp-server-antigravity（Antigravity 用户可快速验跨模型分工效果）；信源：anthropics/claude-plugins-official 已是扫货基准参考，每轮查重必查。
+
+---
+
+## 2026-07-05 · cron 扫货轮（04:00）
+
+> 五轴全搜，去重后净新增 6 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **daxaur/openpaw** | 轴1+5 | 152★ MIT「npx pawmode」一行装的 38-skill 个人助理框架：Telegram/Discord/Obsidian/Spotify/智能家居/日历/email 全整合，Stop hook 每次会话蒸馏一条 takeaway 自学习，本地 kanban 任务看板，无 daemon 无云无订阅，设计哲学"一次运行写好配置然后消失" | MIT ⏳称 | 中（gstack auto memory 是 markdown 存取，本品补「个人助理层」——远超编码工具范畴，IM 和日历是真空；与 lihaoz-barry 通知 hook 互补） | ⚪ 待装测·个人助理定位独特，MIT 零云依赖，openpaw 整包先装测 |
+| **op7418/Claude-to-IM-skill** | 轴1 | 把 Claude Code/Codex 桥接到 Telegram/Discord/飞书 IM：工具调用时 IM 内弹出 Allow/Deny 权限确认，流式预览 Claude 输出，会话跨 daemon 重启持久化；有中文 README（README_CN.md），`/plugin marketplace add` 一行装 | ⏳称 | 低（gstack 无 IM 接入层；daxaur/openpaw 含 Telegram 但侧重「个人助理」，本品侧重「移动端远程操控 CC 会话」，互补） | 🟢 候选·有中文 README 对中文用户极相关，Telegram/Discord/飞书三平台覆盖，填 CC 移动端操控真空 |
+| **agamm/claude-code-owasp** | 轴1 | 266★ MIT 的 OWASP 安全编码纪律单颗 skill：OWASP Top 10:2025 + ASVS 5.0 + Agentic AI 安全（ASI01-ASI10）+ 20+ 语言安全 quirk，安全代码审查清单含输入处理/认证/访问控制/数据保护，无外部依赖 | MIT ⏳称 | 部分（elementalsouls/BugHunter 已登记=外部攻击面/漏洞挖掘，本品定位是「预防型安全编码纪律」——编码阶段而非红队阶段，视角互补；/cso 是 infra 审计，本品是代码层） | ⚪ 待装测·266★ MIT 零依赖，安全轴编码纪律层真空，装测成本极低 |
+| **kepano/obsidian-skills** | 轴1 | Obsidian 官方（kepano=Obsidian CEO）出品 agent 技能包：教 agent 用 Obsidian CLI + Markdown + Bases + JSON Canvas 格式，兼容 CC/Codex/OpenCode，仓内含 `.claude-plugin` 格式，多个社区 fork 验证采用 | ⏳称 | 低（gstack auto memory 存 markdown，本品补「agent 真正操作 Obsidian vault」——知识管理操作层，不是存储层；pablo-mano/Obsidian-CLI-skill 是同类但 130+ CLI 命令更厚重，本品官方轻量版） | ⚪ 待装测·Obsidian 官方出品=安全闸最松，Obsidian 用户直接价值高，轻量 |
+| **webdevtodayjason/claude-hooks** | 轴5 | npm 全局安装的 Claude Code Hooks Manager CLI（75★）：`claude-hooks` 交互式菜单管理 hooks，支持 install/list/create/edit/enable/disable/remove/config 全操作，编辑打开 $EDITOR，自动写入 settings.json；`npx claude-hooks` 即用 | ⏳称 | 低（karanb192/claude-code-hooks 是「内容集合」，本品是「hooks 管理工具」；两者互补——用本品管理 karanb192 的 hooks；gstack 无 hooks CLI 管理层） | ⚪ 待装测·管理工具视角填真空，npm 分发，装测成本低，可与 karanb192 组合 |
+| **AgriciDaniel/claude-cybersecurity** | 轴1+3 | AgriciDaniel 第三件品（继 claude-seo + claude-blog）：8 specialist agent 并行 OWASP 2025 代码审查（漏洞检测/授权验证/secret 扫描/供应链/IaC 安全/威胁情报/AI 代码模式/业务逻辑），11 种语言，零配置，CWE Top 25 + MITRE ATT&CK 映射 | ⏳称 | 中（agamm/claude-code-owasp 是编码纪律单 skill，本品是 8 agent 并行审计框架=更重但覆盖更全；mukul975/cve-mcp-server 是实时威胁情报，本品是静态代码审计；/cso 是 infra 层，本品是代码层） | ⚪ 待装测·与 claude-seo+claude-blog 同作者可组合装测，先验 vulnerability-detection 单 agent |
+
+**本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 0 个 🔵信源）；无异常。装测优先：op7418/Claude-to-IM-skill（🟢已评，中文 README，零依赖）> agamm/claude-code-owasp（266★ MIT 零依赖，安全纪律轴最轻装测件）> webdevtodayjason/claude-hooks（npm 一行装，hooks 管理工具填空）> kepano/obsidian-skills（Obsidian 官方出品，安全闸最松）。

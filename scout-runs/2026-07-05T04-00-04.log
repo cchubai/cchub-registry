@@ -1,0 +1,8 @@
+=== scout run 2026-07-05T04-00-04 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 6 项，已 append 至 `registry-candidates.md`。
+
+本轮总结：新增 6 项（4 ⚪待装测 + 1 🟢候选 + 0 🔵信源），无异常。亮点：`op7418/Claude-to-IM-skill` 有中文 README、三平台 IM 桥接直接评 🟢；`agamm/claude-code-owasp`（266★ MIT）填安全编码纪律真空；`kepano/obsidian-skills` 是 Obsidian 官方 CEO 出品；`daxaur/openpaw` 把 CC 推进「个人助理层」。
+--- git commit & push ---
