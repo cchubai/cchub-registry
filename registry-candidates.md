@@ -218,3 +218,21 @@
 | **elevenlabs/elevenlabs-mcp** | 轴4 | 官方 ElevenLabs MCP server：TTS/音效生成/音乐生成/声音克隆/语音转换/转录/人声分离 8 大能力，支持 29+ 语言、90+ 转录语言、Multilingual v3/Turbo/Flash/Scribe 模型，`npx @elevenlabs/elevenlabs-mcp` 一行装，官方维护 | ⏳称 | 无（gstack 无 TTS/音频生成轴，完全填空）；与 lihaoz-barry/claude-code-hooks TTS 通知互补（通知 vs 内容生产） | ⚪ 待装测·官方维护=安全闸松，需 ElevenLabs API key，媒体/播客/无障碍场景受众明确 |
 
 **本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：elevenlabs/elevenlabs-mcp（官方维护=安全闸最松）> wynandw87/claude-code-youtube-mcp（5 工具免 key 可快速验）> jefflester/claude-skills-supercharged（Haiku 自动注入概念独特，需验延迟影响）。
+
+---
+
+## 2026-07-04 · cron 扫货轮（16:00）
+
+> 五轴全搜，去重后净新增 7 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **EtanHey/cmuxlayer** | 轴4 | cmux MCP server：25 个工具覆盖 terminal agent 全生命周期——spawn/monitor/orchestrate Claude/Codex/Cursor/Gemini/Kiro 多种 agent，含 thinking-state 检测、chunked input、inbox 元通信；`claude mcp add cmuxlayer` 一行装，需本地 cmux 运行 | ⏳称 | 低（gstack Agent 工具是单进程编排，本品补「跨 terminal 进程间可视协调」层） | ⚪ 待装测·架构独特，25 工具含 kill/wait_for/resync，需 cmux 依赖，先验依赖链 |
+| **EtanHey/brainlayer** | 轴4 | 同一作者的持久记忆 MCP：SQLite + knowledge graph，12 个工具含 ToolAnnotations（semantic_search/store_memory/link_concepts），全本地无外部 API | ⏳称 | 中（与 thedotmack/claude-mem 和 yoloshii/ClawMem 同属记忆轴，差异在 knowledge graph 链路而非向量 RAG） | ⚪ 待装测·全本地=无 key，与 cmuxlayer 同作者可组合装测 |
+| **dvcrn/mcp-server-subagent** | 轴4 | 双向 parent↔subagent 通信 MCP：parent 派任务、子 agent 执行中途可向 parent 提问/汇报再获指导，适合长任务动态协商场景，支持 Claude Code/Aider/Q | ⏳称 | 低（gstack SendMessage 是单向推送，本品补「子 agent 主动问询」的双向协议） | ⚪ 待装测·双向通信机制独特，协议轻量，装测成本低 |
+| **RealMikeChong/ultra-mcp** | 轴4 | 多模型桥接 MCP：单接口暴露 GPT-5/Gemini 2.5 Pro(+Google Search)/Grok-4，25 个 discoverable prompt 覆盖全工具，`npx -y ultra-mcp install` 交互式配置，SQLite 本地用量统计，按 API key 自动路由模型 | ⏳称 | 低（gstack 无多模型统一接入层；与 Perplexity MCP 互补：后者专搜索，本品专多模型推理） | ⚪ 待装测·需各家 API key（OpenAI/Google/xAI 按需），官方 npm 包分发=安全闸较松 |
+| **disler/claude-code-hooks-multi-agent-observability** | 轴5 | disler 第二件品：全事件 hook 打点 → SQLite 持久 → Vue 3 实时仪表盘，追踪 12 种 hook 事件（含 SubagentStart/SubagentStop/PreCompact），支持对话历史随事件转发，Bun 驱动 TypeScript server | ⏳称 | 部分（disler/hooks-mastery 已登记=同作者，本品聚焦 observability/可视化，互补而不重叠） | ⚪ 待装测·需 Bun+Vue 3 前端，但 multi-agent 可视调试是真实痛点，hooks-mastery 用户自然升级 |
+| **gensecaihq/MCP-Developer-SubAgent** | 轴3 | 专门为 MCP 开发设计的 subagent 框架：8 个专精 agent（协议设计/FastMCP 实现/security audit/测试/文档/部署），内置安全 hook 检查，附 production-ready FastMCP server 模板，markdown-driven 无外部依赖 | ⏳称 | 无（gstack 无「辅助开发 MCP server 本身」的轴，细分受众=MCP 开发者） | ⚪ 待装测·细分受众明确，安全 hook 自带值得验，需确认 8 个 agent 各自自包含性 |
+| **jeremylongshore/claude-code-plugins-plus-skills** | 信源 | 1367 个 agent skill + 340 个 plugin 的开放市场，含 CCPI CLI package manager（`ccpi search`/`ccpi install`），互动教程 + 生产编排模式，覆盖 42 个 SaaS skill pack（1086 skill），tonsofskills.com 可检索 | ⏳称 | 无 | 🔵 信源·礼包规模最大候选之一，穿透挑 SaaS pack 单颗；CCPI CLI 机制值得参考 |
+
+**本轮总结**：新增 7 项（5 个 ⚪待装测 + 1 个 🔵信源 + 1 个 ⚪已含红旗）；无异常。装测优先：EtanHey/brainlayer（全本地，无 key）> dvcrn/mcp-server-subagent（协议轻量，双向通信独特）> RealMikeChong/ultra-mcp（npx 一行装，多模型填空）> disler/hooks-multi-agent-observability（hooks-mastery 用户的自然升级）。

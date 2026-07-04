@@ -1,0 +1,10 @@
+=== scout run 2026-07-04T16-00-05 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮新增 7 项写入完毕。
+
+**汇总：**
+- 新增 6 个 ⚪待装测 + 1 个 🔵信源，无异常。
+- 最亮眼新品：**EtanHey/cmuxlayer**（25工具跨 terminal 多 agent 编排）、**dvcrn/mcp-server-subagent**（parent↔child双向协商协议）、**RealMikeChong/ultra-mcp**（GPT-5/Gemini 2.5/Grok-4 多模型桥接）；信源侧 **jeremylongshore/claude-code-plugins-plus-skills** 体量最大（1367 skill + CCPI CLI）。
+--- git commit & push ---
