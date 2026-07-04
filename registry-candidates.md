@@ -186,3 +186,19 @@
 | **travisvn/awesome-claude-skills** | 信源 | 专注 Claude Skills 的 curated awesome 列表，聚合社区 skill 仓库+工具+资源，与 hesreallyhim/awesome-claude-code 互补（后者更宽，本品更深 skill 轴） | ⏳称 | 无 | 🔵 信源·skill 轴扫货的专项信源，与 awesome-claude-code 并列参考 |
 
 **本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 1 个 🔵信源）；无异常。装测优先：vlad-ko/claude-wizard（🟢品味最高，8 阶段编排 battle-tested）> valorisa/rescue-tokens（零依赖，token 成本痛点直击）> matlugert/tdd-skill（最轻，可快速验）> supatest-ai（MIT，决策型定位独特）。
+
+---
+
+## 2026-07-04 · cron 扫货轮（08:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **iannuttall/claude-sessions** | 轴2 | 1.1k★ 的跨会话连续性 slash 命令集：/session-start、/session-end、/session-resume 等，结构化记录「做了什么/为什么决策/下步是什么」，解决 Claude Code 会话断点失忆问题，X 上作者称「每周省 2-3 小时」 | ⏳称 | 低（gstack auto memory 是向量/markdown，本品是轻量 session 日志 slash 命令，互补） | ⚪ 待装测·1.1k★ 社区验证，零依赖，优先验自包含性 |
+| **AgriciDaniel/claude-seo** | 轴1+3 | 25 sub-skills + 18 sub-agents 的 SEO 全栈审计套件：technical SEO/E-E-A-T/Schema.org/GEO（AI 搜索优化）/local SEO/e-commerce SEO，编排器同时调度最多 15 个 agent，MIT 开源，可选 DataForSEO/Firecrawl/Banana 扩展，全离线运行（不接 Google API 时） | MIT ⏳称 | 无（gstack 无 SEO/AEO 轴，完全填空） | ⚪ 待装测·MIT+细分受众清晰（SEO 从业者/内容团队），先验核心 seo skill 单颗 |
+| **AgriciDaniel/claude-blog** | 轴1+3 | claude-seo 同一作者的博客内容生产套件：30 sub-skills + 5 agents + 5 门 v1.9.0「交付合约」(Capability/Format/Visual/Content/Asset 五闸)，每篇草稿最多迭代 3 次才升级人工介入，双优化（Google E-E-A-T + AI 引用 GEO/AEO），兼容 Next.js MDX/Astro/Hugo/WordPress/Ghost 等 8 CMS | ⏳称 | 无（gstack 无内容营销轴） | ⚪ 待装测·与 claude-seo 同作者可组合，博主/内容团队细分受众明确 |
+| **luongnv89/claude-howto** | 信源 | CC 版本同步的可视化入门教程仓：copy-paste 模板覆盖 slash 命令/memory/hooks/skills/agents/plugins/CLI，含学习路线图（15 分钟速成→11-13 小时完整路径），v2.1.160（2026-06）随版本持续更新 | ⏳称 | 无 | 🔵 信源·新手上手文档参考，编写 CCHub 中文教程时查原型模板 |
+| **ComposioHQ/awesome-claude-skills** | 信源 | Composio 官方维护的 1000+ skills 策展列表，强调跨平台（CC/Codex/Cursor/Gemini CLI/Antigravity/Windsurf），内置 connect-apps 插件（500+ 外部 app 动作），与 travisvn/awesome-claude-skills 互补（后者社区驱动，本品 Composio 生态加权） | ⏳称 | 无 | 🔵 信源·补 travisvn 之外第二个 skill 索引源，穿透挑 Composio 连接类 skill 单品 |
+
+**本轮总结**：新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：iannuttall/claude-sessions（零依赖，session 连续性真实痛点）> AgriciDaniel/claude-seo（MIT，SEO 真空填空）> AgriciDaniel/claude-blog（可与 claude-seo 组合装测）。

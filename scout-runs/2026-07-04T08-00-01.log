@@ -1,0 +1,13 @@
+=== scout run 2026-07-04T08-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮新增 5 项（3 个 ⚪待装测 + 2 个 🔵信源），无异常。
+
+新品速览：
+- **iannuttall/claude-sessions**（轴2）：1.1k★ 跨会话连续性 slash 命令，session-start/end/resume，零依赖
+- **AgriciDaniel/claude-seo**（轴1+3）：MIT，25 sub-skills + 18 sub-agents SEO 全栈审计，gstack 完全真空
+- **AgriciDaniel/claude-blog**（轴1+3）：同作者博客内容套件，5 门交付合约，8 CMS 兼容，可与 claude-seo 组合
+- **luongnv89/claude-howto**（🔵信源）：CC 版本同步的可视化教程，随版本持续更新
+- **ComposioHQ/awesome-claude-skills**（🔵信源）：Composio 官方 1000+ skills 策展，补 travisvn 之外第二个索引源
+--- git commit & push ---

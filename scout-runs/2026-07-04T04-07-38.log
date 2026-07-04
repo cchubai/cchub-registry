@@ -4,3 +4,9 @@ Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 API Error: Connection closed mid-response. The response above may be incomplete.
 --- git commit & push ---
+[main 9430aa2] chore(scout): cron 自动扫货轮 2026-07-04T04-07-38
+ 2 files changed, 12 insertions(+)
+ create mode 100644 scout-runs/2026-07-04T04-07-38.log
+To https://github.com/cchubai/cchub-registry.git
+   5cfd7eb..9430aa2  main -> main
+=== done 2026-07-04T04-07-38 ===
