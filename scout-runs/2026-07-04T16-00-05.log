@@ -8,3 +8,9 @@ Already up to date.
 - 新增 6 个 ⚪待装测 + 1 个 🔵信源，无异常。
 - 最亮眼新品：**EtanHey/cmuxlayer**（25工具跨 terminal 多 agent 编排）、**dvcrn/mcp-server-subagent**（parent↔child双向协商协议）、**RealMikeChong/ultra-mcp**（GPT-5/Gemini 2.5/Grok-4 多模型桥接）；信源侧 **jeremylongshore/claude-code-plugins-plus-skills** 体量最大（1367 skill + CCPI CLI）。
 --- git commit & push ---
+[main 128a90d] chore(scout): cron 自动扫货轮 2026-07-04T16-00-05
+ 3 files changed, 34 insertions(+)
+ create mode 100644 scout-runs/2026-07-04T16-00-05.log
+To https://github.com/cchubai/cchub-registry.git
+   a0e02e2..128a90d  main -> main
+=== done 2026-07-04T16-00-05 ===

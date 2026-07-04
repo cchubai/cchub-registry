@@ -1,0 +1,16 @@
+=== scout run 2026-07-04T20-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 5 个候选已写入 `registry-candidates.md`，新建节 `## 2026-07-04 · cron 扫货轮（20:00）`：
+
+| 候选 | 轴 | 裁决 |
+|---|---|---|
+| **ChromeDevTools/chrome-devtools-mcp** | 轴4 | ⚪待装测·Google 官方 Apache-2.0，DevTools 调试填空 |
+| **npow/claude-skills** | 轴1+2 | ⚪待装测·/deep-design 对抗批评迭代机制独特 |
+| **wan-huiyan/agent-review-panel** | 轴1+3 | 🟢候选·MIT 零依赖，4-6 审查员+裁判+anti-groupthink |
+| **agiprolabs/claude-trading-skills** | 轴1 | ⚪待装测·MIT，DeFi/Solana 链上量化真空填空 |
+| **shakeebshaan/claude-code-quant-skills** | 轴1+2+5 | ⚪待装测·传统量化三件套，与 agiprolabs 互补 |
+
+**总结**：本轮新增 5 项（1 个 🟢候选 + 4 个 ⚪待装测）；无异常。本轮特色是量化金融轴（DeFi+传统 quant 双件套）首次进入注册表，以及 Google 官方 Chrome DevTools MCP 填补调试层真空。
+--- git commit & push ---

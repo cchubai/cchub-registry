@@ -236,3 +236,19 @@
 | **jeremylongshore/claude-code-plugins-plus-skills** | 信源 | 1367 个 agent skill + 340 个 plugin 的开放市场，含 CCPI CLI package manager（`ccpi search`/`ccpi install`），互动教程 + 生产编排模式，覆盖 42 个 SaaS skill pack（1086 skill），tonsofskills.com 可检索 | ⏳称 | 无 | 🔵 信源·礼包规模最大候选之一，穿透挑 SaaS pack 单颗；CCPI CLI 机制值得参考 |
 
 **本轮总结**：新增 7 项（5 个 ⚪待装测 + 1 个 🔵信源 + 1 个 ⚪已含红旗）；无异常。装测优先：EtanHey/brainlayer（全本地，无 key）> dvcrn/mcp-server-subagent（协议轻量，双向通信独特）> RealMikeChong/ultra-mcp（npx 一行装，多模型填空）> disler/hooks-multi-agent-observability（hooks-mastery 用户的自然升级）。
+
+---
+
+## 2026-07-04 · cron 扫货轮（20:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **ChromeDevTools/chrome-devtools-mcp** | 轴4 | Google 官方 Chrome DevTools MCP（Apache-2.0）：26 工具覆盖输入/导航/性能录制/网络分析/调试/内存检查，让 coding agent 直接操控并审查活跃 Chrome 进程；`npx @chrome-devtools/chrome-devtools-mcp` 一行装，v0.21.0（2026-04 已 43 个 release） | Apache-2.0 ⏳称 | 低（gstack Playwright MCP 是「浏览器自动化」，本品是「DevTools 调试/性能层」，互补而非重叠） | ⚪ 待装测·Google 官方维护=安全闸最松，DevTools 调试场景在前端/性能优化轴填真空 |
+| **npow/claude-skills** | 轴1+2 | 生产级多步骤 workflow slash 命令集：/ship-it（并行 subagent 带质量门全链路交付）、/deep-design（并行批评者对抗压测设计规格，迭代至缺陷饱和）、/competitive-matrix（市场研究→浏览器交互矩阵可视化）、/init-github-repo（JTBD README+CI/CD），每颗独立 .md 目录 | ⏳称 | 低（gstack /investigate 是探索型，本品 /deep-design 是「对抗批评直到饱和」纪律型；/ship-it 与 vlad-ko/claude-wizard 思路相近但更模块化） | ⚪ 待装测·/deep-design 对抗迭代机制品味独特，/ship-it 作为 wizard 参照系先验 |
+| **wan-huiyan/agent-review-panel** | 轴1+3 | MIT 开源单颗 skill：4-6 位 AI 审查员围坐辩论代码/计划，最后由 supreme judge 裁决；9 个自动检测信号组（代码/架构/安全等自动路由），内置 domain checklist，「反群体思维机制」阻止一致赞同；443 测试零外部依赖，`/roundtable:agent-review-panel` 召唤 | MIT ⏳称 | 低（gstack /code-review 是单一审查，本品是「多审查员辩论＋裁判」对抗结构；vlad-ko/claude-wizard 有 adversarial-critic 但仅1对1，本品 4-6 对 1 是差异） | 🟢 候选·MIT、零依赖、anti-groupthink 机制独特，方法论轴高品味补充，优先装测 |
+| **agiprolabs/claude-trading-skills** | 轴1 | 67 个 DeFi/量化金融 Agent Skill（MIT）：链上分析（Solana RPC/Helius API）、DEX 执行（默认 simulation 模式）、回测、税务合规（Koinly/IRS Form 8949 格式输出），覆盖 Claude Code/Cursor/Codex/Gemini CLI 等 30+ 工具 | MIT ⏳称 | 无（金融/DeFi 是 gstack 真空，agiprolabs 侧重 DeFi/链上，与 shakeebshaan 传统量化互补） | ⚪ 待装测·MIT，DeFi 细分受众明确（Solana 开发者/量化交易者），DEX 执行默认 simulation=安全阀自带 |
+| **shakeebshaan/claude-code-quant-skills** | 轴1+2+5 | 传统量化研究专项三件套：skill（回测审计「挑剔的风控经理」视角 + 指标设计 pandas 向量化对话式生成）+ slash 命令 + hook，聚焦因子/策略/风险分析全链路，MIT，与 agiprolabs 互补（后者链上/DeFi-native，本品经典 quant） | MIT ⏳称 | 无（传统量化 gstack 真空，与 agiprolabs DeFi 视角并列但不重叠） | ⚪ 待装测·三件套组合完整度高，MIT，可与 agiprolabs 一并作「量化金融轴」双件套装测 |
+
+**本轮总结**：新增 5 项（4 个 ⚪待装测 + 1 个 🟢候选）；无异常。装测优先：wan-huiyan/agent-review-panel（🟢 MIT 零依赖，anti-groupthink 独特）> ChromeDevTools/chrome-devtools-mcp（官方 Apache-2.0，DevTools 真空填空）> agiprolabs/claude-trading-skills + shakeebshaan/claude-code-quant-skills（量化金融轴双件套，MIT，可组合验）> npow/claude-skills（/deep-design 对抗迭代机制先试）。
