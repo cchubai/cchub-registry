@@ -319,3 +319,19 @@
 | **ccplugins/awesome-claude-code-plugins** | 信源 | 118 个可安装 plugin（34 命令 + 16 agent），按 `.claude-plugin` 新格式打包，含 claude-desktop-extension、security-guidance 等实用包，ccplugins 组织专门维护，与 rdmgator12/awesome-claude-plugins（官方 Anthropic 追踪）互补 | ⏳称 | 无 | 🔵 信源·plugin 新格式的社区策展参考，穿透挑 security-guidance 单品装测 |
 
 **本轮总结**：新增 6 项（5 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：mohitagw15856/pm-claude-skills（官方目录，PM 真空填空，npx 一行装）> amtiYo/agents（跨工具 config 同步，零云依赖）> mkXultra/ai-cli-mcp（多 AI CLI 后台编排）> Dokkabei97/all-agents-mcp（多 CLI 对比模式）> nyldn/claude-octopus（8 模型共识门，需各 CLI 预装）。
+
+---
+
+## 2026-07-05 · cron 扫货轮（16:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **EpicGames/unreal-engine-skills-for-claude-code-plugin** | 轴4+1 | Epic Games 官方出品：通过 MCP 让 Claude Code 直接操控 Unreal Editor——spawn/transform actor、编辑 Blueprint/材质/Niagara/Sequencer/Control Rig、C++ Live Coding 重编译；另含 author-new-ai-callable-toolsets 和 agent skills 两组技能；110★，99 fork，2026-06-25 最新更新，`.claude-plugin` 格式单仓注册安装 | MIT ⏳称 | 无（gstack 无游戏引擎/UE 轴，完全填空；Epic Games 出品=安全闸最松） | 🟢 候选·官方大厂背书，UE 开发者直接价值，安全轴几乎免审，优先装测 |
+| **K-Dense-AI/claude-skills-mcp** | 轴4 | 元工具：MCP server 通过向量语义搜索帮你「找到对的 skill」——加载 Anthropic 官方 ~90 skills + K-Dense AI 78+ 科学技能（生物信息/化学信息/数据分析），暴露 find_skills/list_skills/get_skill_doc 三工具；PyTorch + sentence-transformers 本地向量，首次约 250MB 下载后缓存 | ⏳称 | 低（gstack 无 skill 语义发现轴；已有 travisvn/awesome-claude-skills 是人工索引，本品是 AI 语义检索互补） | ⚪ 待装测·概念独特（skill 的 skill），需验首次下载后响应延迟，科学研究用户额外获得 78+ 领域专精 |
+| **trailofbits/claude-code-config** | 轴5+1 | Trail of Bits 官方全局 CLAUDE.md 模板 + settings.json 安全默认值：明确禁止 rm -rf/危险命令、GitHub Actions 必须 SHA pin + zizmor 扫描、Python/Node/Rust/Bash 各语言工具链规范、"无推测特性/无过早抽象/替换不弃用"开发哲学，附 review-pr 和 merge-dependabot 两条 slash 命令 | ⏳称 | 部分（trailofbits/skills 已登记=专项安全 skill，本品是「项目配置规范层」，互补；与 gstack careful 概念重叠但本品是 CLAUDE.md 纪律层而非 hook 拦截层） | ⚪ 待装测·安全顶级机构出品的「项目配置模板」，可作 CCHub 推荐给团队的默认配置基线，装测成本极低（仅复制 CLAUDE.md） |
+| **henkisdabro/wookstar-claude-plugins** | 轴1+3 | 数字营销垂直插件包（GA/GTM/Shopify/Google Ads）：Google Analytics 4 + Tag Manager 调试 skills、Shopify Liquid/GraphQL/OS 2.0/Hydrogen skill（API 2026-01 版）、Codex/Gemini 外包 agent（把 Claude 不擅长任务路由到其他 AI CLI）、email 草稿人性化 hook，`/plugin install` 一行装，按需触发无 slash 前缀 | ⏳称 | 低（gstack 无数字营销/电商轴；Codex/Gemini 路由 agent 与 Dokkabei97/all-agents-mcp 路由方式不同=插件层触发 vs MCP 层） | ⚪ 待装测·数字营销垂直填空（GA/GTM/Shopify 是开发+营销团队常见组合），先验 shopify skill 单颗 |
+| **steven823tw/claude-standalone-skills** | 轴1 | 22 个独立 SKILL.md 文件，1:1 复刻 @claude-plugins-official 官方插件功能（agent-sdk-dev/code-review/security-guidance/frontend-design/playwright/context7 等），专为「第三方推理网关屏蔽 plugin system」场景设计，直接放入 ~/.claude/skills/ 即用，无 plugin 依赖 | ⏳称 | 中（与 anthropics/claude-plugins-official 内容重叠，但本品解决「组织部署无法用 /plugin 命令」的障碍，互为备份方案） | ⚪ 待装测·使用场景精确（plugin 系统被屏蔽的企业/团队），轻量零依赖，可即取即用 |
+
+**本轮总结**：新增 5 项（4 个 ⚪待装测 + 1 个 🟢候选）；无异常。装测优先：EpicGames/unreal-engine-skills-for-claude-code-plugin（🟢官方大厂 MIT，UE 开发者直接用）> trailofbits/claude-code-config（Trail of Bits 全局配置模板，可作团队基线，零装测门槛）> K-Dense-AI/claude-skills-mcp（skill 发现工具，需验延迟）> steven823tw/claude-standalone-skills（plugin 系统受限用户的备份方案）。
