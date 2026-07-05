@@ -4,3 +4,9 @@ Already up to date.
 --- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
 新增 5 个候选，已写入 `registry-candidates.md`。本轮亮点是 Epic Games 官方的 Unreal Engine 插件（MIT，游戏引擎轴首个条目），以及 Trail of Bits 全局配置模板（安全机构背书的 CLAUDE.md 基线）和 K-Dense AI 的语义 skill 发现 MCP（元工具）。
 --- git commit & push ---
+[main e3bcb3d] chore(scout): cron 自动扫货轮 2026-07-05T16-00-05
+ 3 files changed, 28 insertions(+)
+ create mode 100644 scout-runs/2026-07-05T16-00-05.log
+To https://github.com/cchubai/cchub-registry.git
+   08124f1..e3bcb3d  main -> main
+=== done 2026-07-05T16-00-05 ===

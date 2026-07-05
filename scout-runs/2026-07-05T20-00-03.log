@@ -1,0 +1,8 @@
+=== scout run 2026-07-05T20-00-03 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮扫货完毕。新增 5 个（2 个 🟢候选 + 2 个 ⚪待装测 + 1 个 🔵信源），无异常。
+
+最值得关注的是 **JuliusBrussee/caveman**（83k★，Claude 说话"穴居人模式"削减 65% 输出 token）和 **kpab/claude-fable-5-skills**（10 个专为 Fable 5 重写的行为铁律 skill，填升级后适配真空）——两者均零依赖 MIT，可直接装测。
+--- git commit & push ---

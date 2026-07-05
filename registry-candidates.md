@@ -335,3 +335,19 @@
 | **steven823tw/claude-standalone-skills** | 轴1 | 22 个独立 SKILL.md 文件，1:1 复刻 @claude-plugins-official 官方插件功能（agent-sdk-dev/code-review/security-guidance/frontend-design/playwright/context7 等），专为「第三方推理网关屏蔽 plugin system」场景设计，直接放入 ~/.claude/skills/ 即用，无 plugin 依赖 | ⏳称 | 中（与 anthropics/claude-plugins-official 内容重叠，但本品解决「组织部署无法用 /plugin 命令」的障碍，互为备份方案） | ⚪ 待装测·使用场景精确（plugin 系统被屏蔽的企业/团队），轻量零依赖，可即取即用 |
 
 **本轮总结**：新增 5 项（4 个 ⚪待装测 + 1 个 🟢候选）；无异常。装测优先：EpicGames/unreal-engine-skills-for-claude-code-plugin（🟢官方大厂 MIT，UE 开发者直接用）> trailofbits/claude-code-config（Trail of Bits 全局配置模板，可作团队基线，零装测门槛）> K-Dense-AI/claude-skills-mcp（skill 发现工具，需验延迟）> steven823tw/claude-standalone-skills（plugin 系统受限用户的备份方案）。
+
+---
+
+## 2026-07-05 · cron 扫货轮（20:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **JuliusBrussee/caveman** | 轴1 | 83k★ 爆款 token 省钱 skill：让 Claude 以"穴居人说话"模式回复——剥除叙述/客套/套话，代码/命令/错误原样保留，实测平均削减 65% 输出 token（22–87% 区间），兼容 Codex/Gemini/Cursor/Copilot 等 30+ 平台；单颗 SKILL.md + CLAUDE.md，零依赖；Brevity Constraints 学术论文佐证：简洁约束令大模型准确度+26 点 | MIT ⏳称 | 低（valorisa/rescue-tokens 已登记是方法论层成本管理，本品是"说话行为层"削减，互补；两者可叠加） | 🟢 候选·83k★ 社区共识最强，零依赖即取即用，先装测验实际 token 节省与代码质量的 tradeoff |
+| **kpab/claude-fable-5-skills** | 轴1 | 10 个 Fable 5 原生 agent skills，专为 Fable 5「不需保姆」行为重写旧模型"过度指令"：no-gold-plating（diff 只改必改行）/ act-when-ready（信息足够即行动，不再罗列选项）/ effort-calibration / scope-control / subagent-orchestration 等，已提交 awesome-claude-code issue #2164，blindtest 14 题赢 12 | MIT ⏳称 | 无（现有 skill 均未专门适配 Fable 5 新行为；karpathy-guidelines 是行为铁律但与模型版本无关；本品填 Fable 5 迁移适配真空） | 🟢 候选·填 Fable 5 升级后的真空，MIT，单颗即取，no-gold-plating 直接与 gstack karpathy-guidelines 互补 |
+| **mukul975/Anthropic-Cybersecurity-Skills** | 轴1 | 23.6k★ Apache 2.0，817 个结构化网络安全 skill，29 个安全领域，六框架全映射（MITRE ATT&CK/NIST CSF 2.0/MITRE ATLAS/D3FEND/NIST AI RMF/MITRE F3 反欺诈），覆盖 Claude Code/Copilot/Codex/Cursor/Gemini 等 20+ 平台，同作者另有 cve-mcp-server（已登记）但本品是 skill 而非 MCP | Apache 2.0 ⏳称 | 中（mukul975/cve-mcp-server 已登记是实时威胁情报 MCP；agamm/claude-code-owasp 是编码纪律单颗；trailofbits/skills 是专项审计；本品是防守型六框架结构化技能库，是信源而非单颗） | 🔵 信源·礼包型→穿透挑框架映射最全的防守技能单品，如 github-advanced-security/implementing-cve 先装测；六框架映射是本品独特价值 |
+| **Security-Phoenix-demo/security-skills-claude-code** | 轴1+3 | Phoenix Security 工程团队出品：搜索 595+ 威胁情报源 + 生成 opengrep/semgrep SAST 规则（30+ 语言）+ STRIDE 威胁建模 + NotebookLM 引用研究 + 活文档自动生成，每条 skill 蒸馏 Phoenix 平台能力的本地版，无需 Phoenix 后端，MIT，Claude Marketplace 已收录 | MIT ⏳称 | 低（agamm/claude-code-owasp 是编码纪律静态层；trailofbits/skills 是合约/actions 专项；本品聚焦「威胁情报查询 + SAST 规则生成」运营层，三者形成安全全链路） | ⚪ 待装测·MIT，Marketplace 已收录=安全审查已过，先验 SAST 规则生成 skill（30 语言覆盖是稀有轴） |
+| **levnikolaevich/claude-code-skills** | 轴1+4 | 全交付生命周期 plugin 套件 + 4 个捆绑 MCP server：hex-line（每行带内容 hash，强制 agent 验当前文件版本再编辑，防幻觉覆写）/ hex-graph（SQLite 代码知识图谱，framework-aware SCIP 互操作）/ hex-ssh（hash 验证远程机器编辑 + SFTP）/ hex-research（研究图谱索引 hypothesis/goal/task）；含 Agile pipeline 多模型 AI 评审 + codebase audit + docs 生成，有文档站 | ⏳称 | 中（DeusData/codebase-memory-mcp 是 tree-sitter AST 知识图谱，本品 hex-graph 是 SQLite 依赖图；hex-line 「hash 验证编辑」是独有机制，无已登记品覆盖） | ⚪ 待装测·框架型，先穿透验 hex-line MCP（hash 验证编辑填防幻觉覆写真空，是本套件最独特价值） |
+
+**本轮总结**：新增 5 项（2 个 🟢候选 + 2 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：JuliusBrussee/caveman（🟢 83k★ 零依赖，先验 token 节省与质量 tradeoff）> kpab/claude-fable-5-skills（🟢 Fable 5 迁移适配真空，MIT 即取）> Security-Phoenix-demo（MIT+Marketplace 审查已过，SAST 规则生成稀有）> levnikolaevich/hex-line 单 MCP 先验（防幻觉覆写独特机制）。
