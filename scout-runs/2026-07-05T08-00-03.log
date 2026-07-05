@@ -1,0 +1,8 @@
+=== scout run 2026-07-05T08-00-03 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮完成。新增 5 项（3 个 🟢候选 + 2 个 ⚪待装测），无异常。
+
+本轮亮点：安全工具类集中爆发——**trailofbits/skills**（顶级安全机构官方出品，安全闸极松）、**huifer/skill-security-scan**（CCHub 审查 SOP 可直接用的 skill 安全扫描器）、**revfactory/harness**（L3 元层 meta-skill，自动生成 agent 团队架构，中韩双语），三者均评 🟢。
+--- git commit & push ---

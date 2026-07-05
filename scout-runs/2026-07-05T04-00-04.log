@@ -6,3 +6,9 @@ Already up to date.
 
 本轮总结：新增 6 项（4 ⚪待装测 + 1 🟢候选 + 0 🔵信源），无异常。亮点：`op7418/Claude-to-IM-skill` 有中文 README、三平台 IM 桥接直接评 🟢；`agamm/claude-code-owasp`（266★ MIT）填安全编码纪律真空；`kepano/obsidian-skills` 是 Obsidian 官方 CEO 出品；`daxaur/openpaw` 把 CC 推进「个人助理层」。
 --- git commit & push ---
+[main 96a9d18] chore(scout): cron 自动扫货轮 2026-07-05T04-00-04
+ 3 files changed, 31 insertions(+)
+ create mode 100644 scout-runs/2026-07-05T04-00-04.log
+To https://github.com/cchubai/cchub-registry.git
+   edd82a7..96a9d18  main -> main
+=== done 2026-07-05T04-00-04 ===

@@ -286,3 +286,19 @@
 | **AgriciDaniel/claude-cybersecurity** | 轴1+3 | AgriciDaniel 第三件品（继 claude-seo + claude-blog）：8 specialist agent 并行 OWASP 2025 代码审查（漏洞检测/授权验证/secret 扫描/供应链/IaC 安全/威胁情报/AI 代码模式/业务逻辑），11 种语言，零配置，CWE Top 25 + MITRE ATT&CK 映射 | ⏳称 | 中（agamm/claude-code-owasp 是编码纪律单 skill，本品是 8 agent 并行审计框架=更重但覆盖更全；mukul975/cve-mcp-server 是实时威胁情报，本品是静态代码审计；/cso 是 infra 层，本品是代码层） | ⚪ 待装测·与 claude-seo+claude-blog 同作者可组合装测，先验 vulnerability-detection 单 agent |
 
 **本轮总结**：新增 6 项（4 个 ⚪待装测 + 1 个 🟢候选 + 0 个 🔵信源）；无异常。装测优先：op7418/Claude-to-IM-skill（🟢已评，中文 README，零依赖）> agamm/claude-code-owasp（266★ MIT 零依赖，安全纪律轴最轻装测件）> webdevtodayjason/claude-hooks（npm 一行装，hooks 管理工具填空）> kepano/obsidian-skills（Obsidian 官方出品，安全闸最松）。
+
+---
+
+## 2026-07-05 · cron 扫货轮（08:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **trailofbits/skills** | 轴1/2/3/5 | Trail of Bits 顶级安全机构官方 Claude Code skill marketplace：`audit-context-building`（逐行建心智模型）/ `trailmark`（source-code graph 安全图分析）/ `agentic-actions-auditor`（GitHub Actions AI 集成安全审计）/ `testing-handbook-skills`，`.claude-plugin` 格式，`/plugin marketplace add` 一行接入；Trail of Bits 出品 Slither/Manticore 等顶级安全工具 | ⏳称 | 部分（与 agamm/claude-code-owasp 编码纪律互补；本品覆盖合约/actions/逆向工程审计，视角更专业更深） | 🟢 候选·安全专业机构背书=安全闸极松，`trailmark` graph 分析和 `agentic-actions-auditor` 独特，安全轴最高品味补充 |
+| **revfactory/harness** | 轴1/3 | L3 Meta-Factory 元 skill：一句「build a harness for this project」→ 自动生成 `.claude/agents/` agent 定义 + `.claude/skills/` skill 文件，支持 pipeline/fan-out/expert-pool/supervisor 等 6 种团队架构；15 任务 A/B 测试质量从 49.5 升至 79.3（+60%），有中文/韩文 README，MIT；配套 `harness-100`（100 生产级预制 harness，中/英双语） | MIT ⏳称 | 低（gstack 有 Workflow/Agent 原语，但「从领域描述自动生成 agent 团队架构」是 L3 层，是真空地带） | 🟢 候选·Meta-Factory 层独一无二，MIT，中韩双语对亚洲用户友好，装测后可作 harness 设计范本 |
+| **huifer/skill-security-scan** | 工具类 | CCHub 策展流程专用——安装第三方 skill 前先跑扫描：`pip install skill-security-scan`，自动扫 `.claude/skills/` 中的 network/file/cmd/代码注入风险，0-100 风险评分，中英双语界面，HTML/JSON/console 报告，自定义规则+白名单；中文技术文章有原理解析 | ⏳称 | 无（gstack 无 skill 安全扫描轴；本品填的是「策展人验收工具」真空，CCHub 上架流程直接用得上） | 🟢 候选·定位独特（不是 skill，是 skill 审查工具），中文原生，pip 安装零环境依赖，立即纳入 CCHub 审查 SOP |
+| **BeehiveInnovations/pal-mcp-server** | 轴4 | 多模型对话线程 MCP：Claude Code/Gemini CLI/Codex CLI + OpenAI/Grok/Ollama/Azure/OpenRouter 等多家模型在同一会话中协作推理（context revival 跨工具保持），支持 code review→planning→implementation→验证完整链路，自动配置 Claude Desktop/Code/Gemini CLI，git clone + setup 脚本一键装 | ⏳称 | 中（RealMikeChong/ultra-mcp 已登记=多模型统一接入，本品差异在「conversation threading 跨模型」——模型间可互相讨论而非只是单次路由） | ⚪ 待装测·需各家 API key，conversation threading 机制独特值得验，先测双模型对话效果 |
+| **johnlindquist/claude-hooks** | 轴5 | TypeScript 强类型 hook 系统，由 Kit.app/Script Kit 作者出品：PreToolUse/PostToolUse/Notification/Stop 全事件强类型 payload，自动补全+类型推断，session 日志写系统 tmp，npm 分发（`npx`），有技术 gist 深度讲解 subagent + hooks 协作模式 | ⏳称 | 部分（karanb192/claude-code-hooks 是 copy-paste 内容集，本品是 TypeScript 框架——目标用户：想用 TS 写 hook 逻辑的开发者；webdevtodayjason/claude-hooks 是 CLI 管理工具，本品是编写层） | ⚪ 待装测·npm 分发，TypeScript 用户自然选择，与 karanb192+webdevtodayjason 合成完整 hook 工具链 |
+
+**本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🟢候选）；安全工具类本轮集中（trailofbits + huifer），无异常。装测优先：trailofbits/skills（🟢专业机构，安全轴标杆）> revfactory/harness（🟢MIT，L3 元层独特，中韩双语）> huifer/skill-security-scan（🟢立即纳入 CCHub 审查 SOP）> johnlindquist/claude-hooks（TS 类型安全 hook 框架）> BeehiveInnovations/pal-mcp-server（多模型 threading，需验实际效果）。
