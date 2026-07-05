@@ -351,3 +351,19 @@
 | **levnikolaevich/claude-code-skills** | 轴1+4 | 全交付生命周期 plugin 套件 + 4 个捆绑 MCP server：hex-line（每行带内容 hash，强制 agent 验当前文件版本再编辑，防幻觉覆写）/ hex-graph（SQLite 代码知识图谱，framework-aware SCIP 互操作）/ hex-ssh（hash 验证远程机器编辑 + SFTP）/ hex-research（研究图谱索引 hypothesis/goal/task）；含 Agile pipeline 多模型 AI 评审 + codebase audit + docs 生成，有文档站 | ⏳称 | 中（DeusData/codebase-memory-mcp 是 tree-sitter AST 知识图谱，本品 hex-graph 是 SQLite 依赖图；hex-line 「hash 验证编辑」是独有机制，无已登记品覆盖） | ⚪ 待装测·框架型，先穿透验 hex-line MCP（hash 验证编辑填防幻觉覆写真空，是本套件最独特价值） |
 
 **本轮总结**：新增 5 项（2 个 🟢候选 + 2 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：JuliusBrussee/caveman（🟢 83k★ 零依赖，先验 token 节省与质量 tradeoff）> kpab/claude-fable-5-skills（🟢 Fable 5 迁移适配真空，MIT 即取）> Security-Phoenix-demo（MIT+Marketplace 审查已过，SAST 规则生成稀有）> levnikolaevich/hex-line 单 MCP 先验（防幻觉覆写独特机制）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（00:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **WorldFlowAI/everything-claude-code** | 多轴 | Anthropic 黑客松产出的全平台套件：64 专精 subagent + 262 workflow skill + 84 slash 命令 + 触发式 hook 自动化 + 14 MCP server 配置，Node.js 全平台重写（Win/Mac/Linux），兼容 Claude Code/Codex/Cursor/OpenCode/Gemini 等 8 平台，10+ 个月生产打磨 | ⏳称 | 部分（与 affaan-m/ECC 同类但独立仓库，不同 org；gstack 有 skill/agent 原语，本品提供即用套件层） | 🔵 信源·礼包型→穿透挑 cross-platform Node.js hooks 机制和 security-review skill 单品装测 |
+| **mylee04/claude-code-subagents** | 轴3 | 31 个 AI subagent 配「Pokemon for Developers」游戏化机制：`agent-assembler` 根据 tech stack 推荐最优 agent 团队，每个 agent 有成就解锁和组合加成，Smart Agent Registry 自动发现 YAML frontmatter，`./agents recommend "描述"` 一键生成项目专属团队 | ⏳称 | 低（VoltAgent/0xfurai/supatest-ai 已登记为静态集合，本品 agent-assembler 动态组队+游戏化是差异点） | ⚪ 待装测·agent-assembler 动态组队概念独特，先验 recommend 命令与 team formation 实际效果 |
+| **shanraisshan/claude-code-hooks** | 轴5 | 同作者（claude-code-best-practice 已收为🔵信源）的 hook 专项仓：为全 27 个 Claude Code hook 事件设计音效地图（AGENT_HOOK_SOUND_MAP），PreToolUse/PostToolUse/PermissionRequest/Stop/SubagentStop 各对应不同音效，附 presentation 教程，纯 shell 实现无外部依赖 | ⏳称 | 低（lihaoz-barry/claude-code-hooks 是系统通知+手机 push，本品是实时音效反馈层；disler/hooks-mastery TTS 是 AI 生成语音，本品是轻量原声音效，三者互补） | ⚪ 待装测·零外部依赖，hook 音效反馈填真空，装测成本极低 |
+| **ithiria894/awesome-claude-code-workflows** | 信源 | 「workflow recipe」策展仓：不收录孤立工具，专收 hooks + MCP + skills + agents + CLAUDE.md 的*组合配方*，覆盖真实场景（如「SAST+威胁情报+通知」三件套），强调「配方」而非单品；与单品索引型 awesome 列表定位互补 | ⏳称 | 无 | 🔵 信源·定位独特（组合配方 vs 单品索引），扫货时补充「哪些工具应该组合使用」的上下文，穿透找代码审查类配方参考 |
+| **quemsah/awesome-claude-plugins** | 信源 | n8n 驱动的自动采集插件采用率数据库：已索引 15,134 个 Claude Code plugin 仓库，935★，TypeScript 实现，n8n workflow 定时抓取 GitHub 采用度指标，auto-discovered（非人工策展），新仓发布数小时内捕捉 | ⏳称 | 无 | 🔵 信源·「数据型」信源而非人工策展，适合判断哪些 plugin 有真实社区采用（而非仅看 star 数），查重时补充采用率维度 |
+
+**本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🔵信源）；无异常。装测优先：mylee04/claude-code-subagents（agent-assembler 动态组队概念独特，先验组队效果）> shanraisshan/claude-code-hooks（零依赖，音效反馈轻量验证）；信源：ithiria894/awesome-claude-code-workflows（组合配方视角补盲点）+ quemsah/awesome-claude-plugins（采用率数据型信源）。

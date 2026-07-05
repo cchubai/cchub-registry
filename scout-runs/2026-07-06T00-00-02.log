@@ -1,0 +1,16 @@
+=== scout run 2026-07-06T00-00-02 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 5 项已写入 registry-candidates.md（`## 2026-07-06 · cron 扫货轮（00:00）` 小节）：
+
+| 新品 | 裁决 | 亮点 |
+|---|---|---|
+| WorldFlowAI/everything-claude-code | 🔵信源 | Anthropic 黑客松产出，64 agent+262 skill+84 命令+14 MCP，Node.js 全平台；礼包型穿透挑单品 |
+| mylee04/claude-code-subagents | ⚪待装测 | "Pokemon for Developers" agent-assembler 根据 tech stack 动态生成团队，游戏化机制独特 |
+| shanraisshan/claude-code-hooks | ⚪待装测 | 全 27 事件音效地图（同作者的 best-practice 已收），零依赖轻量验证 |
+| ithiria894/awesome-claude-code-workflows | 🔵信源 | 专收「组合配方」（hooks+MCP+skills 三件套），区别于单品索引型 awesome 列表 |
+| quemsah/awesome-claude-plugins | 🔵信源 | n8n 自动采集 15,134 仓采用率指标，数据型信源补单看 star 的盲点 |
+
+**总结**：本轮新增 5 项（2 个 ⚪待装测 + 3 个 🔵信源），无异常；五轴已去重，大量搜索结果为既有登记品。
+--- git commit & push ---

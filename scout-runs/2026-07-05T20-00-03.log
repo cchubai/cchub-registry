@@ -6,3 +6,9 @@ Already up to date.
 
 最值得关注的是 **JuliusBrussee/caveman**（83k★，Claude 说话"穴居人模式"削减 65% 输出 token）和 **kpab/claude-fable-5-skills**（10 个专为 Fable 5 重写的行为铁律 skill，填升级后适配真空）——两者均零依赖 MIT，可直接装测。
 --- git commit & push ---
+[main 9fa327a] chore(scout): cron 自动扫货轮 2026-07-05T20-00-03
+ 3 files changed, 30 insertions(+)
+ create mode 100644 scout-runs/2026-07-05T20-00-03.log
+To https://github.com/cchubai/cchub-registry.git
+   e3bcb3d..9fa327a  main -> main
+=== done 2026-07-05T20-00-03 ===
