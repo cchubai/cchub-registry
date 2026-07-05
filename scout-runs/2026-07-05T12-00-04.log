@@ -1,0 +1,8 @@
+=== scout run 2026-07-05T12-00-04 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 6 项，无异常。
+
+本轮净新增：`mkXultra/ai-cli-mcp`（多 AI CLI 后台编排 MCP）、`Dokkabei97/all-agents-mcp`（四 CLI 统一 stdio 对比编排）、`nyldn/claude-octopus`（8 模型 75% 共识门 + Dark Factory 模式）、`amtiYo/agents`（跨 9 工具 MCP config 同步）、`mohitagw15856/pm-claude-skills`（400 PM 专业 skill，已入 Anthropic 官方目录）、`ccplugins/awesome-claude-code-plugins`（🔵 plugin 新格式社区策展信源）；共 5 ⚪待装测 + 1 🔵信源。
+--- git commit & push ---

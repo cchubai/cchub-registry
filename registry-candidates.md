@@ -302,3 +302,20 @@
 | **johnlindquist/claude-hooks** | 轴5 | TypeScript 强类型 hook 系统，由 Kit.app/Script Kit 作者出品：PreToolUse/PostToolUse/Notification/Stop 全事件强类型 payload，自动补全+类型推断，session 日志写系统 tmp，npm 分发（`npx`），有技术 gist 深度讲解 subagent + hooks 协作模式 | ⏳称 | 部分（karanb192/claude-code-hooks 是 copy-paste 内容集，本品是 TypeScript 框架——目标用户：想用 TS 写 hook 逻辑的开发者；webdevtodayjason/claude-hooks 是 CLI 管理工具，本品是编写层） | ⚪ 待装测·npm 分发，TypeScript 用户自然选择，与 karanb192+webdevtodayjason 合成完整 hook 工具链 |
 
 **本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🟢候选）；安全工具类本轮集中（trailofbits + huifer），无异常。装测优先：trailofbits/skills（🟢专业机构，安全轴标杆）> revfactory/harness（🟢MIT，L3 元层独特，中韩双语）> huifer/skill-security-scan（🟢立即纳入 CCHub 审查 SOP）> johnlindquist/claude-hooks（TS 类型安全 hook 框架）> BeehiveInnovations/pal-mcp-server（多模型 threading，需验实际效果）。
+
+---
+
+## 2026-07-05 · cron 扫货轮（12:00）
+
+> 五轴全搜，去重后净新增 6 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **mkXultra/ai-cli-mcp** | 轴4 | MCP server 让 Claude/Codex/Gemini CLI/Forge/OpenCode 在后台并行启动，暴露 `run`/`wait`/`kill`/`result` 四工具，session ID 跨运行复用上下文，`npx ai-cli-mcp` 装；前身为 @mkxultra/claude-code-mcp，已扩展支持五种 AI CLI | ⏳称 | 低（EtanHey/cmuxlayer 侧重 terminal 间可视协调，本品侧重「从 MCP client 内后台启动多种 AI CLI」，互补） | ⚪ 待装测·多 AI CLI 用户减摩擦，先验 Claude+Codex 并行场景 |
+| **Dokkabei97/all-agents-mcp** | 轴4 | 统一 stdio 接口编排 Claude Code/Codex/Gemini CLI/Copilot CLI：单查/多对比（同 prompt 并行）/智能任务路由/专项工具（code-review/debug/explain/test-gen），直接调各 CLI 二进制，各自管理认证和计费 | ⏳称 | 低（RealMikeChong/ultra-mcp 是多模型推理桥接，本品是多 CLI 进程编排+对比模式，互补） | ⚪ 待装测·对比模式可快速发现各 agent 答案分歧，装前需本地安装各目标 CLI |
+| **nyldn/claude-octopus** | 轴1+3 | 最多 8 AI 模型（Codex/Gemini/Antigravity/Copilot/Qwen/Ollama/Perplexity/OpenRouter/OpenCode + Claude）并行协作，75% 共识门拦截分歧，32 personas + 49 命令 + 54 skills，"Dark Factory mode"全自主 Discover→Define→Develop→Deliver 管道，`.claude-plugin` 格式可装 | ⏳称 | 中（wan-huiyan/agent-review-panel 是同模型多角色辩论，本品是「跨模型共识投票」，互补；gstack /code-review 是单审） | ⚪ 待装测·需各家 CLI 预装，75% 共识门逻辑独特值得验，先测双模型对比场景 |
+| **amtiYo/agents** | 工具类 | `.agents/agents.json` 单源真相，`agents sync` 自动写入 Claude Code/Codex/Gemini CLI/Cursor/Copilot/Antigravity/Windsurf/OpenCode/Junie 等 9 工具的 MCP config；Show HN 社区验证，解决「每加一个 MCP server 要改 N 个 config 文件」痛点 | ⏳称 | 低（gstack 无跨工具 MCP config 同步轴，是真空地带） | ⚪ 待装测·多工具用户减配置摩擦，零云依赖，装测成本低 |
+| **mohitagw15856/pm-claude-skills** | 轴1 | 400 个 PM 专业 Agent Skills（PRDs/发布计划/合规/JD/战略分析），50 个 Production-Ready 级含 Python 计算助手（RICE/Sprint 计划/客户健康评分），已入 Anthropic 官方 plugin 目录，`npx pm-claude-skills add` 装 | ⏳称 | 无（gstack 无 PM 决策/产品方法论轴，产品经理/项目管理真空填空） | ⚪ 待装测·官方目录收录=安全审查已过，npx 一行装，先验 PRD 和 RICE 两颗 skill |
+| **ccplugins/awesome-claude-code-plugins** | 信源 | 118 个可安装 plugin（34 命令 + 16 agent），按 `.claude-plugin` 新格式打包，含 claude-desktop-extension、security-guidance 等实用包，ccplugins 组织专门维护，与 rdmgator12/awesome-claude-plugins（官方 Anthropic 追踪）互补 | ⏳称 | 无 | 🔵 信源·plugin 新格式的社区策展参考，穿透挑 security-guidance 单品装测 |
+
+**本轮总结**：新增 6 项（5 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：mohitagw15856/pm-claude-skills（官方目录，PM 真空填空，npx 一行装）> amtiYo/agents（跨工具 config 同步，零云依赖）> mkXultra/ai-cli-mcp（多 AI CLI 后台编排）> Dokkabei97/all-agents-mcp（多 CLI 对比模式）> nyldn/claude-octopus（8 模型共识门，需各 CLI 预装）。
