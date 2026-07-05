@@ -367,3 +367,19 @@
 | **quemsah/awesome-claude-plugins** | 信源 | n8n 驱动的自动采集插件采用率数据库：已索引 15,134 个 Claude Code plugin 仓库，935★，TypeScript 实现，n8n workflow 定时抓取 GitHub 采用度指标，auto-discovered（非人工策展），新仓发布数小时内捕捉 | ⏳称 | 无 | 🔵 信源·「数据型」信源而非人工策展，适合判断哪些 plugin 有真实社区采用（而非仅看 star 数），查重时补充采用率维度 |
 
 **本轮总结**：新增 5 项（2 个 ⚪待装测 + 3 个 🔵信源）；无异常。装测优先：mylee04/claude-code-subagents（agent-assembler 动态组队概念独特，先验组队效果）> shanraisshan/claude-code-hooks（零依赖，音效反馈轻量验证）；信源：ithiria894/awesome-claude-code-workflows（组合配方视角补盲点）+ quemsah/awesome-claude-plugins（采用率数据型信源）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（04:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **mvanhorn/last30days-skill** | 轴1 | 多平台社媒情报 skill：并行抓取 Reddit/X/YouTube/HN/Polymarket/GitHub，按真实互动数（upvote/like/view）排序去噪，合成「近 30 天某话题的社区认知摘要」；Reddit/HN/Polymarket/GitHub 零配置即用，X/YouTube/TikTok 30 秒 setup 向导解锁，`.claude-plugin` 格式，`/plugin marketplace add mvanhorn/last30days-skill` 装，官方 plugin 目录已收录 | ⏳称 | 低（gstack /deep-research 是多源 web 搜聚合研究报告；本品专攻社媒近 30 天实时信号+互动排序，视角互补：调研时先跑本品摸社区认知，再跑 deep-research 出正式报告） | 🟢 候选·痛点直接（"这个话题最近社区在说什么"），官方 plugin 目录收录=安全审查已过，零配置即用轴价值高 |
+| **xiaolai/nlpm** | 工具类 | NL artifact linter：把 Claude Code 的 skill/agent/hook/command/CLAUDE.md/memory 文件当「自然语言程序」用评分引擎（0-100）扫描——检测 manifest-vs-disk 一致性（SKILL.md 存在但 plugin.json 漏记=安装后无声失效）、规范合规、跨生态（CC/Codex/Antigravity）tier overlay；以 Claude Code plugin 形式分发，内置 slash 命令；已向 44 个仓库提交 278 个 PR，71% 接受率 | ⏳称 | 无（gstack 无 NL artifact 质量管理轴；本品定位是「策展人/开发者装测前的 pre-flight 扫描」，可无缝接入 CCHub 上架 SOP） | 🟢 候选·唯一专注 NL artifact linting 的工具，真实 PR 验证有效性，装测成本极低（plugin install），与 huifer/skill-security-scan 形成安全+质量双扫描组合 |
+| **werkamsus/claude-metaskill** | 轴1 | 「技能教 Claude 造技能」的元 skill：当你问"怎么创建 skill / 配置 hook / 接 MCP server"时自动激活，给出贴项目场景的分步引导 + 真实示例，覆盖 skill/subagent/hook/permissions/MCP server 全配置轴；`/plugin marketplace add werkamsus/claude-metaskill` + `/plugin install claude-code-config` 装 | ⏳称 | 低（gstack 有大量 skill，但无一是「教 Claude 如何自造 CC 配置」的自指 skill；本品填 onboarding 轴真空，新用户/新 tester 上手成本降低） | ⚪ 待装测·自指元层定位独特，装测验其对话引导质量（而非功能正确性），适合 CCHub 新用户上手必装件候选 |
+| **study8677/antigravity-workspace-template** | 轴4+多轴 | 代码库知识引擎模板：Router + ModuleAgent 架构，`ag-refresh` 一次建索引后注册为 MCP server，Claude Code 问"auth 怎么工作"即得带文件路径+行号的接地回答；声称准确率高于 Codex、延迟低 2.1×；内置 `.agent/workflows/openspec-apply.md` 工作流，含中文 README（README_CN.md），MCP 集成文档完整 | ⏳称 | 低（DeusData/codebase-memory-mcp 是 tree-sitter AST 知识图谱单二进制，本品是 multi-agent Router 架构模板+pip 安装=不同部署拓扑；两者互补，都填「语义代码问答」轴） | ⚪ 待装测·有中文 README 对中文用户友好，MCP 路径清晰，先验 ag-refresh 建索引耗时和 MCP Q&A 准确度 |
+| **jaychempan/Agent-Leaderboard** | 信源 | 中文维护的 AI Agent 生态排行榜：按 GitHub Stars 每日更新，覆盖 Skills / MCP 服务器 / Prompt 库 / 框架 / 深度研究五类；中英双语界面，中文技术圈 AI agent 生态全景视图，与 linny006/trending-claude-skills（动量型）互补（本品 star 绝对值型） | ⏳称 | 无 | 🔵 信源·中文用户扫货信源首选补充，每日拉榜可发现新晋高星 MCP/skill，与 quemsah/awesome-claude-plugins 采用率型信源并读形成「量+质」双视角 |
+
+**本轮总结**：新增 5 项（2 个 🟢候选 + 2 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：mvanhorn/last30days-skill（🟢官方 plugin 目录收录，零配置即用）> xiaolai/nlpm（🟢NL artifact linting 独唯一，可立即接入 CCHub 上架 SOP）> werkamsus/claude-metaskill（元层自指，装测验引导质量）> study8677/antigravity-workspace-template（中文 README，MCP 语义问答填空）。

@@ -1,0 +1,14 @@
+=== scout run 2026-07-06T04-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮扫货完成。新增 5 项：
+
+- 🟢 **mvanhorn/last30days-skill** — 多平台社媒情报 skill（Reddit/X/YouTube/HN），官方 plugin 目录收录，零配置即用
+- 🟢 **xiaolai/nlpm** — NL artifact linter，把 skill/hook/CLAUDE.md 当程序扫质量，唯一同类工具，可接入 CCHub 上架 SOP
+- ⚪ **werkamsus/claude-metaskill** — 教 Claude 自造 CC 配置的元 skill，onboarding 轴填空
+- ⚪ **study8677/antigravity-workspace-template** — multi-agent 代码库知识引擎 + MCP，含中文 README
+- 🔵 **jaychempan/Agent-Leaderboard** — 中文维护的 AI Agent 生态每日排行榜（信源）
+
+共新增 5 个，无异常。
+--- git commit & push ---
