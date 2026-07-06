@@ -383,3 +383,19 @@
 | **jaychempan/Agent-Leaderboard** | 信源 | 中文维护的 AI Agent 生态排行榜：按 GitHub Stars 每日更新，覆盖 Skills / MCP 服务器 / Prompt 库 / 框架 / 深度研究五类；中英双语界面，中文技术圈 AI agent 生态全景视图，与 linny006/trending-claude-skills（动量型）互补（本品 star 绝对值型） | ⏳称 | 无 | 🔵 信源·中文用户扫货信源首选补充，每日拉榜可发现新晋高星 MCP/skill，与 quemsah/awesome-claude-plugins 采用率型信源并读形成「量+质」双视角 |
 
 **本轮总结**：新增 5 项（2 个 🟢候选 + 2 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：mvanhorn/last30days-skill（🟢官方 plugin 目录收录，零配置即用）> xiaolai/nlpm（🟢NL artifact linting 独唯一，可立即接入 CCHub 上架 SOP）> werkamsus/claude-metaskill（元层自指，装测验引导质量）> study8677/antigravity-workspace-template（中文 README，MCP 语义问答填空）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（08:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **SawyerHood/dev-browser** | 轴1 | 给 Claude Code agent 赋予真实浏览器操控能力的 Claude Skill：Chrome 扩展接管现有浏览器（沿用登录态/书签/扩展），QuickJS WASM 沙箱执行脚本，提供 Playwright API + pixel/DOM 级 computer-use 双工具集，声称比 Playwright 快 30%、持久化页面状态；`/plugin marketplace add SawyerHood/dev-browser` 装，已入 awesome-claude-code 推荐 | ⏳称 | 低（gstack browse 调 Playwright MCP，本品是作为 SKILL 而非 MCP 嵌入 agent 内部，无需外部进程；两者互补——本品更轻量、沙箱更隔离） | 🟢 候选·技术路线独特（WASM 沙箱+Chrome 扩展），已入 awesome-claude-code，前端/全栈开发自测场景直接价值高，优先装测 |
+| **siteboon/claudecodeui** | 工具类 | CloudCLI：8.2k★ MIT 免费开源的 Claude Code / OpenCode / Cursor CLI / Codex web+移动端 GUI，React 前端 + Express WebSocket 后台，支持多会话管理、文件树语法高亮实时编辑、移动端自适应布局，可自托管或用 cloudcli.ai 云版，GPL v3；Show HN 社区验证（HN #47352564） | GPL v3 ⏳称 | 低（gstack 无移动端/远程操控 Claude Code 的 GUI 轴；op7418/Claude-to-IM-skill 是 IM 接入，本品是完整 Web UI，定位不同） | ⚪ 待装测·8.2k★ + Show HN 验证=社区共识强，GPL v3 需注意分发条款，先验自托管部署流程 |
+| **freshtechbro/claudedesignskills** | 轴1+3 | 面向创意前端的专业设计 skill 套件：22 个 skill + 27 个 agent + 50+ 命令，覆盖 Three.js / GSAP ScrollTrigger / React Three Fiber / Framer Motion / Babylon.js / A-Frame / PixiJS / Locomotive Scroll / Anime.js / Lottie / Blender pipeline / Spline / Rive / Substance 3D 共 14 + 技术栈，`/plugin marketplace add freshtechbro/claudedesignskills` 按 bundle 或单颗装 | ⏳称 | 无（gstack 无 3D/WebGL/动画轴，完全填空；EpicGames/unreal 是引擎编辑器层，本品是 web 前端层） | ⚪ 待装测·细分受众（创意前端/3D 开发者）精确，套件完整度高，先穿透验 three-js skill 单颗 |
+| **daymade/claude-code-skills** | 轴1+2 | 生产级技能市集（v1.27.0），25 个经过验收的 skill 含：ima-copilot（IMA 广告对话 skill）/ deep-research / twitter-reader（Twitter/X 实时读取）/ skill-creator 套件 / docs-generator（Markdown/Mermaid/PDF/PPT 生成）/ GitHub 操作等，CLAUDE.md 严格验收标准保质，按 @daymade-skills namespace 安装 | ⏳称 | 低（skill-creator 与 revfactory/harness 元层互补但不重叠；ima-copilot/twitter-reader 是 gstack 真空轴） | ⚪ 待装测·验收标准明确，ima-copilot 和 twitter-reader 是独特垂直 skill，先验这两颗 |
+| **ComposioHQ/awesome-claude-plugins** | 信源 | Composio 官方维护的 plugin 策展列表（注意：不同于已登记的 ComposioHQ/awesome-claude-skills）：专注 `.claude-plugin` 格式插件，覆盖 slash 命令 / agent / hook / MCP server 组合包，强调 plugin system 生态发现，与 awesome-claude-skills（skill 单颗）和 rdmgator12/awesome-claude-plugins（官方 Anthropic 追踪）形成三角互补 | ⏳称 | 无 | 🔵 信源·plugin 生态发现补充，扫 plugin 组合包时与 rdmgator12 并读获取双视角 |
+
+**本轮总结**：新增 5 项（1 个 🟢候选 + 3 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：SawyerHood/dev-browser（🟢已评，WASM 沙箱浏览器 skill 独特路线，awesome-claude-code 推荐）> siteboon/claudecodeui（8.2k★ + Show HN 验证，移动端 GUI 填空）> freshtechbro/claudedesignskills（3D/WebGL 轴填空，穿透验 three-js 单颗）> daymade/claude-code-skills（ima-copilot 和 twitter-reader 先试）。

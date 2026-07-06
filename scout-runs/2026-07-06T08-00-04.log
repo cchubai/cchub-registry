@@ -1,0 +1,8 @@
+=== scout run 2026-07-06T08-00-04 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+新增 5 项已写入 registry-candidates.md，2026-07-06 08:00 轮完成。
+
+本轮产出：新增 5 项（1 个 🟢候选 / 3 个 ⚪待装测 / 1 个 🔵信源），无异常；亮点是 SawyerHood/dev-browser 用 WASM 沙箱+Chrome 扩展的 SKILL 路线做浏览器自动化，与 Playwright MCP 技术路线完全不同，直接评为 🟢候选。
+--- git commit & push ---
