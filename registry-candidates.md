@@ -399,3 +399,19 @@
 | **ComposioHQ/awesome-claude-plugins** | 信源 | Composio 官方维护的 plugin 策展列表（注意：不同于已登记的 ComposioHQ/awesome-claude-skills）：专注 `.claude-plugin` 格式插件，覆盖 slash 命令 / agent / hook / MCP server 组合包，强调 plugin system 生态发现，与 awesome-claude-skills（skill 单颗）和 rdmgator12/awesome-claude-plugins（官方 Anthropic 追踪）形成三角互补 | ⏳称 | 无 | 🔵 信源·plugin 生态发现补充，扫 plugin 组合包时与 rdmgator12 并读获取双视角 |
 
 **本轮总结**：新增 5 项（1 个 🟢候选 + 3 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：SawyerHood/dev-browser（🟢已评，WASM 沙箱浏览器 skill 独特路线，awesome-claude-code 推荐）> siteboon/claudecodeui（8.2k★ + Show HN 验证，移动端 GUI 填空）> freshtechbro/claudedesignskills（3D/WebGL 轴填空，穿透验 three-js 单颗）> daymade/claude-code-skills（ima-copilot 和 twitter-reader 先试）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（12:00）
+
+> 五轴全搜，去重后净新增 5 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **yvgude/lean-ctx** | 轴4 | 本地 Rust 单二进制 MCP「上下文智能层」：76 个 MCP 工具覆盖缓存读取/自适应模式/增量 delta/依赖图/意图检测/跨会话记忆图（CCP）/多 agent 协调/语义缓存，tree-sitter AST 解析 18 语言，95+ shell 压缩模式，声称 60-90% token 节省，零外部依赖，兼容 Claude Code/Cursor/Copilot/Codex/Gemini/Antigravity/OpenCode | ⏳称 | 低（zilliztech/claude-context 已登记为向量语义搜索，本品差异在 Rust 单二进制+AST 多语言+跨会话 CCP 图；JuliusBrussee/caveman 削减输出 token，本品压缩输入上下文，互补）| ⚪ 待装测·单二进制=安装门槛极低，需验预编译二进制来源签名，60-90% 节省声称需实测 |
+| **dshakes/compass** | 轴1+3+5 | 本地优先的 Claude Code + Codex + Gemini 配置层：预算硬封顶（`COMPASS_MAX_USD=5` → 超限自动终止）+ 守卫 hook（CI 安全评分 100/100）+ 成本分级 subagent crew + workflow 命令 + MCP 配置，`/plugin marketplace add dshakes/compass` 一行装，无需 API key；alpha 状态但核心 hook/subagent/命令已 dogfood 每日 | ⏳称 | 中（gstack careful/guard 已覆盖危险命令拦截，本品差异在预算硬封顶机制和 CI 可验证守卫评分——现有品均无"花费上限触发终止"轴；sangrokjung/claude-forge 是 6 层安全 hook 但无预算控制） | ⚪ 待装测·无 API key 零门槛，预算硬封顶是真实痛点（防止 agent 失控消耗），装测验 `COMPASS_MAX_USD` 触发逻辑 |
+| **mafiaguy/claude-security-guardrails** | 轴5 | 安全扫描守卫 hook 套件：PreToolUse/PostToolUse 全拦截，Node.js 引擎实时扫描 30+ 危险模式（rm -rf/force push/泄露 API key/SQL 注入/eval() 等），附 React 实时监控仪表盘可视化拦截事件和安全发现，OWASP 覆盖；Node.js 实现 | ⏳称 | 中（karanb192/claude-code-hooks 已有 protect-tests hook 单颗，gstack careful 覆盖部分危险命令；本品差异在 React 可视仪表盘——所有已登记安全 hook 均无监控 UI 层，是真空地带） | ⚪ 待装测·需 Node.js + React 前端，安全类高价值，先验 API key 泄露检测和 SQL 注入拦截两条核心路径 |
+| **OthmanAdi/langsmith-fetch-skill** | 轴1 | 首个 AI 可观测性 skill：终端内直接从 LangSmith Studio 拉取 LangChain/LangGraph agent 执行 trace，无需切换浏览器，`pip install langsmith-fetch` + `npx skills add OthmanAdi/langsmith-fetch-skill` 装，输出结构化 trace 供 Claude 分析 debug | ⏳称 | 无（gstack 无 LLM 可观测性/trace 调试轴；已登记品均为代码静态审计，本品是运行时 trace 追踪，视角完全不同；LangChain/LangGraph 用户的真空填空） | ⚪ 待装测·需 LangSmith API key，细分受众（LangChain 开发者）明确，装测验 trace 拉取质量和 Claude 分析准确度 |
+| **jcmrs/claude-code-spec-kit-subagent-plugin** | 轴3 | 规格共创专项 subagent plugin：对话式引导用户逐步澄清需求，动态记忆图记录决策历史，自适应工作流（随对话进展调整路径），多角色显式分析（产品/工程/安全/UX 视角分别评估），适合非技术用户或采用 Spec Kit 方法论的团队，`.claude-plugin` 格式，官方 plugin 目录已收录 | ⏳称 | 低（vlad-ko/claude-wizard 和 npow 的 /deep-design 都是设计决策辅助，但面向技术用户；本品聚焦「非技术用户」通过对话生成多视角技术规格，人群和场景均不同；动态记忆图是差异机制） | ⚪ 待装测·官方 plugin 目录已收录=安全审查已过，非技术用户场景填空，装测验对话引导质量和多角色分析深度 |
+
+**本轮总结**：新增 5 项（5 个 ⚪待装测）；无异常。装测优先：yvgude/lean-ctx（Rust 单二进制零依赖，60-90% 压缩声称需实测）> dshakes/compass（无 API key，预算硬封顶填真空）> jcmrs/claude-code-spec-kit-subagent-plugin（官方目录已审，非技术用户场景独特）> OthmanAdi/langsmith-fetch-skill（LangChain 用户首选可观测性工具）> mafiaguy/claude-security-guardrails（React 仪表盘验完整链路）。

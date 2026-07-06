@@ -1,0 +1,11 @@
+=== scout run 2026-07-06T12-00-02 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮写入完毕。新增 5 项（全部 ⚪待装测），无异常：
+- **yvgude/lean-ctx**（MCP·轴4）— Rust 单二进制上下文压缩层，76 工具，60-90% token 节省
+- **dshakes/compass**（轴1+3+5）— 预算硬封顶 + CI 评分 100/100 守卫 hook，无 API key 即装
+- **mafiaguy/claude-security-guardrails**（轴5）— 30+ 模式实时拦截 + React 监控仪表盘，首个有 UI 的安全 hook 套件
+- **OthmanAdi/langsmith-fetch-skill**（轴1）— 首个 LangSmith 可观测性 skill，填 LangChain 调试真空
+- **jcmrs/claude-code-spec-kit-subagent-plugin**（轴3）— 官方目录已收，面向非技术用户的动态记忆图规格共创 subagent
+--- git commit & push ---
