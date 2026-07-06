@@ -415,3 +415,18 @@
 | **jcmrs/claude-code-spec-kit-subagent-plugin** | 轴3 | 规格共创专项 subagent plugin：对话式引导用户逐步澄清需求，动态记忆图记录决策历史，自适应工作流（随对话进展调整路径），多角色显式分析（产品/工程/安全/UX 视角分别评估），适合非技术用户或采用 Spec Kit 方法论的团队，`.claude-plugin` 格式，官方 plugin 目录已收录 | ⏳称 | 低（vlad-ko/claude-wizard 和 npow 的 /deep-design 都是设计决策辅助，但面向技术用户；本品聚焦「非技术用户」通过对话生成多视角技术规格，人群和场景均不同；动态记忆图是差异机制） | ⚪ 待装测·官方 plugin 目录已收录=安全审查已过，非技术用户场景填空，装测验对话引导质量和多角色分析深度 |
 
 **本轮总结**：新增 5 项（5 个 ⚪待装测）；无异常。装测优先：yvgude/lean-ctx（Rust 单二进制零依赖，60-90% 压缩声称需实测）> dshakes/compass（无 API key，预算硬封顶填真空）> jcmrs/claude-code-spec-kit-subagent-plugin（官方目录已审，非技术用户场景独特）> OthmanAdi/langsmith-fetch-skill（LangChain 用户首选可观测性工具）> mafiaguy/claude-security-guardrails（React 仪表盘验完整链路）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（16:00）
+
+> 五轴全搜，去重后净新增 4 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **danielrosehill/Claude-Slash-Commands** | 轴2 | 个人生产级 slash 命令集，按 `commands-flat/` 单文件组织，覆盖 chunk-repo-context（大仓分块喂入上下文）/ manage-mcp-servers（对话式增删 MCP 配置）/ add-watermark / make-it-pretty 等实用场景；同一作者另有 Linux Desktop 变体仓（见下条）；MIT | MIT ⏳称 | 低（wshobson/commands 已登记，但本品覆盖「仓库上下文分块」和「MCP 管理」是差异点；gstack 无 chunk-repo-context 轴） | ⚪ 待装测·穿透先验 chunk-repo-context 单条（大仓分块是真实痛点，现有登记品无覆盖） |
+| **danielrosehill/Claude-Code-Linux-Desktop-Slash-Commands** | 轴2 | Linux 桌面系统管理员专用 slash 命令集：profile-motherboard / hardware-inventory / monitor-logs / package-audit 等 sysadmin 常见任务，填「Linux 桌面运维」垂直真空；同一作者 Claude-Slash-Commands 的领域子集 | ⏳称 | 无（所有已登记 slash 命令均面向开发者；Linux sysadmin 场景是 gstack+已登记品共同真空） | ⚪ 待装测·细分受众精确（Linux 桌面用户），可与主仓组合装测，零外部依赖 |
+| **BehiSecc/awesome-claude-skills** | 信源 | 9.5k★ 高星策展列表，覆盖 dev 工具（revealjs-skill/web-artifacts-builder）、安全（VibeSec-Skill/defense-in-depth）、营销与业务等多分类，社区活跃度高，有 1.2k fork；与 travisvn/awesome-claude-skills 互补（本品星数碾压，社区覆盖更广） | ⏳称 | 无 | 🔵 信源·star 级别最高的纯社区策展 skill 列表，扫货时补充 travisvn 之外第二来源；穿透挑 VibeSec-Skill 单品（安全+设计双轴，已登记品无覆盖） |
+| **Chat2AnyLLM/awesome-claude-skills** | 信源 | 数据驱动型自动追踪仓：718 个启用源仓 + 69,201 个可发现 skill，非人工策展而是自动采集 GitHub 新仓（小时内捕捉），与 quemsah/awesome-claude-plugins（采用率数据型）互补；规模远超任何人工策展列表 | ⏳称 | 无 | 🔵 信源·唯一「大规模自动化发现」维度的 skill 信源，适合每轮扫货时快速探热点新仓，补「人工策展」盲区 |
+
+**本轮总结**：新增 4 项（2 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：danielrosehill/Claude-Slash-Commands 穿透验 chunk-repo-context 单条（大仓分块填空）> danielrosehill/Claude-Code-Linux-Desktop-Slash-Commands（Linux sysadmin 独有场景，零依赖）；信源：BehiSecc（9.5k★ 高星扩充 skill 发现面）+ Chat2AnyLLM（自动化规模发现补人工盲区）。

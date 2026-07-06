@@ -9,3 +9,9 @@ Already up to date.
 - **OthmanAdi/langsmith-fetch-skill**（轴1）— 首个 LangSmith 可观测性 skill，填 LangChain 调试真空
 - **jcmrs/claude-code-spec-kit-subagent-plugin**（轴3）— 官方目录已收，面向非技术用户的动态记忆图规格共创 subagent
 --- git commit & push ---
+[main 3bc655a] chore(scout): cron 自动扫货轮 2026-07-06T12-00-02
+ 3 files changed, 33 insertions(+)
+ create mode 100644 scout-runs/2026-07-06T12-00-02.log
+To https://github.com/cchubai/cchub-registry.git
+   ecc5137..3bc655a  main -> main
+=== done 2026-07-06T12-00-02 ===
