@@ -430,3 +430,18 @@
 | **Chat2AnyLLM/awesome-claude-skills** | 信源 | 数据驱动型自动追踪仓：718 个启用源仓 + 69,201 个可发现 skill，非人工策展而是自动采集 GitHub 新仓（小时内捕捉），与 quemsah/awesome-claude-plugins（采用率数据型）互补；规模远超任何人工策展列表 | ⏳称 | 无 | 🔵 信源·唯一「大规模自动化发现」维度的 skill 信源，适合每轮扫货时快速探热点新仓，补「人工策展」盲区 |
 
 **本轮总结**：新增 4 项（2 个 ⚪待装测 + 2 个 🔵信源）；无异常。装测优先：danielrosehill/Claude-Slash-Commands 穿透验 chunk-repo-context 单条（大仓分块填空）> danielrosehill/Claude-Code-Linux-Desktop-Slash-Commands（Linux sysadmin 独有场景，零依赖）；信源：BehiSecc（9.5k★ 高星扩充 skill 发现面）+ Chat2AnyLLM（自动化规模发现补人工盲区）。
+
+---
+
+## 2026-07-06 · cron 扫货轮（20:00）
+
+> 五轴全搜，去重后净新增 4 项。license 均「⏳称」未亲验。
+
+| 候选 | 轴 | 是什么 | License | 与 gstack 重叠度 | 裁决 |
+|---|---|---|---|---|---|
+| **lackeyjb/playwright-skill** | 轴1 | Playwright 浏览器自动化 Claude Code Skill（而非 MCP）：Claude 自主按需编写并执行 Playwright 代码，返回截图和 console 输出，提供 helper 工具库降低脚本编写门槛，`/plugin marketplace add lackeyjb/playwright-skill` 装，已收录 mcpservers.org Agent Skills | ⏳称 | 低（已登记 Playwright MCP 是 MCP Server 接入层；SawyerHood/dev-browser 是 WASM 沙箱；本品是「skill 内 Claude 自主写脚本」路线，三者技术路线互补，无重叠） | ⚪ 待装测·模型驱动动态写脚本是真正差异点，需验实际 Playwright 版本兼容性和沙箱安全性 |
+| **webdevtodayjason/sub-agents** | 轴3+2 | Sub-agent 管理 CLI（同作者 webdevtodayjason/claude-hooks 已登记）：7 个专精 agent（project-planner/api-developer/frontend-developer/tdd-specialist/api-documenter/devops-engineer/product-manager）各带专属 slash 命令（/plan、/api、/frontend、/tdd 等），附语音播报任务完成（voice announcement）；CLI 管理器一键 add/remove agent | ⏳称 | 低（wshobson/agents 是多平台插件市场，本品是轻量 CLI 管理器；webdevtodayjason/claude-hooks 已登记但是 hook 内容包，本品是 subagent+命令管理层，互补） | ⚪ 待装测·7 个 agent 覆盖全栈开发链路，CLI 管理器降低 add/remove 摩擦；先验 /tdd 和 /frontend 两条命令 |
+| **Jamie-BitFlight/claude_skills** | 工具类 | Plugin-creator 元 skill 套件：`skill-creator`/`agent-creator`/`plugin-lifecycle`/`claude-plugins-reference-2026` 等 meta 技能，附 `skilllint` 前置检查（frontmatter 验证/复杂度/auto-fix）和 `auto_sync_manifests.py`（pre-commit hook 自动同步 plugin.json），覆盖 Python/shell/Perl/CI/CD 项目规范；`subagent-refactorer` 应用 Anthropic 提示工程最佳实践自动重构 agent | ⏳称 | 无（gstack 无「辅助开发 Claude Plugin/skill 本身」的元工具轴；huifer/skill-security-scan 是安全扫描，本品是结构合规+生命周期管理，互补） | ⚪ 待装测·`skilllint` 可直接接入 CCHub 上架 SOP（与 huifer/skill-security-scan 组成「安全+质量」双扫），先验 plugin-lifecycle 和 claude-plugins-reference-2026 两颗 |
+| **hesreallyhim/a-list-of-claude-code-agents** | 信源 | hesreallyhim（awesome-claude-code 原作者）独立维护的社区 agent 提交列表（与 awesome-claude-code 分库），收录社区自提交的 Claude Code Sub-Agent 单品，YAML frontmatter 格式统一，持续更新；与 awesome-claude-code 索引型互补（本品专一 agent 轴，粒度更细） | ⏳称 | 无 | 🔵 信源·原作者出品+专一 agent 轴，扫 subagent 新品时与 VoltAgent/awesome-claude-code-subagents 并读，获双视角覆盖 |
+
+**本轮总结**：新增 4 项（3 个 ⚪待装测 + 1 个 🔵信源）；无异常。装测优先：lackeyjb/playwright-skill（Playwright Skill 路线独特，需验脚本沙箱安全）> Jamie-BitFlight/claude_skills 穿透验 skilllint+plugin-lifecycle（可接入 CCHub SOP）> webdevtodayjason/sub-agents（CLI 管理器降门槛，先验两条 slash 命令）。

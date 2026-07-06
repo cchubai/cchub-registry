@@ -1,0 +1,11 @@
+=== scout run 2026-07-06T20-00-01 ===
+--- git pull ---
+Already up to date.
+--- claude headless 扫货（prompt 走 stdin，无 Bash 工具，禁执行陌生代码）---
+本轮扫货完毕。新增 4 项（3 个 ⚪待装测 + 1 个 🔵信源），无异常：
+
+- **lackeyjb/playwright-skill**（轴1）— Playwright SKILL 路线（Claude 自主写脚本），与已登记 Playwright MCP 和 dev-browser 互补
+- **webdevtodayjason/sub-agents**（轴3+2）— Sub-agent 管理 CLI，同作者 claude-hooks 的姊妹工具，7 个专精 agent + slash 命令
+- **Jamie-BitFlight/claude_skills**（工具类）— `plugin-creator` 元套件 + `skilllint` 验证，可接入 CCHub 上架 SOP
+- **hesreallyhim/a-list-of-claude-code-agents**（🔵信源）— awesome-claude-code 原作者的专一 agent 提交列表
+--- git commit & push ---
