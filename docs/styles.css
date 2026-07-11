@@ -292,6 +292,19 @@ img{max-width:100%;display:block}
 .th-narr.tick{animation:narrin .35s var(--ease)}
 @keyframes narrin{from{opacity:0;transform:translateX(-50%) translateY(8px)}}
 .th-progress{position:absolute;top:12px;right:18px;z-index:2;font-family:var(--mono);font-size:11.5px;color:var(--ink-mute)}
+/* 今日原料带(机器分区) */
+.ticker{max-width:1060px;margin:14px auto 10px;display:flex;align-items:center;gap:16px;
+  border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.24);padding:10px 0 10px 16px;overflow:hidden}
+.ticker__label{flex:none;font-size:12px;font-weight:700;color:var(--ink-soft);line-height:1.5;padding-right:14px;border-right:1px solid var(--line)}
+.ticker__label i{font-style:normal;font-weight:500;font-size:10.5px;color:var(--ink-mute)}
+.ticker__row{display:flex;gap:26px;white-space:nowrap;animation:tick 40s linear infinite;will-change:transform}
+.ticker:hover .ticker__row{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker__row{animation:none}}
+.ticker__item{display:inline-flex;align-items:center;gap:9px;font-size:13px}
+.ticker__item b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.ticker__item i{font-style:normal;font-size:11.5px;color:var(--ink-mute);font-family:var(--mono)}
+
 .still-tally{max-width:1000px;margin:0 auto 46px;text-align:center;font-size:14.5px;color:var(--ink-mute)}
 .still-tally b{color:var(--ink);font-weight:700}
 .still-tally .c-skill{color:#f6d365}.still-tally .c-intel{color:var(--au-teal)}

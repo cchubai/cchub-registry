@@ -1,0 +1,11 @@
+{
+  "note": "机器自动上报的原料(蒸馏台轻量带)。runner 每轮追加;仅 名称/渠道/档位/日期 四字段;站点用 textContent 渲染,原始文本永不入 HTML。",
+  "items": [
+    {"n": "affaan-m/ECC", "ch": "GitHub 星筛 ⭐228k", "tier": "B", "d": "07-12"},
+    {"n": "mattpocock/skills", "ch": "GitHub 星筛 ⭐165k", "tier": "B", "d": "07-12"},
+    {"n": "ui-ux-pro-max-skill", "ch": "GitHub 星筛 ⭐104k", "tier": "B", "d": "07-12"},
+    {"n": "Firecrawl Keyless", "ch": "公众号蒸馏", "tier": "B", "d": "07-12"},
+    {"n": "claude-code-skills-zh", "ch": "搜索改道", "tier": "C·信源", "d": "07-12"},
+    {"n": "码哥字节·筛完1400+ Skills", "ch": "搜索改道", "tier": "C·信源", "d": "07-12"}
+  ]
+}

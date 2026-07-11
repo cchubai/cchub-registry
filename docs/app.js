@@ -325,6 +325,29 @@ function theater(){
   });
 }
 
+/* —— 今日原料带:机器条目的轻量分区(XSS 安全:全部 textContent,原始文本永不入 HTML) —— */
+async function ticker(){
+  const host = document.getElementById("ticker");
+  if(!host) return;
+  try{
+    const r = await fetch("distill-feed.json?t=" + Math.floor(Date.now()/6e5)); // 10min 粒度破缓存
+    const d = await r.json();
+    const items = (d.items||[]).slice(0, 20);
+    if(!items.length){ host.style.display="none"; return; }
+    const row = document.createElement("div");
+    row.className = "ticker__row";
+    const mk = it => {
+      const s = document.createElement("span"); s.className = "ticker__item";
+      const b = document.createElement("b");  b.textContent = it.n;
+      const i = document.createElement("i");  i.textContent = `${it.ch} · ${it.tier}`;
+      s.append(b, i); return s;
+    };
+    items.forEach(it => row.appendChild(mk(it)));
+    items.forEach(it => row.appendChild(mk(it))); // 复制一份做无缝循环
+    host.appendChild(row);
+  }catch(e){ host.style.display = "none"; }
+}
+
 /* 极光背景:页面隐藏时暂停(GPU 省电) */
 function auroraPause(){
   document.addEventListener("visibilitychange", ()=>{
@@ -336,6 +359,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   renderRegistry();
   renderStill();
   theater();
+  ticker();
   auroraPause();
   wireCopy();
   wireNav();
