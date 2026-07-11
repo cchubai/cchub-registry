@@ -26,6 +26,13 @@
 - **与 gstack 重叠**:与 gstack 的验证习惯部分重叠,但更聚焦"声称前强制验证"这一动作。
 - **CCHub 心得**:本会话第一次用它,当场抓出我们把"命令 exit 0"当成"装好了"的假象——它是真有牙的。
 
+### 【CCHub 出品 · 不参与评级】`blindspot-pass` — 动手前先找盲区
+- **蒸馏链**:抖音@南山老实人(发现) → [Anthropic 官方博客](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)(源头,工程师 Thariq Shihipar) → CCHub 行为化改写 · **License**:MIT · **上架**:2026-07-12
+- **解决什么**:「瓶颈不是模型能力,是澄清未知的能力」。原文教你写 prompt 找盲区;本 skill 把它翻转成 Claude 的行为守则——**装上后 Claude 主动跑四象限盲区扫描**:大任务先出未知数清单、面试式提问(只问改变架构的,最多3个)、把你没说但默认的约定挑明求证、执行中偏差记日志不打断你。你不需要学任何框架。
+- **怎么装**:复制 [`skills/blindspot-pass/SKILL.md`](skills/blindspot-pass/SKILL.md) 到 `~/.claude/skills/blindspot-pass/SKILL.md`。
+- **安全提示**:纯行为指令,零脚本零依赖。
+- **与 gstack 重叠**:与 office-hours/brainstorming 部分相邻,但聚焦「执行前盲区清单+执行中偏差日志」,互补不重复。
+
 ---
 
 <sub>CCHub.ai 独立社区,非 Anthropic、非 CcHUB Nigeria。"Claude" is a trademark of Anthropic PBC。上架项代码版权与 license 归各自作者。发现失效/侵权请开 issue,我们会下架。</sub>
