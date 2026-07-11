@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>own-your-diff · 详解 — CCHub.ai</title>
+<meta name="description" content="own-your-diff:AI 干完大活,把话说清楚。视频+图文详解使用前后的差别。">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=9">
+<style>
+.detail{max-width:880px;margin:0 auto;padding:150px 24px 80px}
+.detail__back{font-size:14px;color:var(--ink-mute)}
+.detail__back:hover{color:var(--au-teal)}
+.detail__head{margin:26px 0 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.detail__head code{font-family:var(--mono);font-size:clamp(26px,4vw,38px);font-weight:600;color:#f6d365}
+.detail__tag{font-size:15px;color:var(--ink-soft)}
+.detail h2{font-size:clamp(21px,2.6vw,26px);font-weight:800;letter-spacing:-.02em;margin:60px 0 18px}
+.detail p{font-size:15.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:12px}
+.detail p b{color:var(--ink)}
+.video-wrap{margin:30px 0 8px;border:1px solid var(--line-2);border-radius:18px;overflow:hidden;
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.8);background:#000}
+.video-wrap video{width:100%;display:block}
+.video-cap{font-size:12.5px;color:var(--ink-mute);text-align:center;margin-top:10px}
+.dl-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.quote2{border-left:3px solid var(--au-violet);background:var(--glass);padding:16px 20px;border-radius:0 12px 12px 0;margin:18px 0}
+.quote2 p{margin:0;font-weight:600;color:var(--ink)}
+.quote2 small{color:var(--ink-mute);font-size:12px}
+.beh2{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;
+  padding:18px 20px;margin-bottom:14px;background:var(--glass)}
+.beh2 .no{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-weight:800;color:#0b0c1a;background:linear-gradient(135deg,var(--au-teal),var(--au-violet))}
+.beh2 h3{font-size:16.5px;margin-bottom:5px}
+.beh2 p{font-size:14px;margin-bottom:8px}
+.beh2 .eg{font-family:var(--mono);font-size:12.5px;color:var(--au-teal);background:rgba(0,0,0,.3);
+  border-radius:8px;padding:9px 13px}
+.trg{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.trg td{border:1px solid var(--line);padding:10px 14px;color:var(--ink-soft)}
+.trg td:first-child{color:var(--ink);font-weight:600}
+.cmd2{font-family:var(--mono);font-size:12.5px;color:#7de8dd;background:rgba(0,0,0,.4);border:1px solid var(--line);
+  border-radius:10px;padding:12px 16px;margin:10px 0;overflow-x:auto;white-space:pre}
+.detail .find__trace{margin:14px 0}
+</style>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+  <div class="aurora__ribbon aurora__ribbon--1"></div>
+  <div class="aurora__ribbon aurora__ribbon--2"></div>
+  <div class="aurora__ribbon aurora__ribbon--3"></div>
+  <div class="aurora__grain"></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="../index.html"><img class="brand__mark" src="../assets/favicon.png" alt="" width="28" height="28"><span class="brand__word">CCHub<span class="brand__tld">.ai</span></span></a>
+    <nav class="nav__links"><a class="nav__cta" href="../index.html">← 返回首页</a></nav>
+  </div>
+</header>
+
+<main class="detail">
+  <a class="detail__back" href="../index.html#still">← 今日上新</a>
+  <div class="detail__head">
+    <code>own-your-diff</code>
+    <span class="badge badge--safe">✓ 已亲测</span><span class="badge badge--mit">MIT</span>
+  </div>
+  <p class="detail__tag" style="font-size:19px;font-weight:700;color:var(--ink)">AI 干完大活,把话说清楚 —— 一分钟看懂装它前后的差别。</p>
+
+  <div class="video-wrap"><video controls playsinline preload="metadata" src="../media/own-your-diff/demo.mp4"></video></div>
+  <p class="video-cap">▶ 83 秒对比演示 · 同一个任务,装它之前 vs 之后</p>
+
+  <h2>一、它解决什么:「理解债」</h2>
+  <p>AI 编程最隐蔽的代价,不是它写错代码,而是它写对了、<b>你却没懂</b>。</p>
+  <p>把一个大任务交给 AI,十分钟后它回你一句「改完了」。diff 一千多行、二十几个文件——你扫了两眼,合并了。第二次、第三次……三个月后你发现:这个代码库你已经不敢乱动了,因为<b>真正懂它的"人"是 AI,而它不为线上事故负责</b>。</p>
+  <p>每一次「没看懂就合并」,都是在借一笔债,利息在深夜的线上告警里付。</p>
+  <div class="quote2">
+    <p>“你可以外包思考,但不能外包理解。”</p>
+    <small>—— Andrej Karpathy,《From Vibe Coding to Agentic Engineering》(红杉 AI Ascent 2026)</small>
+  </div>
+  <p>传统做法靠人自觉(「记得 review AI 的代码」——没人做得到)。这个 skill 反过来:<b>把"还债"变成 AI 的交付义务</b>——凡是大改动,交付时必须附带一次"理解转移",像交房必须交钥匙,不是可选项。</p>
+
+  <h2>二、同一个任务,装它前后</h2>
+  <p style="margin-bottom:20px">任务:「帮我把支付模块重构一下,现在的回调逻辑太乱了。」</p>
+  <div class="ba">
+    <article class="ba__col ba__col--bad">
+      <div class="ba__bar"><span class="ba__tag ba__tag--bad">没装</span></div>
+      <div class="ba__term">
+        <p class="t-ai t-ai--bad">Claude:✅ 改完了!逻辑更清晰了。</p>
+        <p class="t-bad">+1,847 −923 · 23 个文件</p>
+        <p class="t-note t-note--bad">↑ 你盯了 5 分钟,一个决策都没读出来。今天很忙——合并了</p>
+        <p class="t-out">…三周后,线上…</p>
+        <p class="t-bad">支付重复扣款 · 排查 4 小时</p>
+        <p class="t-note t-note--bad">↑ 重试逻辑和幂等键的设计,你从头到尾没理解过</p>
+      </div>
+      <div class="ba__verdict ba__verdict--bad">代码是 AI 写的,锅是你背的 💥</div>
+    </article>
+    <article class="ba__col ba__col--ok">
+      <div class="ba__bar"><span class="ba__tag ba__tag--ok">装了</span></div>
+      <div class="ba__term">
+        <p class="t-ai">Claude 交付时主动附带 ↓</p>
+        <p class="t-ok">① 走读:回调改 webhook,幂等键=订单号+时间戳,重试独立队列</p>
+        <p class="t-ok">② 交底:重试队列边界我最没把握,盯 payment_retry.ts:42</p>
+        <p class="t-ok">③ 秒答题:webhook 连续失败 3 次会发生什么?</p>
+        <p class="t-note">↑ 你能秒答 = 真懂了;答不上 = 它先补讲再合并</p>
+      </div>
+      <div class="ba__verdict ba__verdict--ok">review 只花 3 分钟,代码库还在你手里 ✓</div>
+    </article>
+  </div>
+  <p style="font-size:12px;color:var(--ink-mute);margin-top:10px">对话为示意脚本;三件套的格式与触发条件由 SKILL.md 定义,真实措辞随任务而变。</p>
+
+  <h2>三、装上之后,AI 多了三个交付义务</h2>
+  <div class="beh2"><span class="no">1</span><div>
+    <h3>架构走读 —— 讲决策,不讲流水账</h3>
+    <p>「改了 A 文件加了 B 函数」是 git log 的活。走读讲的是:为什么这样改、关键取舍、否决了哪些备选。≤10 行,1 分钟拿回全局感。</p>
+    <div class="eg">"回调改 webhook 是为了去掉轮询延迟;考虑过消息队列,但引入新依赖不值得。"</div>
+  </div></div>
+  <div class="beh2"><span class="no">2</span><div>
+    <h3>主动交底 —— 自曝薄弱点,不等你踩坑</h3>
+    <p>没有薄弱点的大 diff 不存在。AI 必须指出:最复杂的一段、最可能藏边界问题的一段、它自己最没把握的一段。这条最狠——逼 AI 审视自己。</p>
+    <div class="eg">"并发退款只做了乐观锁,没压测,这里最值得盯。"</div>
+  </div></div>
+  <div class="beh2"><span class="no">3</span><div>
+    <h3>秒答题 —— 2-3 道,验证理解真的转移了</h3>
+    <p>都是一句话能答的问题。秒答 = 理解已转移;答不上 = AI 先补讲再合并。嫌烦说一句「以后不用 quiz」,它会记住。</p>
+    <div class="eg">"用户在支付中途关闭页面,订单状态最终停在哪?"</div>
+  </div></div>
+
+  <h2>四、什么时候触发</h2>
+  <table class="trg">
+    <tr><td>改动 ≥3 个文件 或 ≥100 行</td><td>小改一眼能懂,不打扰;大改才需要还债</td></tr>
+    <tr><td>动了架构 / 数据模型 / 接口 / 安全边界</td><td>这些地方的「没懂」最贵</td></tr>
+    <tr><td>你说过「你来弄」「直接搞定」</td><td>全权委托 = 理解债风险最高的时刻</td></tr>
+  </table>
+
+  <h2>五、安装(1 分钟)</h2>
+  <div class="cmd2">mkdir -p ~/.claude/skills/own-your-diff
+curl -o ~/.claude/skills/own-your-diff/SKILL.md \
+  https://raw.githubusercontent.com/cchubai/cchub-registry/main/skills/own-your-diff/SKILL.md</div>
+  <p>重启 Claude Code 会话即生效。验证:让它做一个大改动,交付时应出现「走读+交底+秒答题」。<span style="color:var(--ink-mute)">一键安装(npx)内测中。</span></p>
+
+  <h2>六、它从哪来</h2>
+  <div class="find__trace">
+    <span>📱 刷到 @Ali厂长的视频 ❤ 6.4k</span><i>→</i>
+    <span>🔍 追到 <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/" target="_blank" rel="noopener">Karpathy 原始对谈</a></span><i>→</i>
+    <span>⚗️ CCHub 行为化改写</span>
+  </div>
+  <p style="font-size:13px">我们不搬运创作者内容,只提取「内容指向的思想」,追到一手出处,用自己的文字做成工具。灵感来源均致谢;如相关方希望调整署名,联系我们即刻处理。</p>
+  <div class="find__checks" style="margin-top:6px">✓ 版权干净(MIT) · ✓ 代码人工读过(纯指令零脚本) · ✓ 我们自己先用(本站的大改动就是用它交的底)</div>
+
+  <div class="dl-row">
+    <a class="btn btn--primary btn--sm" href="https://github.com/cchubai/cchub-registry/blob/main/skills/own-your-diff/SKILL.md" target="_blank" rel="noopener">获取 SKILL.md ↗</a>
+    <a class="btn btn--ghost btn--sm" href="../media/own-your-diff/guide.pdf" target="_blank" rel="noopener">下载 PDF 手册</a>
+    <a class="btn btn--ghost btn--sm" href="../index.html#still">← 返回今日上新</a>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__brand"><span class="brand__word">CCHub<span class="brand__tld">.ai</span></span><p>实战枢纽 · The Ops Hub for Claude Native Devs</p></div>
+    <div class="foot__legal"><p>CCHub.ai 是独立社区,非 Anthropic、非 CcHUB Nigeria。</p><p>"Claude" is a trademark of Anthropic PBC.</p></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const onS=()=>nav.classList.toggle('scrolled',scrollY>24); onS();
+addEventListener('scroll',onS,{passive:true});
+document.addEventListener('visibilitychange',()=>document.documentElement.classList.toggle('halt',document.hidden));
+</script>
+</body>
+</html>
