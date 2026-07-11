@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>own-your-diff · 效果演示</title>
+<style>
+:root{--bg:#06081A;--ink:#F4F5FB;--soft:#C3C7E0;--mute:#8D92B5;--pink:#E85C9E;--vio:#7B5BE0;--teal:#34D6C8;--gold:#f6d365;
+  --sans:'Inter','PingFang SC','Hiragino Sans GB',sans-serif;--mono:'JetBrains Mono','SF Mono',Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:var(--bg);font-family:var(--sans);color:var(--ink)}
+#stage{position:relative;width:1280px;height:720px;background:
+  radial-gradient(90% 100% at 20% -10%,rgba(232,92,158,.16),transparent 55%),
+  radial-gradient(80% 90% at 85% -5%,rgba(52,214,200,.13),transparent 50%),
+  radial-gradient(120% 80% at 50% -10%,#11163b 0%,var(--bg) 60%)}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .6s ease;padding:0 90px 120px}
+.scene.on{opacity:1}
+.sub{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);width:1040px;text-align:center;
+  font-size:30px;font-weight:700;line-height:1.5;text-shadow:0 2px 20px rgba(0,0,0,.7)}
+.sub em{font-style:normal;color:var(--teal)}
+.sub b{color:var(--gold)}
+.progress{position:absolute;top:0;left:0;height:5px;background:linear-gradient(90deg,var(--pink),var(--vio),var(--teal));width:0%}
+.brand{position:absolute;top:22px;right:30px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.brand i{font-style:normal;color:var(--teal)}
+.kicker{font-family:var(--mono);font-size:19px;letter-spacing:.2em;color:var(--teal);margin-bottom:26px}
+.huge{font-size:76px;font-weight:800;letter-spacing:-.03em;text-align:center;line-height:1.15}
+.huge code{font-family:var(--mono);font-weight:500;background:linear-gradient(100deg,var(--gold),#fda085);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.big{font-size:44px;font-weight:800;text-align:center;line-height:1.4}
+.chat{width:820px;background:rgba(14,18,51,.9);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:34px 42px;
+  font-size:32px;line-height:1.55;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.chat .who{font-size:19px;color:var(--mute);margin-bottom:10px;font-family:var(--mono)}
+.tag{display:inline-block;font-size:24px;font-weight:800;padding:10px 30px;border-radius:999px;margin-bottom:34px}
+.tag--bad{color:#fff;background:rgba(232,92,158,.25);border:2px solid var(--pink)}
+.tag--ok{color:#06231f;background:var(--teal);border:2px solid var(--teal)}
+.diffbox{font-family:var(--mono);font-size:40px;font-weight:700;color:#ff7a90;background:rgba(0,0,0,.45);
+  border:1px solid rgba(232,92,158,.4);border-radius:18px;padding:28px 46px;margin-top:26px}
+.diffbox small{display:block;font-size:22px;color:var(--mute);font-weight:400;margin-top:8px}
+.list{width:900px;display:flex;flex-direction:column;gap:20px}
+.item{display:flex;gap:20px;align-items:flex-start;background:rgba(14,18,51,.88);border:1px solid rgba(52,214,200,.3);
+  border-radius:18px;padding:24px 30px;font-size:27px;line-height:1.5;opacity:0;transform:translateY(16px);transition:all .5s ease}
+.item.show{opacity:1;transform:none}
+.item .no{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:22px;
+  color:#06231f;background:var(--teal)}
+.item b{color:var(--gold)}
+.item small{display:block;font-size:20px;color:var(--mute);margin-top:6px;font-family:var(--mono)}
+.vs{display:flex;gap:34px;width:1100px}
+.vs>div{flex:1;border-radius:22px;padding:34px 36px;font-size:28px;line-height:1.6}
+.vs .bad{background:rgba(232,92,158,.1);border:2px solid rgba(232,92,158,.45)}
+.vs .ok{background:rgba(52,214,200,.1);border:2px solid rgba(52,214,200,.5)}
+.vs h3{font-size:23px;margin-bottom:16px;font-family:var(--mono)}
+.vs .bad h3{color:var(--pink)}.vs .ok h3{color:var(--teal)}
+.endurl{font-family:var(--mono);font-size:27px;color:var(--teal);margin-top:30px}
+.endnote{font-size:22px;color:var(--mute);margin-top:14px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="progress" id="bar"></div>
+  <div class="brand">CCHub<i>.ai</i></div>
+
+  <section class="scene" data-t="6">
+    <div class="kicker">CCHUB 出品 · SKILL 效果演示</div>
+    <div class="huge"><code>own-your-diff</code></div>
+    <div class="big" style="margin-top:26px;font-size:38px">AI 干完大活,把话说清楚</div>
+    <p class="sub">一分钟看懂:装它之前 vs 之后,差别有多大</p>
+  </section>
+
+  <section class="scene" data-t="8">
+    <div class="chat"><div class="who">你 → Claude</div>“帮我把<b style="color:var(--gold)">支付模块</b>重构一下,现在的回调逻辑太乱了。”</div>
+    <p class="sub">一个再普通不过的大任务 —— 你把活交给了 AI</p>
+  </section>
+
+  <section class="scene" data-t="9">
+    <span class="tag tag--bad">没装 own-your-diff</span>
+    <div class="chat"><div class="who">Claude → 你</div>✅ 改完了!支付模块已重构,逻辑更清晰了。</div>
+    <div class="diffbox">+1,847 −923 <small>23 个文件被改动</small></div>
+    <p class="sub">它到底干了什么?你盯着 diff,<em>一个字都看不进去</em></p>
+  </section>
+
+  <section class="scene" data-t="8">
+    <span class="tag tag--bad">三周后</span>
+    <div class="big">线上支付重复扣款 💥<br><span style="font-size:32px;color:var(--soft)">没人敢动那个模块 —— 因为没人真的懂它</span></div>
+    <p class="sub">这就是「理解债」:代码是 AI 的,锅是你的</p>
+  </section>
+
+  <section class="scene" data-t="7">
+    <div class="kicker">同一个任务 · 重来一次</div>
+    <div class="huge" style="font-size:56px">这次,装上 <code>own-your-diff</code></div>
+    <p class="sub">skill = 给 AI 立规矩的一页纸,<em>复制即装</em></p>
+  </section>
+
+  <section class="scene" data-t="24">
+    <span class="tag tag--ok">装了 own-your-diff</span>
+    <div class="list">
+      <div class="item"><span class="no">1</span><div><b>架构走读</b> —— “回调从轮询改成 webhook,幂等键 = 订单号+时间戳,重试走独立队列。”<small>讲决策,不是流水账</small></div></div>
+      <div class="item"><span class="no">2</span><div><b>主动交底</b> —— “重试队列的边界情况我最没把握,建议重点看 payment_retry.ts:42。”<small>不等你上线踩坑,先自曝薄弱点</small></div></div>
+      <div class="item"><span class="no">3</span><div><b>秒答题</b> —— “webhook 连续失败 3 次会发生什么?”<small>你能秒答 = 你真的懂了;答不上 = 它再给你讲</small></div></div>
+    </div>
+    <p class="sub">AI 干完不再只说“改完了”,而是<em>主动交底</em> —— 三样,一样不少</p>
+  </section>
+
+  <section class="scene" data-t="9">
+    <div class="vs">
+      <div class="bad"><h3>没装</h3>“改完了” → 看不懂的 1847 行<br>→ 代码库慢慢<b style="color:var(--pink)">失控</b></div>
+      <div class="ok"><h3>装了</h3>走读 + 交底 + 秒答题<br>→ 每次交付,你都<b style="color:var(--teal)">真懂</b></div>
+    </div>
+    <p class="sub">你可以外包思考,<b>但不能外包理解</b> —— Karpathy</p>
+  </section>
+
+  <section class="scene" data-t="9">
+    <div class="huge" style="font-size:58px"><code>own-your-diff</code></div>
+    <div class="endurl">cchubai.github.io/cchub-registry</div>
+    <div class="endnote">复制 SKILL.md 到 ~/.claude/skills/ 即装 · 版权干净 · 代码人工读过 · 我们自己先用</div>
+    <p class="sub">CCHub<em>.ai</em> · 你刷到就划走的视频,我们把它做成了工具</p>
+  </section>
+</div>
+<script>
+const SPEED = parseFloat(new URLSearchParams(location.search).get('speed')||'1');
+const scenes=[...document.querySelectorAll('.scene')], bar=document.getElementById('bar');
+const total=scenes.reduce((s,el)=>s+ +el.dataset.t,0);
+let i=0, elapsed=0;
+function show(n){
+  scenes.forEach(s=>s.classList.remove('on'));
+  const sc=scenes[n]; sc.classList.add('on');
+  [...sc.querySelectorAll('.item')].forEach((it,k)=>setTimeout(()=>it.classList.add('show'), (600+k*4200)/SPEED));
+}
+function tickBar(){ elapsed+=0.1*SPEED; bar.style.width=(Math.min(elapsed/total,1)*100)+'%'; }
+setInterval(tickBar,100);
+function next(){
+  if(i>=scenes.length) return;
+  show(i);
+  const d=+scenes[i].dataset.t*1000/SPEED; i++;
+  if(i<scenes.length) setTimeout(next,d);
+  else setTimeout(()=>{ document.title='MOVIE_DONE'; }, d);
+}
+window.addEventListener('load',()=>setTimeout(next,300));
+</script>
+</body>
+</html>

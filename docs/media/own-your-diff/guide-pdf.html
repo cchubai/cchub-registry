@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>own-your-diff 图文手册</title>
+<style>
+:root{--ink:#131629;--soft:#4a5070;--mute:#8d92b5;--pink:#d43f87;--vio:#6a4ad8;--teal:#0fa89c;--gold:#c98a12;
+  --line:#e3e5f0;--bg2:#f5f6fb;--sans:'Inter','PingFang SC','Hiragino Sans GB',sans-serif;--mono:'JetBrains Mono','SF Mono',Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:A4;margin:0}
+body{font-family:var(--sans);color:var(--ink);line-height:1.75;font-size:13px}
+.page{width:210mm;height:296mm;padding:22mm 20mm;position:relative;page-break-after:always;overflow:hidden;background:#fff}
+.foot{position:absolute;left:20mm;right:20mm;bottom:10mm;display:flex;justify-content:space-between;
+  font-size:9px;color:var(--mute);border-top:1px solid var(--line);padding-top:8px}
+.brand{font-weight:800;font-size:15px;letter-spacing:-.02em}
+.brand i{font-style:normal;color:var(--teal)}
+h1{font-size:34px;letter-spacing:-.02em;line-height:1.25}
+h2{font-size:21px;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+h3{font-size:14.5px;margin-bottom:8px}
+code{font-family:var(--mono);font-size:.92em;background:var(--bg2);padding:1px 6px;border-radius:4px}
+.cover{background:linear-gradient(160deg,#0b0e24 0%,#141a3f 55%,#1a1440 100%);color:#f4f5fb;display:flex;flex-direction:column}
+.cover .brand{font-size:20px}
+.cover .brand i{color:#34d6c8}
+.cover-mid{margin:auto 0;padding-bottom:30mm}
+.cover .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:#34d6c8;margin-bottom:18px}
+.cover h1{font-size:46px;color:#fff}
+.cover h1 code{background:none;padding:0;color:#f6d365;font-weight:600}
+.cover .tagline{font-size:19px;color:#c3c7e0;margin-top:16px;max-width:130mm}
+.cover .meta{font-size:11px;color:#8d92b5;margin-top:26px;line-height:2}
+.cover .checks{display:flex;gap:14px;margin-top:22px}
+.cover .checks span{font-size:11px;color:#34d6c8;border:1px solid rgba(52,214,200,.5);border-radius:99px;padding:4px 12px}
+.cover .foot{border-top-color:rgba(255,255,255,.15);color:#8d92b5}
+.lede{font-size:15px;color:var(--soft);margin-bottom:20px}
+.quote{border-left:4px solid var(--vio);background:var(--bg2);padding:14px 18px;border-radius:0 10px 10px 0;
+  font-size:14.5px;font-weight:600;margin:16px 0}
+.quote small{display:block;font-weight:400;color:var(--mute);margin-top:6px;font-size:11px}
+.cols{display:flex;gap:14px;margin:16px 0}
+.col{flex:1;border-radius:12px;padding:16px 18px;font-size:12.5px}
+.col--bad{border:2px solid #f0c4d8;background:#fdf4f8}
+.col--ok{border:2px solid #bfe8e4;background:#f2fbfa}
+.col h3{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+.col--bad h3{color:var(--pink)}.col--ok h3{color:var(--teal)}
+.bubble{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:12.5px}
+.bubble .who{font-family:var(--mono);font-size:9.5px;color:var(--mute);margin-bottom:3px}
+.verdict{font-weight:700;font-size:12.5px;margin-top:10px}
+.col--bad .verdict{color:var(--pink)}.col--ok .verdict{color:var(--teal)}
+.beh{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.beh .no{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--vio);font-weight:800;font-size:14px}
+.beh h3{margin-bottom:4px}
+.beh p{font-size:12px;color:var(--soft)}
+.beh .eg{font-family:var(--mono);font-size:11px;background:var(--bg2);border-radius:8px;padding:8px 12px;margin-top:8px;color:var(--ink)}
+.steps{counter-reset:st}
+.step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.step::before{counter-increment:st;content:counter(st);flex:none;width:26px;height:26px;border-radius:50%;
+  display:grid;place-items:center;background:var(--ink);color:#fff;font-weight:700;font-size:13px}
+.step .cmd{font-family:var(--mono);font-size:11px;background:#0d102a;color:#7de8dd;border-radius:8px;padding:10px 14px;margin-top:6px;white-space:pre-wrap}
+.trace{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--soft);
+  border:1px dashed var(--line);border-radius:10px;padding:10px 14px;background:var(--bg2)}
+.trace b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+td,th{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-size:11.5px}
+.small{font-size:10.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+
+<!-- P1 封面 -->
+<div class="page cover">
+  <div class="brand">CCHub<i>.ai</i> · 实战枢纽</div>
+  <div class="cover-mid">
+    <div class="kicker">SKILL 图文手册 · NO.001</div>
+    <h1><code>own-your-diff</code><br>AI 干完大活,把话说清楚</h1>
+    <p class="tagline">你可以把活外包给 AI,但不能把「懂自己代码库」也外包出去。这本手册用一个真实任务,讲清装它前后的差别。</p>
+    <div class="checks"><span>✓ 版权干净</span><span>✓ 代码人工读过</span><span>✓ 我们自己先用</span></div>
+    <p class="meta">类型:行为类 Skill(纯指令,零脚本零依赖) · License:MIT<br>发布:2026-07 · 出品:CCHub.ai · 灵感致谢:Andrej Karpathy</p>
+  </div>
+  <div class="foot"><span>CCHub.ai · 你刷到就划走的视频,我们把它做成了工具</span><span>01 / 05</span></div>
+</div>
+
+<!-- P2 痛点与原理 -->
+<div class="page">
+  <div class="brand" style="margin-bottom:22px">CCHub<i>.ai</i></div>
+  <h2>一、它解决什么问题:「理解债」</h2>
+  <p class="lede">AI 编程最隐蔽的代价,不是它写错代码,而是它写对了、<b>你却没懂</b>。</p>
+  <p>把一个大任务交给 AI,它十分钟后回你一句「改完了」。diff 一千多行、二十几个文件——你扫了两眼,合并了。第二次、第三次……三个月后你发现:这个代码库你已经不敢乱动了,因为<b>真正懂它的"人",是 AI,而它不为线上事故负责</b>。</p>
+  <p style="margin-top:10px">每一次「没看懂就合并」,都是在借一笔债。利息在深夜的线上告警里付。</p>
+  <div class="quote">“You can outsource your thinking, but you can't outsource your understanding.”<br>你可以外包思考,但不能外包理解。<small>—— Andrej Karpathy,《From Vibe Coding to Agentic Engineering》(红杉 AI Ascent 2026)</small></div>
+  <h2 style="margin-top:26px">二、它的思路:把「还债」变成 AI 的交付义务</h2>
+  <p>传统做法靠人自觉:「记得 review AI 的代码」——没人做得到。<code>own-your-diff</code> 反过来,把责任放到 AI 头上:<b>凡是大改动(≥3 个文件 / ≥100 行 / 动了架构),AI 交付时必须附带一次"理解转移"</b>,像交房必须交钥匙一样,不是可选项。</p>
+  <p style="margin-top:10px">这就是行为类 skill 的本质:它不给 AI 新能力,它给 AI <b>立规矩</b>。一页纸的守则,装进去,AI 的交付习惯就变了。</p>
+  <div class="foot"><span>own-your-diff · 图文手册</span><span>02 / 05</span></div>
+</div>
+
+<!-- P3 前后对比 -->
+<div class="page">
+  <div class="brand" style="margin-bottom:22px">CCHub<i>.ai</i></div>
+  <h2>三、同一个任务,装它前后</h2>
+  <p class="lede">任务:「帮我把支付模块重构一下,现在的回调逻辑太乱了。」</p>
+  <div class="cols">
+    <div class="col col--bad">
+      <h3>没装 · BEFORE</h3>
+      <div class="bubble"><div class="who">Claude → 你</div>✅ 改完了!支付模块已重构,逻辑更清晰了。</div>
+      <div class="bubble" style="font-family:var(--mono)">+1,847 −923 · 23 个文件</div>
+      <p>你盯着 diff,看了 5 分钟,一个决策都没读出来。今天很忙——合并了。</p>
+      <div class="bubble"><div class="who">三周后 · 线上</div>支付重复扣款。排查 4 小时,才发现重试逻辑和幂等键的设计你从头到尾没理解过。</div>
+      <p class="verdict">结果:代码是 AI 写的,锅是你背的。代码库慢慢变成没人敢动的黑盒。💥</p>
+    </div>
+    <div class="col col--ok">
+      <h3>装了 · AFTER</h3>
+      <div class="bubble"><div class="who">Claude → 你(交付时主动附带)</div><b>① 架构走读</b>:回调从轮询改成 webhook;幂等键 = 订单号+时间戳;重试走独立队列,和主流程解耦。</div>
+      <div class="bubble"><b>② 主动交底</b>:重试队列的边界情况我最没把握,建议重点看 <code>payment_retry.ts:42</code> 的超时分支。</div>
+      <div class="bubble"><b>③ 秒答题</b>:webhook 连续失败 3 次会发生什么?(答:进死信队列并告警——你能秒答,说明真懂了)</div>
+      <p class="verdict">结果:review 只花 3 分钟,但每一次交付,代码库都还在你手里。✓</p>
+    </div>
+  </div>
+  <p class="small">以上对话为示意脚本;三件套的格式与触发条件由 SKILL.md 原文定义,真实措辞随任务而变。</p>
+  <div class="foot"><span>own-your-diff · 图文手册</span><span>03 / 05</span></div>
+</div>
+
+<!-- P4 三个行为详解 -->
+<div class="page">
+  <div class="brand" style="margin-bottom:22px">CCHub<i>.ai</i></div>
+  <h2>四、装上之后,AI 多了三个交付义务</h2>
+  <div class="beh"><span class="no">1</span><div>
+    <h3>架构走读 —— 讲决策,不讲流水账</h3>
+    <p>「改了 A 文件加了 B 函数」是 git log 的活。走读要讲的是:为什么这样改、关键取舍是什么、否决了哪些备选方案。≤10 行,让你 1 分钟拿回全局感。</p>
+    <div class="eg">"回调改 webhook 是为了去掉轮询延迟;考虑过消息队列方案,但引入新依赖不值得。"</div>
+  </div></div>
+  <div class="beh"><span class="no">2</span><div>
+    <h3>主动交底 —— 自曝薄弱点,不等你踩坑</h3>
+    <p>没有薄弱点的大 diff 不存在。AI 必须诚实指出:这次改动里最复杂的一段、最可能藏边界问题的一段、它自己最没把握的一段。这条规矩最狠——它逼 AI 审视自己。</p>
+    <div class="eg">"并发退款的场景我只做了乐观锁,没做压测,这里最值得盯。"</div>
+  </div></div>
+  <div class="beh"><span class="no">3</span><div>
+    <h3>秒答题 —— 2-3 道,验证理解真的转移了</h3>
+    <p>问题都是一句话能答的(「X 场景会走哪条分支?」)。你能秒答 = 理解已转移;答不上 = AI 先补讲再合并。嫌烦可以说「以后不用 quiz」,它会记住。</p>
+    <div class="eg">"如果用户在支付中途关闭页面,订单状态最终会停在哪?"</div>
+  </div></div>
+  <h2 style="margin-top:20px">五、什么时候触发</h2>
+  <table>
+    <tr><th>触发条件(满足任一)</th><th>为什么</th></tr>
+    <tr><td>改动 ≥3 个文件 或 ≥100 行</td><td>小改一眼能看懂,不打扰;大改才需要还债</td></tr>
+    <tr><td>动了架构 / 数据模型 / 对外接口 / 安全边界</td><td>这些地方的「没懂」最贵</td></tr>
+    <tr><td>你说过「你来弄」「直接搞定」</td><td>全权委托 = 理解债风险最高的时刻</td></tr>
+  </table>
+  <div class="foot"><span>own-your-diff · 图文手册</span><span>04 / 05</span></div>
+</div>
+
+<!-- P5 安装+溯源 -->
+<div class="page">
+  <div class="brand" style="margin-bottom:22px">CCHub<i>.ai</i></div>
+  <h2>六、安装(1 分钟,3 步)</h2>
+  <div class="steps">
+    <div class="step"><div>打开 skill 文件(GitHub 上公开托管):<div class="cmd">github.com/cchubai/cchub-registry → skills/own-your-diff/SKILL.md</div></div></div>
+    <div class="step"><div>复制到你的 Claude Code 技能目录:<div class="cmd">mkdir -p ~/.claude/skills/own-your-diff
+curl -o ~/.claude/skills/own-your-diff/SKILL.md \
+  https://raw.githubusercontent.com/cchubai/cchub-registry/main/skills/own-your-diff/SKILL.md</div></div></div>
+    <div class="step"><div>重启 Claude Code 会话即生效。验证:让它做一个大改动,交付时应出现「走读 + 交底 + 秒答题」三件套。<br><span class="small">一键安装(npx cchub add)内测中,就绪后本手册同步更新。</span></div></div>
+  </div>
+  <h2 style="margin-top:24px">七、它从哪来(全程可溯源)</h2>
+  <div class="trace"><span>📱 <b>发现</b>:抖音 @Ali厂长 的视频(❤ 6.4k · 收录时数据)</span><span>→</span><span>🔍 <b>溯源</b>:Karpathy × 红杉对谈及其博客原文</span><span>→</span><span>⚗️ <b>做成</b>:CCHub 行为化改写为本 skill</span></div>
+  <p style="margin-top:12px;font-size:12px">我们不搬运任何创作者的内容——只提取「内容指向的思想」,追到一手出处,再用自己的文字做成工具。灵感来源均注明并致谢;如相关方希望调整署名,联系我们即刻处理。</p>
+  <h2 style="margin-top:24px">八、CCHub 的三关质检</h2>
+  <table>
+    <tr><td><b>版权干净</b></td><td>License MIT;思想出处公开致谢;可自由商用与修改</td></tr>
+    <tr><td><b>代码人工读过</b></td><td>纯行为指令,零脚本零依赖,无任何执行面</td></tr>
+    <tr><td><b>我们自己先用</b></td><td>CCHub 官网的多次大改动交付,就是用它交的底</td></tr>
+  </table>
+  <p class="small" style="margin-top:16px">CCHub.ai 是独立社区,与 Anthropic、CcHUB Nigeria 无关。"Claude" is a trademark of Anthropic PBC。手册内容 CC BY 4.0,skill 本体 MIT。</p>
+  <div class="foot"><span>cchubai.github.io/cchub-registry · 明天还有新的</span><span>05 / 05</span></div>
+</div>
+
+</body>
+</html>
