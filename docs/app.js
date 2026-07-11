@@ -184,88 +184,145 @@ function renderStill(){
   if(stat) stat.innerHTML = `今日 <b>${DISTILL.length}</b> 条原料 → <b class="c-skill">${n.skill}</b> skill · <b class="c-intel">${n.intel}</b> 情报 · <b class="c-topic">${n.topic}</b> 素材 · <b class="c-source">${n.source}</b> 信源 · <b>0</b> 硬凑`;
 }
 
-/* —— 蒸馏装置动画:原料粒子过三道闸,少数结晶,其余转入周刊侧道 —— */
-function stillRig(){
-  const cv = document.getElementById("still-canvas");
-  if(!cv) return;
+/* —— 蒸馏剧场:今天的真实原料逐条走完全程,机器自己解说 —— */
+function theater(){
+  const T = document.getElementById("theater");
+  if(!T) return;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const ctx = cv.getContext("2d");
-  const COLORS = ["#E85C9E","#7B5BE0","#34D6C8"];
-  let W,H,dpr, parts=[], running=false, raf=0, t=0;
+  const $ = id => document.getElementById(id);
+  const card=$("th-card"), narr=$("th-narr"), prog=$("th-progress"),
+        shelfRow=$("th-shelf-row"), drawerN=$("th-drawer-n"),
+        gates=[$("g0"),$("g1"),$("g2")], fx=$("th-fx"), ctx=fx.getContext("2d");
+  const PASS = t => t==="skill"||t==="intel";
+  let dpr, sparks=[], fxRaf=0, playing=false, killed=false, idx=0, timers=[];
 
-  function size(){
-    dpr = Math.min(devicePixelRatio||1, 2);
-    W = cv.clientWidth; H = cv.clientHeight;
-    cv.width = W*dpr; cv.height = H*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+  /* --- canvas FX 层 --- */
+  function sizeFx(){ dpr=Math.min(devicePixelRatio||1,2); fx.width=fx.clientWidth*dpr; fx.height=fx.clientHeight*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  function burst(x,y,color,n=26,spread=2.6){
+    for(let i=0;i<n;i++){ const a=Math.random()*6.28, v=0.6+Math.random()*spread;
+      sparks.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,a:1,c:color,r:1.2+Math.random()*2}); }
   }
-  function spawn(){
-    const lane = Math.floor(Math.random()*3);
-    parts.push({
-      x:-6, y: H*(0.28+lane*0.22) + (Math.random()*14-7),
-      vx: 0.9+Math.random()*0.7, c: COLORS[lane],
-      pass: Math.random() < 3/7,     // 与真实漏斗一致:7 进 3
-      state:"flow", a:1, r:2.2+Math.random()*1.6, wob:Math.random()*6.28
+  function beam(x,y,h){ sparks.push({beam:1,x,y,h,a:1}); }
+  function fxLoop(){
+    ctx.clearRect(0,0,fx.clientWidth,fx.clientHeight);
+    sparks = sparks.filter(s=>s.a>0.03);
+    for(const s of sparks){
+      if(s.beam){ s.a-=0.03;
+        ctx.strokeStyle=`rgba(52,214,200,${s.a*.8})`; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(s.x,s.y-s.h/2); ctx.lineTo(s.x,s.y+s.h/2); ctx.stroke();
+        s.x+=3.2; continue; }
+      s.x+=s.vx; s.y+=s.vy; s.vy+=0.03; s.a-=0.018;
+      ctx.globalAlpha=s.a; ctx.fillStyle=s.c;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,6.28); ctx.fill(); ctx.globalAlpha=1;
+    }
+    fxRaf = requestAnimationFrame(fxLoop);
+  }
+
+  /* --- 定位:卡片飞到某站 --- */
+  function xyOf(el, dy=0){
+    const a=T.getBoundingClientRect(), b=el.getBoundingClientRect();
+    return {x: b.left-a.left + b.width/2, y: b.top-a.top + b.height + 14 + dy};
+  }
+  function fly(to, ms=900){ card.style.transition=`transform ${ms}ms cubic-bezier(.22,.61,.36,1)`;
+    card.style.transform=`translate(${to.x}px,${to.y}px) translateX(-50%)`; }
+
+  /* --- 旁白 --- */
+  function say(html){ narr.innerHTML=html; narr.classList.remove("tick"); void narr.offsetWidth; narr.classList.add("tick"); }
+  const wait = ms => new Promise(r=>{ const t=setTimeout(r,ms); timers.push(t); });
+
+  /* --- 演一条 --- */
+  async function play(it, i){
+    prog.textContent = `蒸馏中 ${i+1} / ${DISTILL.length}`;
+    const tt = STILL_TYPE[it.type];
+    // 1) 信号进场
+    card.className = "th-card"; card.style.transition="none";
+    card.innerHTML = `<em>${it.signal.platform}</em><b>${it.signal.author}</b><s>${it.signal.heat}</s>`;
+    const p0 = xyOf($("st-signal"));
+    card.style.transform = `translate(${p0.x-220}px,${p0.y}px) translateX(-50%)`;
+    card.style.opacity = 1;
+    await wait(60); fly(p0, 800);
+    say(`📡 捕获信号:<b>${it.signal.platform} ${it.signal.author}</b> · ${it.signal.heat}`);
+    await wait(1500);
+    // 2) 溯源
+    const p1 = xyOf($("st-trace")); fly(p1, 800); await wait(850);
+    beam(p1.x-70, p1.y+8, 92);
+    say(it.source ? `🔬 溯源:不搬二手内容,摸到一手出处 → <b>${it.source.name}</b>` : `🔬 溯源:信号本体即原料,直接蒸馏`);
+    if(it.source){ await wait(900); card.innerHTML += `<i class="th-tag">一手源 ✓</i>`; }
+    await wait(1400);
+    // 3) 三道闸
+    const pg = xyOf($("st-gates"), 6); fly(pg, 800); await wait(900);
+    const verdicts = PASS(it.type)
+      ? [["合规 ✓ license 可商用可演绎",1],["安全 ✓ 无破坏 · 无外传 · 无后门",1],["品味 ✓ 真解决问题,不是凑数",1]]
+      : [["合规 ✓",1],["安全 ✓",1],["品味闸:是<b>观点</b>不是<b>行为</b> —— 拦下",0]];
+    for(let g=0; g<3; g++){
+      const [text, ok] = verdicts[g];
+      gates[g].className = "th-gate " + (ok? "ok":"no");
+      burst(pg.x+(g-1)*26, pg.y-30, ok? "#34D6C8":"#E85C9E", ok?14:30);
+      say((ok?"✅ ":"⛔ ") + text);
+      await wait(ok? 950: 1500);
+    }
+    // 4) 分流
+    if(!PASS(it.type)){
+      const pd = xyOf($("th-drawer"), -46);
+      card.classList.add("th-card--fall"); fly(pd, 1000);
+      say(`↩️ 转入<b>周刊 · 信源抽屉</b> —— 没收 ≠ 丢弃,好观点当选题(${tt.label})`);
+      await wait(1100);
+      drawerN.textContent = +drawerN.textContent + 1;
+      burst(pd.x, pd.y+20, "#7B5BE0", 18);
+      card.style.opacity = 0;
+      await wait(1300);
+    } else {
+      const p3 = xyOf($("st-gem")); fly(p3, 800); await wait(850);
+      burst(p3.x, p3.y+8, "#f6d365", 46, 3.4);
+      card.classList.add("th-card--gold");
+      card.innerHTML = `<em>${it.type==="skill" ? "⚗️ SKILL 已上架" : "⚗️ 情报"}</em><b>${it.output.name}</b><s>${it.output.desc.slice(0,26)}…</s>`;
+      say(it.type==="skill"
+        ? `⚗️ 结晶:<b>${it.output.name}</b> —— 从一条视频,蒸成一个今天就能装的 skill`
+        : `⚗️ 凝成情报:<b>${it.output.name}</b> → 推进验收队列`);
+      await wait(2100);
+      const chip = document.createElement("span");
+      chip.className = "th-chip" + (it.type==="intel"? " th-chip--intel":"");
+      chip.textContent = it.output.name;
+      shelfRow.appendChild(chip);
+      card.style.opacity = 0;
+      await wait(800);
+    }
+    gates.forEach(g=>g.className="th-gate");
+  }
+
+  async function run(){
+    if(playing) return; playing = true;
+    while(!killed){
+      if(idx===0){ shelfRow.innerHTML=""; drawerN.textContent="0"; }
+      await play(DISTILL[idx], idx);
+      idx = (idx+1) % DISTILL.length;
+      await wait(600);
+    }
+  }
+  function halt(){ killed=true; timers.forEach(clearTimeout); cancelAnimationFrame(fxRaf); }
+
+  sizeFx(); addEventListener("resize", sizeFx, {passive:true});
+
+  if(reduced){ // 静帧版:直接展示解说与成果
+    say("📡 信号 → 🔬 溯源 → 🚪 三道闸 → ⚗️ 结晶。今天 7 条原料,2 条蒸成 skill,4 条转入周刊抽屉。");
+    prog.textContent = "静态模式";
+    DISTILL.filter(d=>PASS(d.type)).forEach(d=>{
+      const c=document.createElement("span"); c.className="th-chip"+(d.type==="intel"?" th-chip--intel":"");
+      c.textContent=d.output.name; shelfRow.appendChild(c);
     });
-  }
-  function step(){
-    t++;
-    ctx.clearRect(0,0,W,H);
-    const gateX = W*0.52, gemX = W*0.86, gemY = H*0.5, sideY = H*0.94;
-
-    // 三道闸(呼吸辉光)
-    for(let i=0;i<3;i++){
-      const gx = gateX + (i-1)*10;
-      const glow = 0.35 + 0.15*Math.sin(t/30 + i);
-      ctx.strokeStyle = `rgba(52,214,200,${glow})`;
-      ctx.lineWidth = 3; ctx.lineCap="round";
-      ctx.beginPath(); ctx.moveTo(gx, H*0.16); ctx.lineTo(gx, H*0.78); ctx.stroke();
-    }
-    // 结晶(旋转菱形 + 光晕)
-    const pulse = 1 + 0.08*Math.sin(t/20);
-    ctx.save(); ctx.translate(gemX, gemY); ctx.rotate(t/90);
-    const g = ctx.createRadialGradient(0,0,2, 0,0,26*pulse);
-    g.addColorStop(0,"rgba(246,211,101,.95)"); g.addColorStop(1,"rgba(246,211,101,0)");
-    ctx.fillStyle=g; ctx.fillRect(-26*pulse,-26*pulse,52*pulse,52*pulse);
-    ctx.fillStyle="#f6d365";
-    ctx.beginPath(); ctx.moveTo(0,-11); ctx.lineTo(8,0); ctx.lineTo(0,11); ctx.lineTo(-8,0); ctx.closePath(); ctx.fill();
-    ctx.restore();
-
-    if(t%22===0 && parts.length<90) spawn();
-    parts = parts.filter(p=>p.a>0.02 && p.x<W+10);
-    for(const p of parts){
-      p.wob += 0.08;
-      if(p.state==="flow"){
-        p.x += p.vx; p.y += Math.sin(p.wob)*0.35;
-        if(p.x >= gateX-6){ p.state = p.pass ? "refine" : "divert"; }
-      } else if(p.state==="refine"){
-        p.x += (gemX-p.x)*0.035; p.y += (gemY-p.y)*0.035;
-        if(Math.abs(p.x-gemX)<8 && Math.abs(p.y-gemY)<8) p.a *= 0.82;
-      } else { // divert → 侧道(周刊/信源),不是丢弃
-        p.x += 0.5; p.y += (sideY-p.y)*0.05; p.a = Math.max(p.a-0.006, 0.25);
-        if(p.y > sideY-6) p.a -= 0.02;
-      }
-      ctx.globalAlpha = p.a;
-      ctx.fillStyle = p.c;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.28); ctx.fill();
-      ctx.globalAlpha = 1;
-    }
-    raf = requestAnimationFrame(step);
-  }
-  function start(){ if(!running && !reduced){ running=true; raf=requestAnimationFrame(step);} }
-  function stop(){ running=false; cancelAnimationFrame(raf); }
-
-  size();
-  addEventListener("resize", ()=>{ size(); }, {passive:true});
-  if(reduced){ // 静态版:画一帧示意
-    t=40; for(let i=0;i<40;i++) spawn();
-    parts.forEach(p=>{ p.x = Math.random()*W*0.5; });
-    const r=requestAnimationFrame; step(); cancelAnimationFrame(raf);
+    drawerN.textContent = DISTILL.filter(d=>!PASS(d.type)).length;
     return;
   }
-  // 只在可见时运转 —— 不烧任何人的电脑
-  new IntersectionObserver(es=>es.forEach(e=> e.isIntersecting ? start() : stop()),{threshold:.05}).observe(cv);
-  document.addEventListener("visibilitychange", ()=> document.hidden ? stop() : start());
+  fxLoop();
+  // 可见才开演;切走即停 —— 不烧任何人的电脑
+  new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting && !playing){ killed=false; run(); }
+    if(!e.isIntersecting && playing){ halt(); playing=false; }
+  }),{threshold:.15}).observe(T);
+  document.addEventListener("visibilitychange", ()=>{
+    if(document.hidden && playing){ halt(); playing=false; }
+    else if(!document.hidden && !playing){ killed=false; timers=[]; fxLoop(); run(); }
+  });
 }
 
 /* 极光背景:页面隐藏时暂停(GPU 省电) */
@@ -278,7 +335,7 @@ function auroraPause(){
 document.addEventListener("DOMContentLoaded", ()=>{
   renderRegistry();
   renderStill();
-  stillRig();
+  theater();
   auroraPause();
   wireCopy();
   wireNav();

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 
@@ -62,12 +62,26 @@
       <p class="section__lead">每天从自媒体和 GitHub 收原料,过三道闸,把「内容指向的工具」蒸成能装的东西。链条全程可追溯 —— 连没收的、为什么没收,都亮给你看。</p>
     </div>
 
-    <div class="still-rig reveal">
-      <canvas id="still-canvas" aria-hidden="true"></canvas>
-      <span class="rig-tag rig-tag--in">📡 抖音 · 公众号 · GitHub</span>
-      <span class="rig-tag rig-tag--gate">三道闸<br><i>合规 · 安全 · 品味</i></span>
-      <span class="rig-tag rig-tag--gem">⚗️ SKILL</span>
-      <span class="rig-tag rig-tag--side">↳ 周刊 · 信源(没收≠丢弃)</span>
+    <div class="theater reveal" id="theater">
+      <canvas id="th-fx" aria-hidden="true"></canvas>
+      <div class="th-stage" id="th-stage">
+        <div class="th-station" id="st-signal"><i>📡</i><b>信号</b><s>自媒体 · GitHub 捕获</s></div>
+        <div class="th-station" id="st-trace"><i>🔬</i><b>溯源</b><s>顺藤摸到一手出处</s></div>
+        <div class="th-station th-station--gates" id="st-gates">
+          <b>三道闸</b>
+          <div class="th-gates">
+            <span class="th-gate" id="g0">合规</span>
+            <span class="th-gate" id="g1">安全</span>
+            <span class="th-gate" id="g2">品味</span>
+          </div>
+        </div>
+        <div class="th-station" id="st-gem"><i>⚗️</i><b>结晶</b><s>蒸成能装的东西</s></div>
+      </div>
+      <div class="th-card" id="th-card" aria-hidden="true"></div>
+      <div class="th-shelf" id="th-shelf"><b>SKILL 架</b><div class="th-shelf__row" id="th-shelf-row"></div></div>
+      <div class="th-drawer" id="th-drawer"><b>周刊 · 信源抽屉</b><s>没收 ≠ 丢弃 <em id="th-drawer-n">0</em></s></div>
+      <div class="th-narr" id="th-narr">蒸馏台预热中…</div>
+      <div class="th-progress" id="th-progress"></div>
     </div>
     <p class="still-tally reveal" id="still-tally"></p>
 
@@ -279,6 +293,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

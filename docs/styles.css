@@ -236,16 +236,62 @@ img{max-width:100%;display:block}
 .ba__effect{display:inline-block;font-weight:700;color:var(--bg-0);background:linear-gradient(100deg,var(--au-teal),var(--au-violet));padding:3px 12px;border-radius:999px;margin-right:8px;font-size:14px}
 .ba__real{display:block;margin-top:10px;font-size:13.5px;color:var(--ink-mute);font-style:italic}
 
-/* ---------- the still: distillation deck ---------- */
-.still-rig{position:relative;max-width:1000px;margin:0 auto 14px;height:230px;border:1px solid var(--line);
-  border-radius:var(--r);background:rgba(0,0,0,.28);overflow:hidden}
-.still-rig canvas{width:100%;height:100%;display:block}
-.rig-tag{position:absolute;font-family:var(--mono);font-size:11.5px;color:var(--ink-mute);letter-spacing:.04em;pointer-events:none}
-.rig-tag--in{left:16px;top:12px}
-.rig-tag--gate{left:52%;top:8px;transform:translateX(-50%);text-align:center;color:var(--au-teal)}
-.rig-tag--gate i{font-style:normal;font-size:10.5px;color:var(--ink-mute)}
-.rig-tag--gem{right:16px;top:12px;color:#f6d365}
-.rig-tag--side{right:16px;bottom:10px}
+/* ---------- the still: distillation theater ---------- */
+.theater{position:relative;max-width:1060px;margin:0 auto 14px;height:430px;border:1px solid var(--line-2);
+  border-radius:22px;background:
+    radial-gradient(90% 120% at 50% -20%,rgba(123,91,224,.12),transparent 55%),
+    rgba(0,0,0,.34);overflow:hidden}
+#th-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+
+.th-stage{position:absolute;top:26px;left:0;right:0;display:grid;grid-template-columns:1fr 1fr 1.2fr 1fr;padding:0 30px;z-index:1}
+.th-station{text-align:center;position:relative}
+.th-station i{font-style:normal;font-size:20px;display:block;margin-bottom:4px;filter:drop-shadow(0 0 12px rgba(52,214,200,.35))}
+.th-station b{display:block;font-size:14.5px;font-weight:700;letter-spacing:.02em}
+.th-station s{display:block;text-decoration:none;font-size:11.5px;color:var(--ink-mute);margin-top:2px}
+.th-station::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:8px;
+  width:1px;height:16px;background:linear-gradient(180deg,var(--line-2),transparent)}
+.th-station--gates b{margin-bottom:6px}
+.th-gates{display:flex;gap:8px;justify-content:center}
+.th-gate{font-size:11.5px;font-family:var(--mono);padding:4px 10px;border-radius:8px;border:1px solid var(--line-2);
+  color:var(--ink-mute);background:rgba(0,0,0,.3);transition:all .3s}
+.th-gate.ok{color:#0b0c1a;background:var(--au-teal);border-color:var(--au-teal);box-shadow:0 0 18px rgba(52,214,200,.5)}
+.th-gate.no{color:#fff;background:var(--au-pink);border-color:var(--au-pink);box-shadow:0 0 18px rgba(232,92,158,.55)}
+
+.th-card{position:absolute;top:0;left:0;z-index:4;width:200px;padding:12px 15px;border-radius:14px;
+  border:1px solid var(--line-2);background:rgba(14,18,51,.92);backdrop-filter:blur(8px);
+  box-shadow:0 18px 44px -14px rgba(0,0,0,.8);opacity:0;will-change:transform}
+.th-card em{font-style:normal;display:block;font-size:11px;color:var(--au-teal);font-family:var(--mono);letter-spacing:.05em}
+.th-card b{display:block;font-size:15px;margin:3px 0 2px}
+.th-card s{display:block;text-decoration:none;font-size:12px;color:var(--ink-mute)}
+.th-card .th-tag{position:absolute;top:-9px;right:-8px;font-style:normal;font-size:10.5px;font-weight:700;
+  background:var(--au-teal);color:#0b0c1a;border-radius:999px;padding:2px 9px;box-shadow:0 4px 14px rgba(52,214,200,.4)}
+.th-card--gold{border-color:rgba(246,211,101,.55);background:rgba(40,32,12,.94);
+  box-shadow:0 18px 50px -12px rgba(246,211,101,.35)}
+.th-card--gold em{color:#f6d365}
+.th-card--fall{filter:saturate(.8)}
+
+.th-shelf{position:absolute;right:18px;bottom:14px;z-index:2;text-align:right;max-width:46%}
+.th-shelf>b{font-size:11.5px;font-family:var(--mono);color:#f6d365;letter-spacing:.08em}
+.th-shelf__row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:7px}
+.th-chip{font-family:var(--mono);font-size:11.5px;font-weight:600;color:#0b0c1a;padding:5px 12px;border-radius:999px;
+  background:linear-gradient(100deg,#f6d365,#fda085);box-shadow:0 6px 18px -4px rgba(246,211,101,.45);
+  animation:chipin .5s var(--ease)}
+.th-chip--intel{background:linear-gradient(100deg,var(--au-teal),#5ee8db);box-shadow:0 6px 18px -4px rgba(52,214,200,.45)}
+@keyframes chipin{from{transform:scale(.4);opacity:0}}
+
+.th-drawer{position:absolute;left:18px;bottom:14px;z-index:2}
+.th-drawer>b{font-size:11.5px;font-family:var(--mono);color:#b9a7f5;letter-spacing:.08em}
+.th-drawer>s{display:block;text-decoration:none;font-size:11px;color:var(--ink-mute);margin-top:4px}
+.th-drawer em{font-style:normal;display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:7px;
+  background:rgba(123,91,224,.2);border:1px solid rgba(123,91,224,.45);color:#cbbcff;font-weight:700;margin-left:6px}
+
+.th-narr{position:absolute;left:50%;bottom:52px;transform:translateX(-50%);z-index:5;max-width:78%;
+  font-size:14.5px;color:var(--ink);text-align:center;padding:10px 22px;border-radius:999px;
+  border:1px solid var(--line-2);background:rgba(8,10,28,.78);backdrop-filter:blur(10px)}
+.th-narr b{color:var(--au-teal)}
+.th-narr.tick{animation:narrin .35s var(--ease)}
+@keyframes narrin{from{opacity:0;transform:translateX(-50%) translateY(8px)}}
+.th-progress{position:absolute;top:12px;right:18px;z-index:2;font-family:var(--mono);font-size:11.5px;color:var(--ink-mute)}
 .still-tally{max-width:1000px;margin:0 auto 46px;text-align:center;font-size:14.5px;color:var(--ink-mute)}
 .still-tally b{color:var(--ink);font-weight:700}
 .still-tally .c-skill{color:#f6d365}.still-tally .c-intel{color:var(--au-teal)}
@@ -294,8 +340,12 @@ a.still-node__v:hover{color:var(--au-teal)}
   .still-link{height:22px}
   .still-link::after{left:50%;right:auto;top:4px;bottom:4px;width:2px;height:auto;
     background:repeating-linear-gradient(180deg,var(--au-teal) 0 6px,transparent 6px 12px);background-size:2px 24px}
-  .still-rig{height:190px}
-  .rig-tag--gate{display:none}
+  .theater{height:470px}
+  .th-station s{display:none}
+  .th-stage{grid-template-columns:1fr 1fr 1.4fr 1fr;padding:0 10px}
+  .th-card{width:164px;padding:10px 12px}
+  .th-narr{max-width:92%;font-size:13px;bottom:58px}
+  .th-shelf{max-width:52%}
 }
 
 /* ---------- reveal ---------- */
