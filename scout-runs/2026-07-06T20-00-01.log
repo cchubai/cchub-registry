@@ -9,3 +9,9 @@ Already up to date.
 - **Jamie-BitFlight/claude_skills**（工具类）— `plugin-creator` 元套件 + `skilllint` 验证，可接入 CCHub 上架 SOP
 - **hesreallyhim/a-list-of-claude-code-agents**（🔵信源）— awesome-claude-code 原作者的专一 agent 提交列表
 --- git commit & push ---
+[main 01ebac8] chore(scout): cron 自动扫货轮 2026-07-06T20-00-01
+ 3 files changed, 32 insertions(+)
+ create mode 100644 scout-runs/2026-07-06T20-00-01.log
+To https://github.com/cchubai/cchub-registry.git
+   d3ed78e..01ebac8  main -> main
+=== done 2026-07-06T20-00-01 ===

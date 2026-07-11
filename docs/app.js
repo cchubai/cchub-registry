@@ -4,6 +4,7 @@
 // (Later: generate this from the markdown at build time.)
 const REGISTRY = [
   {
+    tier: "SS",
     axis: "方法论 SKILL",
     name: "karpathy-guidelines",
     src: "multica-ai/andrej-karpathy-skills",
@@ -14,6 +15,7 @@ const REGISTRY = [
     install: "npx cchub add karpathy-guidelines",
   },
   {
+    tier: "SS",
     axis: "方法论 SKILL",
     name: "verification-before-completion",
     src: "obra/superpowers",
@@ -32,6 +34,7 @@ function card(it){
     <div class="card__top">
       <span class="card__axis">${it.axis}</span>
       <div class="badges">
+        ${it.tier ? `<span class="badge badge--tier">${it.tier} 常驻</span>` : ''}
         ${it.safe ? '<span class="badge badge--safe">✓ 放心装</span>' : ''}
         <span class="badge badge--mit">${it.license}</span>
       </div>
