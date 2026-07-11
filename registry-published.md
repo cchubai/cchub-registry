@@ -33,6 +33,13 @@
 - **安全提示**:纯行为指令,零脚本零依赖。
 - **与 gstack 重叠**:与 office-hours/brainstorming 部分相邻,但聚焦「执行前盲区清单+执行中偏差日志」,互补不重复。
 
+### 【CCHub 出品 · 不参与评级】`own-your-diff` — 交付理解,不只交付代码
+- **蒸馏链**:抖音@Ali厂长(发现) → Karpathy×红杉[《From Vibe Coding to Agentic Engineering》](https://karpathy.bearblog.dev/sequoia-ascent-2026/)(源头) → CCHub 行为化改写 · **License**:MIT · **上架**:2026-07-12
+- **解决什么**:「你可以外包思考,但不能外包理解」。把大活交给 agent 后,人最大的债是看不懂自己的代码库。装上后,Claude 完成大改动(≥3文件/动架构)时**主动交付三件套**:架构级走读(讲决策不讲流水账)+ 该怀疑什么(诚实标出自己最没把握的段落)+ 理解自查(2-3 个秒答题,答不上先补讲再合并)。
+- **怎么装**:复制 [`skills/own-your-diff/SKILL.md`](skills/own-your-diff/SKILL.md) 到 `~/.claude/skills/own-your-diff/SKILL.md`。
+- **安全提示**:纯行为指令,零脚本零依赖。
+- **与已上架重叠**:verification-before-completion 管「机器自证完成」,本 skill 管「人拿回理解」——一个对机器诚实,一个对人负责,互补成对。
+
 ---
 
 <sub>CCHub.ai 独立社区,非 Anthropic、非 CcHUB Nigeria。"Claude" is a trademark of Anthropic PBC。上架项代码版权与 license 归各自作者。发现失效/侵权请开 issue,我们会下架。</sub>
