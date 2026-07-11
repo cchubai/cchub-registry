@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -29,6 +29,7 @@
       <span class="brand__word">CCHub<span class="brand__tld">.ai</span></span>
     </a>
     <nav class="nav__links">
+      <a href="#still">蒸馏台</a>
       <a href="#experience">上手</a>
       <a href="#registry">注册表</a>
       <a href="#gates">三道闸</a>
@@ -51,6 +52,26 @@
       </div>
       <p class="hero__note">不是又一个 awesome 列表。列表给你链接,注册表给你<strong>判断</strong>。</p>
     </div>
+  </section>
+
+  <!-- the still: distillation deck -->
+  <section class="section" id="still">
+    <div class="section__head reveal">
+      <span class="eyebrow">蒸馏台 · THE STILL</span>
+      <h2>看着原料变成 skill</h2>
+      <p class="section__lead">每天从自媒体和 GitHub 收原料,过三道闸,把「内容指向的工具」蒸成能装的东西。链条全程可追溯 —— 连没收的、为什么没收,都亮给你看。</p>
+    </div>
+
+    <div class="still-rig reveal">
+      <canvas id="still-canvas" aria-hidden="true"></canvas>
+      <span class="rig-tag rig-tag--in">📡 抖音 · 公众号 · GitHub</span>
+      <span class="rig-tag rig-tag--gate">三道闸<br><i>合规 · 安全 · 品味</i></span>
+      <span class="rig-tag rig-tag--gem">⚗️ SKILL</span>
+      <span class="rig-tag rig-tag--side">↳ 周刊 · 信源(没收≠丢弃)</span>
+    </div>
+    <p class="still-tally reveal" id="still-tally"></p>
+
+    <div class="still-feed" id="still-feed"><!-- cards injected --></div>
   </section>
 
   <!-- experience: skill effect, before / after -->
@@ -258,6 +279,6 @@
   </div>
 </footer>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
