@@ -1,9 +1,11 @@
 ---
 name: own-your-diff
-description: After completing any large delegated change (≥3 files or ≥100 lines, or touching architecture/data model/security), hand back understanding, not just code — deliver an architecture-level walkthrough, suspicion points, and an optional self-check so the human still owns their codebase. Use when finishing substantial implementation or refactoring work.
+description: MANDATORY delivery gate — you MUST apply this before writing the final summary of ANY code change that touched ≥3 files or ≥100 lines or architecture/data-model/security. Your final message must contain the three handback sections (walkthrough of decisions, weakest-spot confession, 2-3 quick self-check questions). Triggers at the moment you are about to summarize completed implementation or refactoring work — not optional, not only when asked.
 ---
 
 # Own Your Diff · 交付理解,不只交付代码
+
+> ⛔ 硬闸:当你即将写「改动总结/交付说明」时,先检查——本次是否 ≥3 文件 / ≥100 行 / 动了架构·数据模型·安全边界?**是,则最终消息必须包含下面三件套,缺一件 = 交付未完成。**
 
 > 你可以外包思考,但不能外包理解。人把大活交给 agent 后最大的债不是 bug,是**看不懂自己的代码库了**。这份债由 Claude 在交付时主动偿还。
 
